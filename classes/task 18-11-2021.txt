@@ -1,0 +1,20 @@
+3.144.214.179:8080
+
+  192  cd apache-tomcat-8.5.3/
+  193  git clone https://github.com/RavitejaAdepudi/vamsi.git
+  194  ls
+  195  cd vamsi
+  196  ls
+  197  mvn install
+  198  cd mavewebappdemo/
+  199  mvn install
+  200  ls
+  201  cd target/
+  202  ls
+  203  cp -R * /opt/apache-tomcat-8.5.3/webapps
+  204  cd ..
+  205  ls
+  206  cd logs/
+  207  ls
+  208  cat catalina..out
+  209  cat catalina.out

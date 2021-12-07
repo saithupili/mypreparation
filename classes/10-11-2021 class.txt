@@ -1,0 +1,435 @@
+https://github.com/saithupili/myrepo.git
+
+
+
+SALINI@salinimungara MINGW64 ~/OneDrive/Desktop
+$ ls
+'08-11-2021 users permissions.txt'  'machine 2.txt'
+ 28oct2021.txt                       notes.txt
+'30-10-2021 practise.txt'            sai.jpeg
+ 30-10-2021.txt                      sai.txt
+ AnyDesk.exe*                       '~$nufacturing Webinar.docx'
+'Git vs GitHub.docx'                '~$production_logins.xlsx'
+'WFH assistace'/                    '~$rchase Requests.docx'
+ desktop.ini                        '~$w Microsoft Word Document.docx'
+'machine 1.txt'
+
+SALINI@salinimungara MINGW64 ~/OneDrive/Desktop
+$ pwd
+/c/Users/SALINI/OneDrive/Desktop
+
+SALINI@salinimungara MINGW64 ~/OneDrive/Desktop
+$ git clone https://github.com/saithupili/myrepo.git
+Cloning into 'myrepo'...
+warning: You appear to have cloned an empty repository.
+
+SALINI@salinimungara MINGW64 ~/OneDrive/Desktop
+$ ls
+'08-11-2021 users permissions.txt'  'machine 2.txt'
+ 28oct2021.txt                       myrepo/
+'30-10-2021 practise.txt'            notes.txt
+ 30-10-2021.txt                      sai.jpeg
+ AnyDesk.exe*                        sai.txt
+'Git vs GitHub.docx'                '~$nufacturing Webinar.docx'
+'WFH assistace'/                    '~$production_logins.xlsx'
+ desktop.ini                        '~$rchase Requests.docx'
+'machine 1.txt'                     '~$w Microsoft Word Document.docx'
+
+SALINI@salinimungara MINGW64 ~/OneDrive/Desktop
+$ cd myrepo
+
+SALINI@salinimungara MINGW64 ~/OneDrive/Desktop/myrepo (main)
+$ git congif --globel saikrishnathupili@gmail.com
+gigit: 'congif' is not a git command. See 'git --help'.
+
+The most similar command is
+        config
+
+SALINI@salinimungara MINGW64 ~/OneDrive/Desktop/myrepo (main)
+$ git config --globel saikrishnathupili@gmail.com
+error: unknown option `globel'
+usage: git config [<options>]
+
+Config file location
+    --global              use global config file
+    --system              use system config file
+    --local               use repository config file
+    --worktree            use per-worktree config file
+    -f, --file <file>     use given config file
+    --blob <blob-id>      read config from given blob object
+
+Action
+    --get                 get value: name [value-pattern]
+    --get-all             get all values: key [value-pattern]
+    --get-regexp          get values for regexp: name-regex [value-pattern]
+    --get-urlmatch        get value specific for the URL: section[.var] URL
+    --replace-all         replace all matching variables: name value [value-pattern]
+    --add                 add a new variable: name value
+    --unset               remove a variable: name [value-pattern]
+    --unset-all           remove all matches: name [value-pattern]
+    --rename-section      rename section: old-name new-name
+    --remove-section      remove a section: name
+    -l, --list            list all
+    --fixed-value         use string equality when comparing values to 'value-pattern'
+    -e, --edit            open an editor
+    --get-color           find the color configured: slot [default]
+    --get-colorbool       find the color setting: slot [stdout-is-tty]
+
+Type
+    -t, --type <>         value is given this type
+    --bool                value is "true" or "false"
+    --int                 value is decimal number
+    --bool-or-int         value is --bool or --int
+    --bool-or-str         value is --bool or string
+    --path                value is a path (file or directory name)
+    --expiry-date         value is an expiry date
+
+Other
+    -z, --null            terminate values with NUL byte
+    --name-only           show variable names only
+    --includes            respect include directives on lookup
+    --show-origin         show origin of config (file, standard input, blob, command line)
+    --show-scope          show scope of config (worktree, local, global, system, command)
+    --default <value>     with --get, use default value when missing entry
+
+
+SALINI@salinimungara MINGW64 ~/OneDrive/Desktop/myrepo (main)
+$ git config --globel saithupili
+error: unknown option `globel'
+usage: git config [<options>]
+
+Config file location
+    --global              use global config file
+    --system              use system config file
+    --local               use repository config file
+    --worktree            use per-worktree config file
+    -f, --file <file>     use given config file
+    --blob <blob-id>      read config from given blob object
+
+Action
+    --get                 get value: name [value-pattern]
+    --get-all             get all values: key [value-pattern]
+    --get-regexp          get values for regexp: name-regex [value-pattern]
+    --get-urlmatch        get value specific for the URL: section[.var] URL
+    --replace-all         replace all matching variables: name value [value-pattern]
+    --add                 add a new variable: name value
+    --unset               remove a variable: name [value-pattern]
+    --unset-all           remove all matches: name [value-pattern]
+    --rename-section      rename section: old-name new-name
+    --remove-section      remove a section: name
+    -l, --list            list all
+    --fixed-value         use string equality when comparing values to 'value-pattern'
+    -e, --edit            open an editor
+    --get-color           find the color configured: slot [default]
+    --get-colorbool       find the color setting: slot [stdout-is-tty]
+
+Type
+    -t, --type <>         value is given this type
+    --bool                value is "true" or "false"
+    --int                 value is decimal number
+    --bool-or-int         value is --bool or --int
+    --bool-or-str         value is --bool or string
+    --path                value is a path (file or directory name)
+    --expiry-date         value is an expiry date
+
+Other
+    -z, --null            terminate values with NUL byte
+    --name-only           show variable names only
+    --includes            respect include directives on lookup
+    --show-origin         show origin of config (file, standard input, blob, command line)
+    --show-scope          show scope of config (worktree, local, global, system, command)
+    --default <value>     with --get, use default value when missing entry
+
+
+SALINI@salinimungara MINGW64 ~/OneDrive/Desktop/myrepo (main)
+$ git config --global saikrishnathupili@gmail.com
+error: invalid key: saikrishnathupili@gmail.com
+
+SALINI@salinimungara MINGW64 ~/OneDrive/Desktop/myrepo (main)
+$ git config -list
+error: did you mean `--list` (with two dashes)?
+
+SALINI@salinimungara MINGW64 ~/OneDrive/Desktop/myrepo (main)
+$ git config --global saikrishnathupili@gmail.com
+error: invalid key: saikrishnathupili@gmail.com
+
+SALINI@salinimungara MINGW64 ~/OneDrive/Desktop/myrepo (main)
+$ git config --global user.email "saikrishnathupili@gmail.com
+> git config --global user.name "saithupili"
+> ^C
+
+SALINI@salinimungara MINGW64 ~/OneDrive/Desktop/myrepo (main)
+$ git config --global user.email "saikrishnathupili@gmail.com"
+
+SALINI@salinimungara MINGW64 ~/OneDrive/Desktop/myrepo (main)
+$ git config --global user.name "saithupili"
+
+SALINI@salinimungara MINGW64 ~/OneDrive/Desktop/myrepo (main)
+$ fit config -list
+bash: fit: command not found
+
+SALINI@salinimungara MINGW64 ~/OneDrive/Desktop/myrepo (main)
+$ touch sai.txt
+
+SALINI@salinimungara MINGW64 ~/OneDrive/Desktop/myrepo (main)
+$ git status
+On branch main
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        sai.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+SALINI@salinimungara MINGW64 ~/OneDrive/Desktop/myrepo (main)
+$ git add sai.txt
+
+SALINI@salinimungara MINGW64 ~/OneDrive/Desktop/myrepo (main)
+$ git status
+On branch main
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+        new file:   sai.txt
+
+
+SALINI@salinimungara MINGW64 ~/OneDrive/Desktop/myrepo (main)
+$ git config --list
+diff.astextplain.textconv=astextplain
+filter.lfs.clean=git-lfs clean -- %f
+filter.lfs.smudge=git-lfs smudge -- %f
+filter.lfs.process=git-lfs filter-process
+filter.lfs.required=true
+http.sslbackend=openssl
+http.sslcainfo=C:/Program Files/Git/mingw64/ssl/certs/ca-bundle.crt
+core.autocrlf=true
+core.fscache=true
+core.symlinks=false
+pull.rebase=false
+credential.helper=manager-core
+credential.https://dev.azure.com.usehttppath=true
+init.defaultbranch=master
+user.email=saikrishnathupili@gmail.com
+user.name=saithupili
+core.repositoryformatversion=0
+core.filemode=false
+core.bare=false
+core.logallrefupdates=true
+core.symlinks=false
+core.ignorecase=true
+remote.origin.url=https://github.com/saithupili/myrepo.git
+remote.origin.fetch=+refs/heads/*:refs/remotes/origin/*
+branch.main.remote=origin
+branch.main.merge=refs/heads/main
+
+SALINI@salinimungara MINGW64 ~/OneDrive/Desktop/myrepo (main)
+$ git commit -m "i created sai.txt"
+[main (root-commit) 9c0e342] i created sai.txt
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 sai.txt
+
+SALINI@salinimungara MINGW64 ~/OneDrive/Desktop/myrepo (main)
+$ git status
+On branch main
+Your branch is based on 'origin/main', but the upstream is gone.
+  (use "git branch --unset-upstream" to fixup)
+
+nothing to commit, working tree clean
+
+SALINI@salinimungara MINGW64 ~/OneDrive/Desktop/myrepo (main)
+$ git remote -v
+origin  https://github.com/saithupili/myrepo.git (fetch)
+origin  https://github.com/saithupili/myrepo.git (push)
+
+SALINI@salinimungara MINGW64 ~/OneDrive/Desktop/myrepo (main)
+$ git push -u
+fatal: helper error (-1073741510): Unknown
+
+SALINI@salinimungara MINGW64 ~/OneDrive/Desktop/myrepo (main)
+$ git puch -u origin main
+git: 'puch' is not a git command. See 'git --help'.
+
+The most similar command is
+        push
+
+SALINI@salinimungara MINGW64 ~/OneDrive/Desktop/myrepo (main)
+$ git push -u origin main
+Enumerating objects: 3, done.
+Counting objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 216 bytes | 72.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+To https://github.com/saithupili/myrepo.git
+ * [new branch]      main -> main
+Branch 'main' set up to track remote branch 'main' from 'origin'.
+
+SALINI@salinimungara MINGW64 ~/OneDrive/Desktop/myrepo (main)
+$ git log --oneline
+9c0e342 (HEAD -> main, origin/main) i created sai.txt
+
+SALINI@salinimungara MINGW64 ~/OneDrive/Desktop/myrepo (main)
+$ git branch -a
+* main
+  remotes/origin/main
+
+SALINI@salinimungara MINGW64 ~/OneDrive/Desktop/myrepo (main)
+$ git commit -m "i am sai"
+On branch main
+Your branch is up to date with 'origin/main'.
+
+nothing to commit, working tree clean
+
+SALINI@salinimungara MINGW64 ~/OneDrive/Desktop/myrepo (main)
+$ git log --oneline
+9c0e342 (HEAD -> main, origin/main) i created sai.txt
+
+SALINI@salinimungara MINGW64 ~/OneDrive/Desktop/myrepo (main)
+$ vi sai.txt
+
+SALINI@salinimungara MINGW64 ~/OneDrive/Desktop/myrepo (main)
+$ git log --oneline
+9c0e342 (HEAD -> main, origin/main) i created sai.txt
+
+SALINI@salinimungara MINGW64 ~/OneDrive/Desktop/myrepo (main)
+$ cat sai.txt
+i am sai krishna
+
+SALINI@salinimungara MINGW64 ~/OneDrive/Desktop/myrepo (main)
+$ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   sai.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+SALINI@salinimungara MINGW64 ~/OneDrive/Desktop/myrepo (main)
+$ git checkout sai.txt
+Updated 1 path from the index
+
+SALINI@salinimungara MINGW64 ~/OneDrive/Desktop/myrepo (main)
+$ cat sai.txt
+
+SALINI@salinimungara MINGW64 ~/OneDrive/Desktop/myrepo (main)
+$ vi sai.txt
+
+SALINI@salinimungara MINGW64 ~/OneDrive/Desktop/myrepo (main)
+$ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   sai.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+SALINI@salinimungara MINGW64 ~/OneDrive/Desktop/myrepo (main)
+$ git add sai.txt
+warning: LF will be replaced by CRLF in sai.txt.
+The file will have its original line endings in your working directory
+
+SALINI@salinimungara MINGW64 ~/OneDrive/Desktop/myrepo (main)
+$ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   sai.txt
+
+
+SALINI@salinimungara MINGW64 ~/OneDrive/Desktop/myrepo (main)
+$ git stash
+Saved working directory and index state WIP on main: 9c0e342 i created sai.txt
+
+SALINI@salinimungara MINGW64 ~/OneDrive/Desktop/myrepo (main)
+$ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+nothing to commit, working tree clean
+
+SALINI@salinimungara MINGW64 ~/OneDrive/Desktop/myrepo (main)
+$ cat sai.txt
+
+SALINI@salinimungara MINGW64 ~/OneDrive/Desktop/myrepo (main)
+$ git stash list
+stash@{0}: WIP on main: 9c0e342 i created sai.txt
+
+SALINI@salinimungara MINGW64 ~/OneDrive/Desktop/myrepo (main)
+$ git stash apply stash@{0}
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   sai.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+SALINI@salinimungara MINGW64 ~/OneDrive/Desktop/myrepo (main)
+$ cat sai.txt
+i am good
+
+SALINI@salinimungara MINGW64 ~/OneDrive/Desktop/myrepo (main)
+$  history
+    1  ls
+    2  pwd
+    3  git clone https://github.com/saithupili/myrepo.git
+    4  ls
+    5  cd myrepo
+    6  git congif --globel saikrishnathupili@gmail.com
+    7  git config --globel saikrishnathupili@gmail.com
+    8  git config --globel saithupili
+    9  git config --global saikrishnathupili@gmail.com
+   10  git config -list
+   11  git config --global saikrishnathupili@gmail.com
+   12  git config --global user.email "saikrishnathupili@gmail.com
+git config --global user.name "saithupili"
+   13  git config --global user.email "saikrishnathupili@gmail.com"
+   14  git config --global user.name "saithupili"
+   15  fit config -list
+   16  touch sai.txt
+   17  git status
+   18  git add sai.txt
+   19  git status
+   20  git config --list
+   21  git commit -m "i created sai.txt"
+   22  git status
+   23  git remote -v
+   24  git push -u
+   25  git puch -u origin main
+   26  git push -u origin main
+   27  git log --oneline
+   28  git branch -a
+   29  git commit -m "i am sai"
+   30  git log --oneline
+   31  vi sai.txt
+   32  git log --oneline
+   33  cat sai.txt
+   34  git status
+   35  git checkout sai.txt
+   36  cat sai.txt
+   37  vi sai.txt
+   38  git status
+   39  git add sai.txt
+   40  git status
+   41  git stash
+   42  git status
+   43  cat sai.txt
+   44  git stash list
+   45  git stash apply stash@{0}
+   46  cat sai.txt
+   47   history
+
+SALINI@salinimungara MINGW64 ~/OneDrive/Desktop/myrepo (main)
+$

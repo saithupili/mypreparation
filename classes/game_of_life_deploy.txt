@@ -1,0 +1,310 @@
+[root@ip-172-31-22-186 opt]# cd game-of-life/
+[root@ip-172-31-22-186 game-of-life]# ls
+gameoflife-acceptance-tests  gameoflife-deploy   pom.xml
+gameoflife-build             gameoflife-web      README.markdown
+gameoflife-core              infinitest.filters  target
+[root@ip-172-31-22-186 game-of-life]# vi pom.xml
+[root@ip-172-31-22-186 game-of-life]# ls
+gameoflife-acceptance-tests  gameoflife-deploy   pom.xml
+gameoflife-build             gameoflife-web      README.markdown
+gameoflife-core              infinitest.filters  target
+[root@ip-172-31-22-186 game-of-life]# cd gameoflife-web/
+[root@ip-172-31-22-186 gameoflife-web]# ls
+build.xml   dostuff.groovy      pom.xml  target
+Dockerfile  infinitest.filters  src      tools
+[root@ip-172-31-22-186 gameoflife-web]# vi pom.xml
+[root@ip-172-31-22-186 gameoflife-web]# cd /opt/apache-tomcat-8.5.3/bin/
+[root@ip-172-31-22-186 bin]# sh shutdown.sh
+Using CATALINA_BASE:   /opt/apache-tomcat-8.5.3
+Using CATALINA_HOME:   /opt/apache-tomcat-8.5.3
+Using CATALINA_TMPDIR: /opt/apache-tomcat-8.5.3/temp
+Using JRE_HOME:        /opt/jdk1.8.0_311/jre
+Using CLASSPATH:       /opt/apache-tomcat-8.5.3/bin/bootstrap.jar:/opt/apache-to                                                                                                             mcat-8.5.3/bin/tomcat-juli.jar
+[root@ip-172-31-22-186 bin]# sh startup.sh
+Using CATALINA_BASE:   /opt/apache-tomcat-8.5.3
+Using CATALINA_HOME:   /opt/apache-tomcat-8.5.3
+Using CATALINA_TMPDIR: /opt/apache-tomcat-8.5.3/temp
+Using JRE_HOME:        /opt/jdk1.8.0_311/jre
+Using CLASSPATH:       /opt/apache-tomcat-8.5.3/bin/bootstrap.jar:/opt/apache-to                                                                                                             mcat-8.5.3/bin/tomcat-juli.jar
+Tomcat started.
+[root@ip-172-31-22-186 bin]# cd /opt/game-of-life/
+[root@ip-172-31-22-186 game-of-life]# mvn tomcat7:deploy
+[INFO] Scanning for projects...
+[WARNING]
+[WARNING] Some problems were encountered while building the effective model for                                                                                                              com.wakaleo.gameoflife:gameoflife-build:jar:1.0-SNAPSHOT
+[WARNING] Reporting configuration should be done in <reporting> section, not in                                                                                                              maven-site-plugin <configuration> as reportPlugins parameter.
+[WARNING]
+[WARNING] Some problems were encountered while building the effective model for                                                                                                              com.wakaleo.gameoflife:gameoflife-core:jar:1.0-SNAPSHOT
+[WARNING] Reporting configuration should be done in <reporting> section, not in                                                                                                              maven-site-plugin <configuration> as reportPlugins parameter.
+[WARNING]
+[WARNING] Some problems were encountered while building the effective model for                                                                                                              com.wakaleo.gameoflife:gameoflife-web:war:1.0-SNAPSHOT
+[WARNING] Reporting configuration should be done in <reporting> section, not in                                                                                                              maven-site-plugin <configuration> as reportPlugins parameter.
+[WARNING]
+[WARNING] Some problems were encountered while building the effective model for                                                                                                              com.wakaleo.gameoflife:gameoflife:pom:1.0-SNAPSHOT
+[WARNING] Reporting configuration should be done in <reporting> section, not in                                                                                                              maven-site-plugin <configuration> as reportPlugins parameter. @ line 312, column                                                                                                              40
+[WARNING]
+[WARNING] It is highly recommended to fix these problems because they threaten t                                                                                                             he stability of your build.
+[WARNING]
+[WARNING] For this reason, future Maven versions might no longer support buildin                                                                                                             g such malformed projects.
+[WARNING]
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO]
+[INFO] gameoflife                                                         [pom]
+[INFO] gameoflife-build                                                   [jar]
+[INFO] gameoflife-core                                                    [jar]
+[INFO] gameoflife-web                                                     [war]
+[INFO]
+[INFO] -----------------< com.wakaleo.gameoflife:gameoflife >------------------
+[INFO] Building gameoflife 1.0-SNAPSHOT                                   [1/4]
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO]
+[INFO] >>> tomcat7-maven-plugin:2.2:deploy (default-cli) > package @ gameoflife                                                                                                              >>>
+[INFO]
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-versions) @ gameoflife ---
+[INFO]
+[INFO] --- jacoco-maven-plugin:0.7.2.201409121644:prepare-agent (jacoco-initiali                                                                                                             ze) @ gameoflife ---
+[INFO] argLine set to -javaagent:/root/.m2/repository/org/jacoco/org.jacoco.agen                                                                                                             t/0.7.2.201409121644/org.jacoco.agent-0.7.2.201409121644-runtime.jar=destfile=/o                                                                                                             pt/game-of-life/target/jacoco.exec
+[INFO]
+[INFO] --- maven-surefire-plugin:2.11:test (unit-tests) @ gameoflife ---
+[INFO] No tests to run.
+[INFO] Surefire report directory: /opt/game-of-life/target/surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+
+Results :
+
+Tests run: 0, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO]
+[INFO] --- maven-easyb-plugin:1.4:test (default) @ gameoflife ---
+[INFO] /opt/game-of-life/src/test/stories does not exists.  Skipping easyb testi                                                                                                             ng
+[INFO]
+[INFO] <<< tomcat7-maven-plugin:2.2:deploy (default-cli) < package @ gameoflife                                                                                                              <<<
+[INFO]
+[INFO]
+[INFO] --- tomcat7-maven-plugin:2.2:deploy (default-cli) @ gameoflife ---
+[INFO] Skipping non-war project
+[INFO]
+[INFO] --------------< com.wakaleo.gameoflife:gameoflife-build >---------------
+[INFO] Building gameoflife-build 1.0-SNAPSHOT                             [2/4]
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] >>> tomcat7-maven-plugin:2.2:deploy (default-cli) > package @ gameoflife-                                                                                                             build >>>
+[INFO]
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-versions) @ gameoflife-bui                                                                                                             ld ---
+[INFO]
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ gameoflife                                                                                                             -build ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 2 resources
+[INFO]
+[INFO] --- jacoco-maven-plugin:0.7.2.201409121644:prepare-agent (jacoco-initiali                                                                                                             ze) @ gameoflife-build ---
+[INFO] argLine set to -javaagent:/root/.m2/repository/org/jacoco/org.jacoco.agen                                                                                                             t/0.7.2.201409121644/org.jacoco.agent-0.7.2.201409121644-runtime.jar=destfile=/o                                                                                                             pt/game-of-life/gameoflife-build/target/jacoco.exec
+[INFO]
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ gameoflife-buil                                                                                                             d ---
+[INFO] No sources to compile
+[INFO]
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ ga                                                                                                             meoflife-build ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /opt/game-of-life/gameoflife-build/sr                                                                                                             c/test/resources
+[INFO]
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ gameofl                                                                                                             ife-build ---
+[INFO] No sources to compile
+[INFO]
+[INFO] --- maven-surefire-plugin:2.11:test (default-test) @ gameoflife-build ---
+[INFO] Tests are skipped.
+[INFO]
+[INFO] --- maven-surefire-plugin:2.11:test (unit-tests) @ gameoflife-build ---
+[INFO] No tests to run.
+[INFO] Surefire report directory: /opt/game-of-life/gameoflife-build/target/sure                                                                                                             fire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+
+Results :
+
+Tests run: 0, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO]
+[INFO] --- maven-easyb-plugin:1.4:test (default) @ gameoflife-build ---
+[INFO] /opt/game-of-life/gameoflife-build/src/test/stories does not exists.  Ski                                                                                                             pping easyb testing
+[INFO]
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ gameoflife-build ---
+[INFO]
+[INFO] <<< tomcat7-maven-plugin:2.2:deploy (default-cli) < package @ gameoflife-                                                                                                             build <<<
+[INFO]
+[INFO]
+[INFO] --- tomcat7-maven-plugin:2.2:deploy (default-cli) @ gameoflife-build ---
+[INFO] Skipping non-war project
+[INFO]
+[INFO] ---------------< com.wakaleo.gameoflife:gameoflife-core >---------------
+[INFO] Building gameoflife-core 1.0-SNAPSHOT                              [3/4]
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] >>> tomcat7-maven-plugin:2.2:deploy (default-cli) > package @ gameoflife-                                                                                                             core >>>
+[INFO]
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-versions) @ gameoflife-cor                                                                                                             e ---
+[INFO]
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ gameoflife                                                                                                             -core ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /opt/game-of-life/gameoflife-core/src                                                                                                             /main/resources
+[INFO]
+[INFO] --- jacoco-maven-plugin:0.7.2.201409121644:prepare-agent (jacoco-initiali                                                                                                             ze) @ gameoflife-core ---
+[INFO] argLine set to -javaagent:/root/.m2/repository/org/jacoco/org.jacoco.agen                                                                                                             t/0.7.2.201409121644/org.jacoco.agent-0.7.2.201409121644-runtime.jar=destfile=/o                                                                                                             pt/game-of-life/gameoflife-core/target/jacoco.exec
+[INFO]
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ gameoflife-core                                                                                                              ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO]
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ ga                                                                                                             meoflife-core ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /opt/game-of-life/gameoflife-core/src                                                                                                             /test/resources
+[INFO]
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ gameofl                                                                                                             ife-core ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO]
+[INFO] --- maven-surefire-plugin:2.11:test (default-test) @ gameoflife-core ---
+[INFO] Tests are skipped.
+[INFO]
+[INFO] --- maven-surefire-plugin:2.11:test (unit-tests) @ gameoflife-core ---
+[INFO] Surefire report directory: /opt/game-of-life/gameoflife-core/target/suref                                                                                                             ire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running com.wakaleo.gameoflife.domain.WhenYouPrintAGrid
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.169 sec
+Running com.wakaleo.gameoflife.domain.WhenYouReadAGridFromAString
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec
+Running com.wakaleo.gameoflife.domain.WhenYouCreateAGrid
+Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 sec
+Running com.wakaleo.gameoflife.domain.WhenYouCreateACell
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 sec
+Running com.wakaleo.gameoflife.domain.WhenYouPlayTheGameOfLife
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec
+Running com.wakaleo.gameoflife.domain.WhenYouCreateANewUniverse
+Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec
+
+Results :
+
+Tests run: 49, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO]
+[INFO] --- maven-easyb-plugin:1.4:test (default) @ gameoflife-core ---
+[INFO] Using easyb dependency org.easyb:easyb-core:jar:1.6:compile
+[INFO] Using easyb dependency org.easyb:easyb-composite-groovy:pom:1.2:compile
+[INFO] Using easyb dependency org.codehaus.groovy:groovy-all:jar:2.3.6:compile
+[INFO] Using easyb dependency org.easyb:easyb-ast:jar:1.1:compile
+[INFO] Using easyb dependency commons-cli:commons-cli:jar:1.2:compile
+[INFO] Using easyb dependency commons-lang:commons-lang:jar:2.5:compile
+     [java] Running counting things story (/opt/game-of-life/gameoflife-core/src                                                                                                             /test/stories/CountingThings.story)
+     [java] Scenarios run: 1, Failures: 0, Pending: 0, Time elapsed: 0.463 sec
+     [java] Running multiplying things story (/opt/game-of-life/gameoflife-core/                                                                                                             src/test/stories/MultiplyingThings.story)
+     [java] Scenarios run: 1, Failures: 0, Pending: 1, Time elapsed: 0.029 sec
+     [java] 2 total behaviors ran with no failures
+     [java] Writing JUnit report to /opt/game-of-life/gameoflife-core/target/sur                                                                                                             efire-reports/TEST-behavior.CountingThings.xml
+     [java] JUnit report written to /opt/game-of-life/gameoflife-core/target/sur                                                                                                             efire-reports/TEST-behavior.CountingThings.xml
+     [java] Writing JUnit report to /opt/game-of-life/gameoflife-core/target/sur                                                                                                             efire-reports/TEST-behavior.MultiplyingThings.xml
+     [java] JUnit report written to /opt/game-of-life/gameoflife-core/target/sur                                                                                                             efire-reports/TEST-behavior.MultiplyingThings.xml
+[INFO]
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ gameoflife-core ---
+[INFO]
+[INFO] <<< tomcat7-maven-plugin:2.2:deploy (default-cli) < package @ gameoflife-                                                                                                             core <<<
+[INFO]
+[INFO]
+[INFO] --- tomcat7-maven-plugin:2.2:deploy (default-cli) @ gameoflife-core ---
+[INFO] Skipping non-war project
+[INFO]
+[INFO] ---------------< com.wakaleo.gameoflife:gameoflife-web >----------------
+[INFO] Building gameoflife-web 1.0-SNAPSHOT                               [4/4]
+[INFO] --------------------------------[ war ]---------------------------------
+Downloading from central: https://repo.maven.apache.org/maven2/org/eclipse/jetty                                                                                                             /jetty-maven-plugin/9.3.0.v20150612/jetty-maven-plugin-9.3.0.v20150612.pom
+Downloaded from central: https://repo.maven.apache.org/maven2/org/eclipse/jetty/                                                                                                             jetty-maven-plugin/9.3.0.v20150612/jetty-maven-plugin-9.3.0.v20150612.pom (6.8 k                                                                                                             B at 14 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/eclipse/jetty                                                                                                             /jetty-project/9.3.0.v20150612/jetty-project-9.3.0.v20150612.pom
+Downloaded from central: https://repo.maven.apache.org/maven2/org/eclipse/jetty/                                                                                                             jetty-project/9.3.0.v20150612/jetty-project-9.3.0.v20150612.pom (32 kB at 548 kB                                                                                                             /s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/eclipse/jetty                                                                                                             /jetty-parent/25/jetty-parent-25.pom
+Downloaded from central: https://repo.maven.apache.org/maven2/org/eclipse/jetty/                                                                                                             jetty-parent/25/jetty-parent-25.pom (22 kB at 626 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/eclipse/jetty                                                                                                             /jetty-maven-plugin/9.3.0.v20150612/jetty-maven-plugin-9.3.0.v20150612.jar
+Downloaded from central: https://repo.maven.apache.org/maven2/org/eclipse/jetty/                                                                                                             jetty-maven-plugin/9.3.0.v20150612/jetty-maven-plugin-9.3.0.v20150612.jar (99 kB                                                                                                              at 2.0 MB/s)
+[INFO]
+[INFO] >>> tomcat7-maven-plugin:2.2:deploy (default-cli) > package @ gameoflife-                                                                                                             web >>>
+[INFO]
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-versions) @ gameoflife-web                                                                                                              ---
+[INFO]
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ gameoflife                                                                                                             -web ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 1 resource
+[INFO]
+[INFO] --- jacoco-maven-plugin:0.7.2.201409121644:prepare-agent (jacoco-initiali                                                                                                             ze) @ gameoflife-web ---
+[INFO] argLine set to -javaagent:/root/.m2/repository/org/jacoco/org.jacoco.agen                                                                                                             t/0.7.2.201409121644/org.jacoco.agent-0.7.2.201409121644-runtime.jar=destfile=/o                                                                                                             pt/game-of-life/gameoflife-web/target/jacoco.exec
+[INFO]
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ gameoflife-web                                                                                                              ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO]
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ ga                                                                                                             meoflife-web ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /opt/game-of-life/gameoflife-web/src/                                                                                                             test/resources
+[INFO]
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ gameofl                                                                                                             ife-web ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO]
+[INFO] --- maven-surefire-plugin:2.11:test (default-test) @ gameoflife-web ---
+[INFO] Tests are skipped.
+[INFO]
+[INFO] --- maven-surefire-plugin:2.11:test (unit-tests) @ gameoflife-web ---
+[INFO] Surefire report directory: /opt/game-of-life/gameoflife-web/target/surefi                                                                                                             re-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running com.wakaleo.gameoflife.webtests.controllers.WhenDisplayingTheHomePage
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.133 sec
+Running com.wakaleo.gameoflife.webtests.controllers.WhenSpawningANewGeneration
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.375 sec
+Running com.wakaleo.gameoflife.webtests.controllers.WhenCreatingANewGame
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.114 sec
+
+Results :
+
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO]
+[INFO] --- maven-easyb-plugin:1.4:test (default) @ gameoflife-web ---
+[INFO] /opt/game-of-life/gameoflife-web/src/test/stories does not exists.  Skipp                                                                                                             ing easyb testing
+[INFO]
+[INFO] --- maven-war-plugin:2.1.1:war (default-war) @ gameoflife-web ---
+[INFO] Packaging webapp
+[INFO] Assembling webapp [gameoflife-web] in [/opt/game-of-life/gameoflife-web/t                                                                                                             arget/gameoflife]
+[INFO] Processing war project
+[INFO] Copying webapp resources [/opt/game-of-life/gameoflife-web/src/main/webap                                                                                                             p]
+[INFO] Webapp assembled in [44 msecs]
+[INFO] Building war: /opt/game-of-life/gameoflife-web/target/gameoflife.war
+[INFO] WEB-INF/web.xml already added, skipping
+[INFO]
+[INFO] <<< tomcat7-maven-plugin:2.2:deploy (default-cli) < package @ gameoflife-                                                                                                             web <<<
+[INFO]
+[INFO]
+[INFO] --- tomcat7-maven-plugin:2.2:deploy (default-cli) @ gameoflife-web ---
+[INFO] Deploying war to http://18.188.187.105:8080/mkyongWebApp
+Uploading: http://18.188.187.105:8080/manager/text/deploy?path=%2FmkyongWebApp
+Uploaded: http://18.188.187.105:8080/manager/text/deploy?path=%2FmkyongWebApp (3                                                                                                             118 KB at 22924.8 KB/sec)
+
+[INFO] tomcatManager status code:200, ReasonPhrase:
+[INFO] OK - Deployed application at context path /mkyongWebApp
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary:
+[INFO]
+[INFO] gameoflife 1.0-SNAPSHOT ............................ SUCCESS [  2.645 s]
+[INFO] gameoflife-build ................................... SUCCESS [  0.871 s]
+[INFO] gameoflife-core .................................... SUCCESS [  3.569 s]
+[INFO] gameoflife-web 1.0-SNAPSHOT ........................ SUCCESS [  4.232 s]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 11.749 s
+[INFO] Finished at: 2021-11-23T15:58:10Z
+[INFO] ------------------------------------------------------------------------
+[root@ip-172-31-22-186 game-of-life]# cd /opt
+[root@ip-172-31-22-186 opt]#

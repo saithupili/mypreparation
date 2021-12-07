@@ -1,0 +1,93 @@
+SALINI@salinimungara MINGW64 ~/new (main)
+$ touch x
+
+SALINI@salinimungara MINGW64 ~/new (main)
+$ vi x
+
+SALINI@salinimungara MINGW64 ~/new (main)
+$ git add x
+warning: LF will be replaced by CRLF in x.
+The file will have its original line endings in your working directory
+
+SALINI@salinimungara MINGW64 ~/new (main)
+$ git commit -m : i create x"
+> ^C
+
+SALINI@salinimungara MINGW64 ~/new (main)
+$ git commit -m "i create x"
+[main f629bd5] i create x
+ 1 file changed, 1 insertion(+)
+ create mode 100644 x
+
+SALINI@salinimungara MINGW64 ~/new (main)
+$ vi x
+
+SALINI@salinimungara MINGW64 ~/new (main)
+$ git add x
+warning: LF will be replaced by CRLF in x.
+The file will have its original line endings in your working directory
+
+SALINI@salinimungara MINGW64 ~/new (main)
+$ git stash
+Saved working directory and index state WIP on main: f629bd5 i create x
+
+SALINI@salinimungara MINGW64 ~/new (main)
+$ cat x
+ good:
+
+SALINI@salinimungara MINGW64 ~/new (main)
+$ vi x
+
+SALINI@salinimungara MINGW64 ~/new (main)
+$ git add x
+
+SALINI@salinimungara MINGW64 ~/new (main)
+$ git stash
+Saved working directory and index state WIP on main: f629bd5 i create x
+
+SALINI@salinimungara MINGW64 ~/new (main)
+$ cat x
+ good:
+
+SALINI@salinimungara MINGW64 ~/new (main)
+$ vi x
+
+SALINI@salinimungara MINGW64 ~/new (main)
+$ git add x
+
+SALINI@salinimungara MINGW64 ~/new (main)
+$ git stash
+Saved working directory and index state WIP on main: f629bd5 i create x
+
+SALINI@salinimungara MINGW64 ~/new (main)
+$ vi x
+
+SALINI@salinimungara MINGW64 ~/new (main)
+$ git add x
+
+SALINI@salinimungara MINGW64 ~/new (main)
+$ git commit -m "i am commited finally"
+[main 4f7a9aa] i am commited finally
+ 1 file changed, 1 insertion(+)
+
+SALINI@salinimungara MINGW64 ~/new (main)
+$ git stash list
+stash@{0}: WIP on main: f629bd5 i create x
+stash@{1}: WIP on main: f629bd5 i create x
+stash@{2}: WIP on main: f629bd5 i create x
+stash@{3}: WIP on main: 4859791 i created sai.txt
+stash@{4}: WIP on main: 4859791 i created sai.txt
+
+SALINI@salinimungara MINGW64 ~/new (main)
+$ git stash apply stash@{1}
+Auto-merging x
+CONFLICT (content): Merge conflict in x
+
+SALINI@salinimungara MINGW64 ~/new (main)
+$ cat x
+ good:
+<<<<<<< Updated upstream
+ exit
+=======
+ neutral
+>>>>>>> Stashed changes

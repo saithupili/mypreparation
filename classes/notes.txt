@@ -1,0 +1,217 @@
+    1  pwd
+    2  ls
+    3  useradd sai
+    4  cd ..
+    5  cd /
+    6  ls
+    7  useradd sai
+    8  useradd kiran
+    9  cd /
+   10  home
+   11  cd home/
+   12  ls
+   13  cd opt
+   14  cd pwd
+   15  cd
+   16  pwd
+   17  cd opt
+   18  cd /opt
+   19  mkdir abc
+   20  touch my.txt
+   21  mkdir abc
+   22  ls
+   23  cd/opt/abc
+   24  cd /opt/abc
+   25  cd /..
+   26  cd /opt
+   27  cd /opt/abc
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+22/10/2021
+
+/ 1  cd/
+    2  apt update -y
+    3  apt install net-tools
+    4  pwd
+    5  cd
+    6  cd /
+    7  pwd
+    8  ls
+    9  ifconfig
+   10  if config; cd; sudo -i; cd
+   11  lsblk
+   12  cd /bin --jump in to bin folder
+   13  lsblk ---storage check
+   14  df -h  ---- virtual space check
+   15  cd /bin  ---jump in to bin folder
+   16  du -h   ---- 105m partial space or storage
+   17  lscpu   ---- mission configuration
+   18  top --- users informations
+   19  free -h ---storage or memory informations
+   20  cd /opt  ---jump in to opt folder
+   21  touch dummy.txt ---to create a file
+   22  vi dummy.txt --- to edit my file
+   23  cat dummy.txt --- to view the content of my file
+   24  .00.00..
+   25  cat dummy.txt
+   26  vi dummy.txt
+   27  cat dummy.txt
+   28  mv dummy.txt mummy.txt ---to rename my file name 
+   29  ls --check the current file 
+   30  cat mummy.txt --to check the content of my file which was renamed.
+   31  mv mummy.txt /root ----to move the file from current folder to root folder
+   32  ls -----to check the file is their or not..??
+   33  ls /root ---to check the file is in root folder or not...??
+   34  .
+   35  cp mummy.txt  /opt  ------ copy my file to opt folder
+   36  ls /opt      -------check my file in opt folder.
+   37  rm -rf mummy.txt ------to remove the file from the current folder
+   38  ls
+
+
+
+zip -r /path/to/zipFolder/zip_name /path/to/folder{1..3}
+
+
+25/10/2021
+
+ cd /
+    2  pwd
+    3  apt install net-tools
+    4  netstat -plunt
+    5  cd /opt
+    6  wget https://archive.apache.org/dist/tomcat/tomcat-8/v8.0.1/bin/apache-tomcat-8.0.1-deployer.zip
+    7  apt install zip -y
+    8  ls
+    9  unzip apache-tomcat-8.0.1-deployer.zip
+   10  ls
+   11  cd apache-tomcat-8.0.1-deployer/
+   12  cd /opt
+   13  touch sai.txt
+   14  ls
+   15  echo "i am good" >> sai.txt
+   16  cat sai.txt
+   17  echo "i am too good" >> sai.txt
+   18  cat sai.txt
+   19  echo ""i am well" >sai.txt
+   20  ech "i am well" > sai.txt
+   21  echo "i am well" > sai.txt
+   22  cat sai.txt
+   23  vi sai.txt
+   24  touch sai.pdf salini.pdf
+   25  ls
+   26  cd /root
+   27  ls
+   28  find / -name *.pdf
+   29  cd /sai.txt
+   30  cd /opt
+   31  ls
+   32  cat sai.txt |grep well
+   33  touch salini.txt
+   34  vi salini.txt
+   35  cat salini.txt
+   36  head -n 3 salini.txt
+   37  tail -n 3 salini.txt
+   38  history
+   
+   task--1 :- create a folder and then you have to go into that folder and create 10 files in that folder and you have to create zip type with a different names
+   
+   apt install net-tools
+    2  apt update -y
+    3  cd /opt
+    4  mkdir sai
+    5  ls
+    6  cd sai/
+    7  touch 1.txt 2.txt 3.txt 4.txt 5.txt 6.txt 7.txt 8.txt 9.txt 10.txt
+    8  ls
+    9  cd /opt
+   10  zip -r sai.zip sai
+   11  apt install zip
+   12  zip -r sai.zip sai
+   13  ls
+   14  rm -rf sai
+   15  ls
+   16  unzip sai.zip
+   17  ls
+
+   
+   task 2:- create 10 files under opt folder and you have to zip those files under opt folder in to a different location called root..??
+   
+   21  cd /opt
+   22  touch 1.txt 2.txt 3.txt 4.txt 5.txt 6.txt 7.txt 8.txt 9.txt 10.txt
+   23  ls
+   24  zip -r /sai.zip 1.txt 2.txt 3.txt 4.txt 5.txt 6.txt 7.txt 8.txt 9.txt 10.txt
+   25  ls /
+   26  cd /
+   27  ls
+   28  unzip sai.zip
+   29  ls
+
+  
+  
+  
+  mission 1 :-
+  
+   1  apt install net-tools
+    2  apt updat -y
+    3  apt update -y
+    4  cd /
+    5  apt update -y
+    6  apt install net-tools
+    7  hostname sai
+    8  exit
+    9  apt install net-tools
+   10  apt update -y
+   11  cd /
+   12  cd /opt
+   13  cd /home
+   14  ls
+   15  cat /etc/passwd
+   16  cat /etc/shadow
+   17  hostname salini
+   18  exit
+   19  ssh 172.31.27.56
+   20  history
+   
+   
+   mission 2:-
+   
+    1  apt install net-tools
+    2  apt updat -y
+    3  apt update -y
+    4  cd /
+    5  apt update -y
+    6  apt install net-tools
+    7  hostname sai
+    8  exit
+    9  ls -la
+   10  cd .ssh
+   11  ls
+   12  passwd root
+   13  cd /etc/ssh
+   14  ls
+   15  vi sshd_config.d
+   16  vi sshd_config
+   17  service sshd restart
+   18  cd /opt
+   19  touch g j k
+   20  history
+
+
+  
+  
+

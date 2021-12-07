@@ -1,0 +1,201 @@
+login as: ec2-user
+Authenticating with public key "imported-openssh-key"
+[ec2-user@ip-172-31-30-203 ~]$ lsblk
+NAME    MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
+xvda    202:0    0  100G  0 disk
+├─xvda1 202:1    0    1M  0 part
+└─xvda2 202:2    0  100G  0 part /
+xvdf    202:80   0   50G  0 disk
+[ec2-user@ip-172-31-30-203 ~]$ df -h
+Filesystem      Size  Used Avail Use% Mounted on
+devtmpfs        377M     0  377M   0% /dev
+tmpfs           404M     0  404M   0% /dev/shm
+tmpfs           404M   11M  393M   3% /run
+tmpfs           404M     0  404M   0% /sys/fs/cgroup
+/dev/xvda2      100G  1.8G   99G   2% /
+tmpfs            81M     0   81M   0% /run/user/1000
+[ec2-user@ip-172-31-30-203 ~]$ sudo -i
+[root@ip-172-31-30-203 ~]# file -s /dev/xvdf
+/dev/xvdf: data
+[root@ip-172-31-30-203 ~]# mkfs -t ext4 /dev/xvdf
+mke2fs 1.45.6 (20-Mar-2020)
+Creating filesystem with 13107200 4k blocks and 3276800 inodes
+Filesystem UUID: aba47073-fa6b-4f43-85de-05080500b7d5
+Superblock backups stored on blocks:
+        32768, 98304, 163840, 229376, 294912, 819200, 884736, 1605632, 2654208,
+        4096000, 7962624, 11239424
+
+Allocating group tables: done
+Writing inode tables: done
+Creating journal (65536 blocks): done
+Writing superblocks and filesystem accounting information: done
+
+[root@ip-172-31-30-203 ~]# mkdir /sai
+[root@ip-172-31-30-203 ~]# mount /dev/xvdf /sai
+[root@ip-172-31-30-203 ~]# lsblk
+NAME    MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
+xvda    202:0    0  100G  0 disk
+├─xvda1 202:1    0    1M  0 part
+└─xvda2 202:2    0  100G  0 part /
+xvdf    202:80   0   50G  0 disk /sai
+[root@ip-172-31-30-203 ~]# df -h
+Filesystem      Size  Used Avail Use% Mounted on
+devtmpfs        377M     0  377M   0% /dev
+tmpfs           404M     0  404M   0% /dev/shm
+tmpfs           404M   11M  393M   3% /run
+tmpfs           404M     0  404M   0% /sys/fs/cgroup
+/dev/xvda2      100G  1.8G   99G   2% /
+tmpfs            81M     0   81M   0% /run/user/1000
+/dev/xvdf        49G   53M   47G   1% /sai
+[root@ip-172-31-30-203 ~]# cd /etc
+[root@ip-172-31-30-203 etc]# ls | grep fstab
+fstab
+[root@ip-172-31-30-203 etc]# cat fstab
+
+#
+# /etc/fstab
+# Created by anaconda on Tue May  4 17:21:06 2021
+#
+# Accessible filesystems, by reference, are maintained under '/dev/disk/'.
+# See man pages fstab(5), findfs(8), mount(8) and/or blkid(8) for more info.
+#
+# After editing this file, run 'systemctl daemon-reload' to update systemd
+# units generated from this file.
+#
+UUID=c9aa25ee-e65c-4818-9b2f-fa411d89f585 /                       xfs     defaul                                                                                                             ts        0 0
+[root@ip-172-31-30-203 etc]# vi fstab
+[root@ip-172-31-30-203 etc]# cd /root
+[root@ip-172-31-30-203 ~]# ls
+anaconda-ks.cfg  original-ks.cfg
+[root@ip-172-31-30-203 ~]# useradd sai
+[root@ip-172-31-30-203 ~]# passwd sai
+Changing password for user sai.
+New password:
+BAD PASSWORD: The password is shorter than 8 characters
+Retype new password:
+Sorry, passwords do not match.
+passwd: Authentication token manipulation error
+[root@ip-172-31-30-203 ~]# passwd sai
+Changing password for user sai.
+New password:
+BAD PASSWORD: The password fails the dictionary check - it is too simplistic/sys                                                                                                             tematic
+Retype new password:
+Sorry, passwords do not match.
+passwd: Authentication token manipulation error 
+[root@ip-172-31-30-203 ~]# passwd sai
+Changing password for user sai.
+New password:
+BAD PASSWORD: The password fails the dictionary check - it is too simplistic/sys                                                                                                             tematic
+Retype new password:
+passwd: all authentication tokens updated successfully.
+[root@ip-172-31-30-203 ~]# su sai
+[sai@ip-172-31-30-203 root]$ cd
+[sai@ip-172-31-30-203 ~]$ pwd
+/home/sai
+[sai@ip-172-31-30-203 ~]$ ls -la /root
+ls: cannot open directory '/root': Permission denied
+[sai@ip-172-31-30-203 ~]$ cat /etc/group | grep wheel
+wheel:x:10:
+[sai@ip-172-31-30-203 ~]$ exit
+exit
+[root@ip-172-31-30-203 ~]# usermod -aG wheel sai
+[root@ip-172-31-30-203 ~]# cat /etc/group | grep wheel
+wheel:x:10:sai
+[root@ip-172-31-30-203 ~]# cat /etc/group | grep sai
+wheel:x:10:sai
+sai:x:1001:
+[root@ip-172-31-30-203 ~]# su sai
+[sai@ip-172-31-30-203 root]$ cd
+[sai@ip-172-31-30-203 ~]$ ls -ls /root
+ls: cannot open directory '/root': Permission denied
+[sai@ip-172-31-30-203 ~]$ sudo ls -la /root
+
+We trust you have received the usual lecture from the local System
+Administrator. It usually boils down to these three things:
+
+    #1) Respect the privacy of others.
+    #2) Think before you type.
+    #3) With great power comes great responsibility.
+
+[sudo] password for sai:
+total 36
+dr-xr-x---.  3 root root  149 Oct 30 02:30 .
+dr-xr-xr-x. 19 root root  247 Oct 30 02:40 ..
+-rw-------.  1 root root 6953 May  4 17:33 anaconda-ks.cfg
+-rw-r--r--.  1 root root   18 Aug 12  2018 .bash_logout
+-rw-r--r--.  1 root root  176 Aug 12  2018 .bash_profile
+-rw-r--r--.  1 root root  176 Aug 12  2018 .bashrc
+-rw-r--r--.  1 root root  100 Aug 12  2018 .cshrc
+-rw-------.  1 root root 6699 May  4 17:33 original-ks.cfg
+drwx------.  2 root root   29 Oct 30 02:30 .ssh
+-rw-r--r--.  1 root root  129 Aug 12  2018 .tcshrc
+[sai@ip-172-31-30-203 ~]$ exit
+exit
+[root@ip-172-31-30-203 ~]# useradd kiran
+[root@ip-172-31-30-203 ~]# passwd kiran
+Changing password for user kiran.
+New password:
+BAD PASSWORD: The password fails the dictionary check - it is too simplistic/sys                                                                                                             tematic
+Retype new password:
+passwd: all authentication tokens updated successfully.
+[root@ip-172-31-30-203 ~]# su kiran
+[kiran@ip-172-31-30-203 root]$ cd
+[kiran@ip-172-31-30-203 ~]$ mkdir /sai
+mkdir: cannot create directory ‘/sai’: File exists
+[kiran@ip-172-31-30-203 ~]$ mkdir sai2
+[kiran@ip-172-31-30-203 ~]$ ls -la
+total 12
+drwx------. 3 kiran kiran  74 Oct 30 03:12 .
+drwxr-xr-x. 5 root  root   46 Oct 30 03:10 ..
+-rw-r--r--. 1 kiran kiran  18 Apr 21  2021 .bash_logout
+-rw-r--r--. 1 kiran kiran 141 Apr 21  2021 .bash_profile
+-rw-r--r--. 1 kiran kiran 376 Apr 21  2021 .bashrc
+drwxrwxr-x. 2 kiran kiran   6 Oct 30 03:12 sai2
+[kiran@ip-172-31-30-203 ~]$ exit
+exit
+[root@ip-172-31-30-203 ~]# useradd dad
+[root@ip-172-31-30-203 ~]# passwd dad
+Changing password for user dad.
+New password:
+BAD PASSWORD: The password fails the dictionary check - it is too simplistic/sys                                                                                                             tematic
+Retype new password:
+passwd: all authentication tokens updated successfully.
+[root@ip-172-31-30-203 ~]# chown -R dad:dad /home/sai2
+chown: cannot access '/home/sai2': No such file or directory
+[root@ip-172-31-30-203 ~]# chown -R dad:dad /home/kiran/sai2
+[root@ip-172-31-30-203 ~]# ls -ls /home/kiran
+total 0
+0 drwxrwxr-x. 2 dad dad 6 Oct 30 03:12 sai2
+[root@ip-172-31-30-203 ~]# su dad
+[dad@ip-172-31-30-203 root]$ cd
+[dad@ip-172-31-30-203 ~]$ sudo cat /home/kiran/sai2
+
+We trust you have received the usual lecture from the local System
+Administrator. It usually boils down to these three things:
+
+    #1) Respect the privacy of others.
+    #2) Think before you type.
+    #3) With great power comes great responsibility.
+
+[sudo] password for dad:
+dad is not in the sudoers file.  This incident will be reported.
+[dad@ip-172-31-30-203 ~]$ exit
+exit
+[root@ip-172-31-30-203 ~]# ls -la /etc
+login as: ec2-user
+Authenticating with public key "imported-openssh-key"
+Last login: Sat Oct 30 02:38:44 2021 from 223.187.36.220
+[ec2-user@ip-172-31-30-203 ~]$ sudo -i
+[root@ip-172-31-30-203 ~]# ls -ls | grep .bash*
+[root@ip-172-31-30-203 ~]# find / -name .bashrc
+/etc/skel/.bashrc
+/root/.bashrc
+/home/ec2-user/.bashrc
+/home/sai/.bashrc
+/home/kiran/.bashrc
+/home/dad/.bashrc
+[root@ip-172-31-30-203 ~]# history
+    1  ls -ls | grep .bash*
+    2  find / -name .bashrc
+    3  history
+[root@ip-172-31-30-203 ~]#

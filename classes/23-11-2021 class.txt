@@ -1,0 +1,657 @@
+login as: ec2-user
+Authenticating with public key "imported-openssh-key"
+Last login: Mon Nov 22 18:37:35 2021 from 49.204.199.182
+[ec2-user@ip-172-31-24-251 ~]$ sudo -i
+[root@ip-172-31-24-251 ~]# cd /opt
+[root@ip-172-31-24-251 opt]# ls
+apache-maven-3.5.3   https-github.com-wakaleo-game-of-life  nginx-1.21.4
+apache-tomcat-8.5.3  jdk1.8.0_311                           vamsi
+[root@ip-172-31-24-251 opt]# rm -rf vamsi/
+[root@ip-172-31-24-251 opt]# ls
+apache-maven-3.5.3   https-github.com-wakaleo-game-of-life  nginx-1.21.4
+apache-tomcat-8.5.3  jdk1.8.0_311
+[root@ip-172-31-24-251 opt]# service jenkins start
+Redirecting to /bin/systemctl start jenkins.service
+Failed to start jenkins.service: Unit jenkins.service not found.
+[root@ip-172-31-24-251 opt]# ld
+-bash: ld: command not found
+[root@ip-172-31-24-251 opt]# ls
+apache-maven-3.5.3   https-github.com-wakaleo-game-of-life  nginx-1.21.4
+apache-tomcat-8.5.3  jdk1.8.0_311
+[root@ip-172-31-24-251 opt]# cd apache-tomcat-8.5.3/bin
+[root@ip-172-31-24-251 bin]# ls
+bootstrap.jar                 daemon.sh         startup.sh
+catalina.bat                  digest.bat        tomcat-juli.jar
+catalina.sh                   digest.sh         tomcat-native.tar.gz
+catalina-tasks.xml            setclasspath.bat  tool-wrapper.bat
+commons-daemon.jar            setclasspath.sh   tool-wrapper.sh
+commons-daemon-native.tar.gz  shutdown.bat      version.bat
+configtest.bat                shutdown.sh       version.sh
+configtest.sh                 startup.bat
+[root@ip-172-31-24-251 bin]# sh startup.sh
+Using CATALINA_BASE:   /opt/apache-tomcat-8.5.3
+Using CATALINA_HOME:   /opt/apache-tomcat-8.5.3
+Using CATALINA_TMPDIR: /opt/apache-tomcat-8.5.3/temp
+Using JRE_HOME:        /opt/jdk1.8.0_311/jre
+Using CLASSPATH:       /opt/apache-tomcat-8.5.3/bin/bootstrap.jar:/opt/apache-to                                                                                                             mcat-8.5.3/bin/tomcat-juli.jar
+Tomcat started.
+[root@ip-172-31-24-251 bin]# cd /opt
+[root@ip-172-31-24-251 opt]# cd apache-tomcat-8.5.3/
+[root@ip-172-31-24-251 apache-tomcat-8.5.3]# ls
+bin   lib      logs    RELEASE-NOTES  temp     work
+conf  LICENSE  NOTICE  RUNNING.txt    webapps
+[root@ip-172-31-24-251 apache-tomcat-8.5.3]# cd webapps/
+[root@ip-172-31-24-251 webapps]# ls
+docs      host-manager  jenkins.war  maven-archiver  mavewebappdemo.war
+examples  jenkins       manager      mavewebappdemo  ROOT
+[root@ip-172-31-24-251 webapps]# cd manager/
+[root@ip-172-31-24-251 manager]# ls
+images  index.jsp  META-INF  status.xsd  WEB-INF  xform.xsl
+[root@ip-172-31-24-251 manager]# cd META-INF/
+[root@ip-172-31-24-251 META-INF]# ls
+context.xml
+[root@ip-172-31-24-251 META-INF]# vi context.xml
+[root@ip-172-31-24-251 META-INF]# cd /opt
+[root@ip-172-31-24-251 opt]# ls
+apache-maven-3.5.3   https-github.com-wakaleo-game-of-life  nginx-1.21.4
+apache-tomcat-8.5.3  jdk1.8.0_311
+[root@ip-172-31-24-251 opt]# cd apache-tomcat-8.5.3/
+[root@ip-172-31-24-251 apache-tomcat-8.5.3]# cd bin/
+[root@ip-172-31-24-251 bin]# ls
+bootstrap.jar                 daemon.sh         startup.sh
+catalina.bat                  digest.bat        tomcat-juli.jar
+catalina.sh                   digest.sh         tomcat-native.tar.gz
+catalina-tasks.xml            setclasspath.bat  tool-wrapper.bat
+commons-daemon.jar            setclasspath.sh   tool-wrapper.sh
+commons-daemon-native.tar.gz  shutdown.bat      version.bat
+configtest.bat                shutdown.sh       version.sh
+configtest.sh                 startup.bat
+[root@ip-172-31-24-251 bin]# sh shutdown.sh
+Using CATALINA_BASE:   /opt/apache-tomcat-8.5.3
+Using CATALINA_HOME:   /opt/apache-tomcat-8.5.3
+Using CATALINA_TMPDIR: /opt/apache-tomcat-8.5.3/temp
+Using JRE_HOME:        /opt/jdk1.8.0_311/jre
+Using CLASSPATH:       /opt/apache-tomcat-8.5.3/bin/bootstrap.jar:/opt/apache-to                                                                                                             mcat-8.5.3/bin/tomcat-juli.jar
+[root@ip-172-31-24-251 bin]# sh startup.sh
+Using CATALINA_BASE:   /opt/apache-tomcat-8.5.3
+Using CATALINA_HOME:   /opt/apache-tomcat-8.5.3
+Using CATALINA_TMPDIR: /opt/apache-tomcat-8.5.3/temp
+Using JRE_HOME:        /opt/jdk1.8.0_311/jre
+Using CLASSPATH:       /opt/apache-tomcat-8.5.3/bin/bootstrap.jar:/opt/apache-to                                                                                                             mcat-8.5.3/bin/tomcat-juli.jar
+Tomcat started.
+[root@ip-172-31-24-251 bin]# cd ..
+[root@ip-172-31-24-251 apache-tomcat-8.5.3]# ls
+bin   lib      logs    RELEASE-NOTES  temp     work
+conf  LICENSE  NOTICE  RUNNING.txt    webapps
+[root@ip-172-31-24-251 apache-tomcat-8.5.3]# cd conf/
+[root@ip-172-31-24-251 conf]# ls
+Catalina             context.xml           logging.properties  tomcat-users.xsd
+catalina.policy      jaspic-providers.xml  server.xml          web.xml
+catalina.properties  jaspic-providers.xsd  tomcat-users.xml
+[root@ip-172-31-24-251 conf]# vi tomcat-users.xml
+[root@ip-172-31-24-251 conf]# cd ..
+[root@ip-172-31-24-251 apache-tomcat-8.5.3]# cd ..
+[root@ip-172-31-24-251 opt]# ls
+apache-maven-3.5.3   https-github.com-wakaleo-game-of-life  nginx-1.21.4
+apache-tomcat-8.5.3  jdk1.8.0_311
+[root@ip-172-31-24-251 opt]# cd apache-maven-3.5.3/
+[root@ip-172-31-24-251 apache-maven-3.5.3]# ls
+bin  boot  conf  lib  LICENSE  NOTICE  README.txt
+[root@ip-172-31-24-251 apache-maven-3.5.3]# cd conf/
+[root@ip-172-31-24-251 conf]# ls
+logging  settings.xml  toolchains.xml
+[root@ip-172-31-24-251 conf]# vi settings.xml
+[root@ip-172-31-24-251 conf]# cd /opt
+[root@ip-172-31-24-251 opt]# git clone https://www.github.com/RavitejaAdepudi/va                                                                                                             msi.git
+Cloning into 'vamsi'...
+warning: redirecting to https://github.com/RavitejaAdepudi/vamsi.git/
+remote: Enumerating objects: 114, done.
+remote: Total 114 (delta 0), reused 0 (delta 0), pack-reused 114
+Receiving objects: 100% (114/114), 24.79 KiB | 2.48 MiB/s, done.
+Resolving deltas: 100% (34/34), done.
+[root@ip-172-31-24-251 opt]# ls
+apache-maven-3.5.3   https-github.com-wakaleo-game-of-life  nginx-1.21.4
+apache-tomcat-8.5.3  jdk1.8.0_311                           vamsi
+[root@ip-172-31-24-251 opt]# cd vamsi/
+[root@ip-172-31-24-251 vamsi]# ls
+Jenkinsfile  mavewebappdemo  raci.txt  raviteja.txt
+[root@ip-172-31-24-251 vamsi]# cd mavewebappdemo/
+[root@ip-172-31-24-251 mavewebappdemo]# ls
+Jenkinsfile  pom.xml  src
+[root@ip-172-31-24-251 mavewebappdemo]# vi pom.xml
+[root@ip-172-31-24-251 mavewebappdemo]# cd /opt
+[root@ip-172-31-24-251 opt]# ls
+apache-maven-3.5.3   https-github.com-wakaleo-game-of-life  nginx-1.21.4
+apache-tomcat-8.5.3  jdk1.8.0_311                           vamsi
+[root@ip-172-31-24-251 opt]# cd apache-tomcat-8.5.3/
+[root@ip-172-31-24-251 apache-tomcat-8.5.3]# ls
+bin   lib      logs    RELEASE-NOTES  temp     work
+conf  LICENSE  NOTICE  RUNNING.txt    webapps
+[root@ip-172-31-24-251 apache-tomcat-8.5.3]# cd bin/
+[root@ip-172-31-24-251 bin]# sh shutdown.sh
+Using CATALINA_BASE:   /opt/apache-tomcat-8.5.3
+Using CATALINA_HOME:   /opt/apache-tomcat-8.5.3
+Using CATALINA_TMPDIR: /opt/apache-tomcat-8.5.3/temp
+Using JRE_HOME:        /opt/jdk1.8.0_311/jre
+Using CLASSPATH:       /opt/apache-tomcat-8.5.3/bin/bootstrap.jar:/opt/apache-to                                                                                                             mcat-8.5.3/bin/tomcat-juli.jar
+[root@ip-172-31-24-251 bin]# sh startup.sh
+Using CATALINA_BASE:   /opt/apache-tomcat-8.5.3
+Using CATALINA_HOME:   /opt/apache-tomcat-8.5.3
+Using CATALINA_TMPDIR: /opt/apache-tomcat-8.5.3/temp
+Using JRE_HOME:        /opt/jdk1.8.0_311/jre
+Using CLASSPATH:       /opt/apache-tomcat-8.5.3/bin/bootstrap.jar:/opt/apache-to                                                                                                             mcat-8.5.3/bin/tomcat-juli.jar
+Tomcat started.
+[root@ip-172-31-24-251 bin]# cd /opt
+[root@ip-172-31-24-251 opt]# cd vamsi/
+[root@ip-172-31-24-251 vamsi]# ls
+Jenkinsfile  mavewebappdemo  raci.txt  raviteja.txt
+[root@ip-172-31-24-251 vamsi]# cd mavewebappdemo/
+[root@ip-172-31-24-251 mavewebappdemo]# ls
+Jenkinsfile  pom.xml  src
+[root@ip-172-31-24-251 mavewebappdemo]# mvn tomcat7:deploy
+[INFO] Scanning for projects...
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/tomcat                                                                                                             /maven/tomcat7-maven-plugin/2.2/tomcat7-maven-plugin-2.2.pom
+Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/tomcat/                                                                                                             maven/tomcat7-maven-plugin/2.2/tomcat7-maven-plugin-2.2.pom (12 kB at 26 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/tomcat                                                                                                             /maven/tomcat-maven-plugin/2.2/tomcat-maven-plugin-2.2.pom
+Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/tomcat/                                                                                                             maven/tomcat-maven-plugin/2.2/tomcat-maven-plugin-2.2.pom (33 kB at 513 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/apache                                                                                                             /12/apache-12.pom
+Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/apache/                                                                                                             12/apache-12.pom (16 kB at 443 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/tomcat                                                                                                             /maven/tomcat7-maven-plugin/2.2/tomcat7-maven-plugin-2.2.jar
+Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/tomcat/                                                                                                             maven/tomcat7-maven-plugin/2.2/tomcat7-maven-plugin-2.2.jar (114 kB at 2.0 MB/s)
+[INFO]
+[INFO] -------------------< com.tecmax.demo:mavewebappdemo >-------------------
+[INFO] Building mavewebappdemo Maven Webapp 0.0.1-SNAPSHOT
+[INFO] --------------------------------[ war ]---------------------------------
+[INFO]
+[INFO] >>> tomcat7-maven-plugin:2.2:deploy (default-cli) > package @ mavewebappd                                                                                                             emo >>>
+[INFO]
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ mavewebapp                                                                                                             demo ---
+[WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i                                                                                                             .e. build is platform dependent!
+[INFO] skip non existing resourceDirectory /opt/vamsi/mavewebappdemo/src/main/re                                                                                                             sources
+[INFO]
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ mavewebappdemo                                                                                                              ---
+[INFO] No sources to compile
+[INFO]
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ ma                                                                                                             vewebappdemo ---
+[WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i                                                                                                             .e. build is platform dependent!
+[INFO] skip non existing resourceDirectory /opt/vamsi/mavewebappdemo/src/test/re                                                                                                             sources
+[INFO]
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ maveweb                                                                                                             appdemo ---
+[INFO] No sources to compile
+[INFO]
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ mavewebappdemo ---
+[INFO] No tests to run.
+[INFO]
+[INFO] --- maven-war-plugin:2.2:war (default-war) @ mavewebappdemo ---
+[INFO] Packaging webapp
+[INFO] Assembling webapp [mavewebappdemo] in [/opt/vamsi/mavewebappdemo/target/m                                                                                                             avewebappdemo]
+[INFO] Processing war project
+[INFO] Copying webapp resources [/opt/vamsi/mavewebappdemo/src/main/webapp]
+[INFO] Webapp assembled in [97 msecs]
+[INFO] Building war: /opt/vamsi/mavewebappdemo/target/mavewebappdemo.war
+[INFO] WEB-INF/web.xml already added, skipping
+[INFO]
+[INFO] <<< tomcat7-maven-plugin:2.2:deploy (default-cli) < package @ mavewebappd                                                                                                             emo <<<
+[INFO]
+[INFO]
+[INFO] --- tomcat7-maven-plugin:2.2:deploy (default-cli) @ mavewebappdemo ---
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/tomcat                                                                                                             /embed/tomcat-embed-core/7.0.47/tomcat-embed-core-7.0.47.pom
+Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/tomcat/                                                                                                             embed/tomcat-embed-core/7.0.47/tomcat-embed-core-7.0.47.pom (1.9 kB at 53 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/tomcat                                                                                                             /tomcat-util/7.0.47/tomcat-util-7.0.47.pom
+Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/tomcat/                                                                                                             tomcat-util/7.0.47/tomcat-util-7.0.47.pom (1.8 kB at 57 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/tomcat                                                                                                             /tomcat-juli/7.0.47/tomcat-juli-7.0.47.pom
+Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/tomcat/                                                                                                             tomcat-juli/7.0.47/tomcat-juli-7.0.47.pom (1.3 kB at 40 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/tomcat                                                                                                             /tomcat-api/7.0.47/tomcat-api-7.0.47.pom
+Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/tomcat/                                                                                                             tomcat-api/7.0.47/tomcat-api-7.0.47.pom (1.6 kB at 34 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/tomcat                                                                                                             /tomcat-servlet-api/7.0.47/tomcat-servlet-api-7.0.47.pom
+Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/tomcat/                                                                                                             tomcat-servlet-api/7.0.47/tomcat-servlet-api-7.0.47.pom (1.9 kB at 66 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/tomcat                                                                                                             /tomcat-coyote/7.0.47/tomcat-coyote-7.0.47.pom
+Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/tomcat/                                                                                                             tomcat-coyote/7.0.47/tomcat-coyote-7.0.47.pom (1.9 kB at 67 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/tomcat                                                                                                             /tomcat-jdbc/7.0.47/tomcat-jdbc-7.0.47.pom
+Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/tomcat/                                                                                                             tomcat-jdbc/7.0.47/tomcat-jdbc-7.0.47.pom (1.5 kB at 52 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/tomcat                                                                                                             /tomcat-dbcp/7.0.47/tomcat-dbcp-7.0.47.pom
+Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/tomcat/                                                                                                             tomcat-dbcp/7.0.47/tomcat-dbcp-7.0.47.pom (1.3 kB at 46 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/tomcat                                                                                                             /tomcat-jsp-api/7.0.47/tomcat-jsp-api-7.0.47.pom
+Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/tomcat/                                                                                                             tomcat-jsp-api/7.0.47/tomcat-jsp-api-7.0.47.pom (2.1 kB at 65 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/tomcat                                                                                                             /tomcat-el-api/7.0.47/tomcat-el-api-7.0.47.pom
+Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/tomcat/                                                                                                             tomcat-el-api/7.0.47/tomcat-el-api-7.0.47.pom (1.3 kB at 40 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/tomcat                                                                                                             /tomcat-jasper/7.0.47/tomcat-jasper-7.0.47.pom
+Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/tomcat/                                                                                                             tomcat-jasper/7.0.47/tomcat-jasper-7.0.47.pom (2.8 kB at 95 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/eclipse/jdt/c                                                                                                             ore/compiler/ecj/4.2.2/ecj-4.2.2.pom
+Downloaded from central: https://repo.maven.apache.org/maven2/org/eclipse/jdt/co                                                                                                             re/compiler/ecj/4.2.2/ecj-4.2.2.pom (1.5 kB at 47 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/tomcat                                                                                                             /tomcat-jasper-el/7.0.47/tomcat-jasper-el-7.0.47.pom
+Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/tomcat/                                                                                                             tomcat-jasper-el/7.0.47/tomcat-jasper-el-7.0.47.pom (1.6 kB at 52 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/tomcat                                                                                                             /tomcat-catalina/7.0.47/tomcat-catalina-7.0.47.pom
+Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/tomcat/                                                                                                             tomcat-catalina/7.0.47/tomcat-catalina-7.0.47.pom (2.4 kB at 79 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/tomcat                                                                                                             /tomcat-annotations-api/7.0.47/tomcat-annotations-api-7.0.47.pom
+Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/tomcat/                                                                                                             tomcat-annotations-api/7.0.47/tomcat-annotations-api-7.0.47.pom (1.3 kB at 43 kB                                                                                                             /s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/tomcat                                                                                                             /tomcat-tribes/7.0.47/tomcat-tribes-7.0.47.pom
+Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/tomcat/                                                                                                             tomcat-tribes/7.0.47/tomcat-tribes-7.0.47.pom (1.6 kB at 52 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/tomcat                                                                                                             /tomcat-catalina-ha/7.0.47/tomcat-catalina-ha-7.0.47.pom
+Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/tomcat/                                                                                                             tomcat-catalina-ha/7.0.47/tomcat-catalina-ha-7.0.47.pom (2.5 kB at 81 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/tomcat                                                                                                             /embed/tomcat-embed-logging-juli/7.0.47/tomcat-embed-logging-juli-7.0.47.pom
+Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/tomcat/                                                                                                             embed/tomcat-embed-logging-juli/7.0.47/tomcat-embed-logging-juli-7.0.47.pom (1.4                                                                                                              kB at 47 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/tomcat                                                                                                             /embed/tomcat-embed-logging-log4j/7.0.47/tomcat-embed-logging-log4j-7.0.47.pom
+Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/tomcat/                                                                                                             embed/tomcat-embed-logging-log4j/7.0.47/tomcat-embed-logging-log4j-7.0.47.pom (1                                                                                                             .4 kB at 39 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/tomcat                                                                                                             /maven/common-tomcat-maven-plugin/2.2/common-tomcat-maven-plugin-2.2.pom
+Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/tomcat/                                                                                                             maven/common-tomcat-maven-plugin/2.2/common-tomcat-maven-plugin-2.2.pom (4.3 kB                                                                                                              at 148 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/junit/junit/4.10/                                                                                                             junit-4.10.pom
+Downloaded from central: https://repo.maven.apache.org/maven2/junit/junit/4.10/j                                                                                                             unit-4.10.pom (2.3 kB at 84 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/hamcrest/hamc                                                                                                             rest-core/1.1/hamcrest-core-1.1.pom
+Downloaded from central: https://repo.maven.apache.org/maven2/org/hamcrest/hamcr                                                                                                             est-core/1.1/hamcrest-core-1.1.pom (481 B at 16 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/hamcrest/hamc                                                                                                             rest-parent/1.1/hamcrest-parent-1.1.pom
+Downloaded from central: https://repo.maven.apache.org/maven2/org/hamcrest/hamcr                                                                                                             est-parent/1.1/hamcrest-parent-1.1.pom (5.9 kB at 155 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/                                                                                                             maven-archiver/2.4.2/maven-archiver-2.4.2.pom
+Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/m                                                                                                             aven-archiver/2.4.2/maven-archiver-2.4.2.pom (4.0 kB at 130 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/                                                                                                             shared/maven-shared-components/16/maven-shared-components-16.pom
+Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/s                                                                                                             hared/maven-shared-components/16/maven-shared-components-16.pom (9.2 kB at 316 k                                                                                                             B/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/                                                                                                             maven-parent/19/maven-parent-19.pom
+Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/m                                                                                                             aven-parent/19/maven-parent-19.pom (25 kB at 641 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/codehaus/plex                                                                                                             us/plexus-archiver/2.1.1/plexus-archiver-2.1.1.pom
+Downloaded from central: https://repo.maven.apache.org/maven2/org/codehaus/plexu                                                                                                             s/plexus-archiver/2.1.1/plexus-archiver-2.1.1.pom (2.8 kB at 97 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/codehaus/plex                                                                                                             us/plexus-io/2.0.3/plexus-io-2.0.3.pom
+Downloaded from central: https://repo.maven.apache.org/maven2/org/codehaus/plexu                                                                                                             s/plexus-io/2.0.3/plexus-io-2.0.3.pom (1.7 kB at 60 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/com/google/guava/                                                                                                             guava/10.0.1/guava-10.0.1.pom
+Downloaded from central: https://repo.maven.apache.org/maven2/com/google/guava/g                                                                                                             uava/10.0.1/guava-10.0.1.pom (5.4 kB at 138 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/com/google/guava/                                                                                                             guava-parent/10.0.1/guava-parent-10.0.1.pom
+Downloaded from central: https://repo.maven.apache.org/maven2/com/google/guava/g                                                                                                             uava-parent/10.0.1/guava-parent-10.0.1.pom (2.0 kB at 70 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/httpco                                                                                                             mponents/httpclient/4.3.1/httpclient-4.3.1.pom
+Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/httpcom                                                                                                             ponents/httpclient/4.3.1/httpclient-4.3.1.pom (5.2 kB at 180 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/httpco                                                                                                             mponents/httpcomponents-client/4.3.1/httpcomponents-client-4.3.1.pom
+Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/httpcom                                                                                                             ponents/httpcomponents-client/4.3.1/httpcomponents-client-4.3.1.pom (15 kB at 37                                                                                                             7 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/httpco                                                                                                             mponents/httpcore/4.3/httpcore-4.3.pom
+Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/httpcom                                                                                                             ponents/httpcore/4.3/httpcore-4.3.pom (4.1 kB at 148 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/httpco                                                                                                             mponents/httpcomponents-core/4.3/httpcomponents-core-4.3.pom
+Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/httpcom                                                                                                             ponents/httpcomponents-core/4.3/httpcomponents-core-4.3.pom (12 kB at 378 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/commons-logging/c                                                                                                             ommons-logging/1.1.3/commons-logging-1.1.3.pom
+Downloaded from central: https://repo.maven.apache.org/maven2/commons-logging/co                                                                                                             mmons-logging/1.1.3/commons-logging-1.1.3.pom (18 kB at 540 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/common                                                                                                             s/commons-parent/28/commons-parent-28.pom
+Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/commons                                                                                                             /commons-parent/28/commons-parent-28.pom (50 kB at 1.4 MB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/commons-codec/com                                                                                                             mons-codec/1.6/commons-codec-1.6.pom
+Downloaded from central: https://repo.maven.apache.org/maven2/commons-codec/comm                                                                                                             ons-codec/1.6/commons-codec-1.6.pom (11 kB at 294 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/tomcat                                                                                                             /maven/tomcat7-war-runner/2.2/tomcat7-war-runner-2.2.pom
+Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/tomcat/                                                                                                             maven/tomcat7-war-runner/2.2/tomcat7-war-runner-2.2.pom (3.6 kB at 121 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/common                                                                                                             s/commons-compress/1.4.1/commons-compress-1.4.1.pom
+Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/commons                                                                                                             /commons-compress/1.4.1/commons-compress-1.4.1.pom (11 kB at 326 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/tukaani/xz/1.                                                                                                             0/xz-1.0.pom
+Downloaded from central: https://repo.maven.apache.org/maven2/org/tukaani/xz/1.0                                                                                                             /xz-1.0.pom (1.9 kB at 49 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/                                                                                                             shared/maven-filtering/1.0/maven-filtering-1.0.pom
+Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/s                                                                                                             hared/maven-filtering/1.0/maven-filtering-1.0.pom (5.8 kB at 192 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/slf4j/jcl-ove                                                                                                             r-slf4j/1.7.5/jcl-over-slf4j-1.7.5.pom
+Downloaded from central: https://repo.maven.apache.org/maven2/org/slf4j/jcl-over                                                                                                             -slf4j/1.7.5/jcl-over-slf4j-1.7.5.pom (1.9 kB at 62 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/slf4j/slf4j-p                                                                                                             arent/1.7.5/slf4j-parent-1.7.5.pom
+Downloaded from central: https://repo.maven.apache.org/maven2/org/slf4j/slf4j-pa                                                                                                             rent/1.7.5/slf4j-parent-1.7.5.pom (12 kB at 328 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/slf4j/slf4j-a                                                                                                             pi/1.7.5/slf4j-api-1.7.5.pom
+Downloaded from central: https://repo.maven.apache.org/maven2/org/slf4j/slf4j-ap                                                                                                             i/1.7.5/slf4j-api-1.7.5.pom (2.7 kB at 84 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/tomcat                                                                                                             /embed/tomcat-embed-core/7.0.47/tomcat-embed-core-7.0.47.jar
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/tomcat                                                                                                             /tomcat-util/7.0.47/tomcat-util-7.0.47.jar
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/tomcat                                                                                                             /tomcat-coyote/7.0.47/tomcat-coyote-7.0.47.jar
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/tomcat                                                                                                             /tomcat-api/7.0.47/tomcat-api-7.0.47.jar
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/tomcat                                                                                                             /tomcat-jdbc/7.0.47/tomcat-jdbc-7.0.47.jar
+Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/tomcat/                                                                                                             tomcat-api/7.0.47/tomcat-api-7.0.47.jar (7.0 kB at 73 kB/s)
+Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/tomcat/                                                                                                             tomcat-util/7.0.47/tomcat-util-7.0.47.jar (24 kB at 252 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/tomcat                                                                                                             /tomcat-servlet-api/7.0.47/tomcat-servlet-api-7.0.47.jar
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/tomcat                                                                                                             /tomcat-dbcp/7.0.47/tomcat-dbcp-7.0.47.jar
+Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/tomcat/                                                                                                             tomcat-servlet-api/7.0.47/tomcat-servlet-api-7.0.47.jar (178 kB at 769 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/tomcat                                                                                                             /tomcat-jsp-api/7.0.47/tomcat-jsp-api-7.0.47.jar
+Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/tomcat/                                                                                                             tomcat-jdbc/7.0.47/tomcat-jdbc-7.0.47.jar (125 kB at 334 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/tomcat                                                                                                             /tomcat-jasper/7.0.47/tomcat-jasper-7.0.47.jar
+Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/tomcat/                                                                                                             tomcat-dbcp/7.0.47/tomcat-dbcp-7.0.47.jar (235 kB at 567 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/tomcat                                                                                                             /tomcat-jasper-el/7.0.47/tomcat-jasper-el-7.0.47.jar
+Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/tomcat/                                                                                                             tomcat-jsp-api/7.0.47/tomcat-jsp-api-7.0.47.jar (89 kB at 205 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/tomcat                                                                                                             /tomcat-el-api/7.0.47/tomcat-el-api-7.0.47.jar
+Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/tomcat/                                                                                                             tomcat-el-api/7.0.47/tomcat-el-api-7.0.47.jar (45 kB at 95 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/tomcat                                                                                                             /tomcat-catalina/7.0.47/tomcat-catalina-7.0.47.jar
+Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/tomcat/                                                                                                             tomcat-jasper-el/7.0.47/tomcat-jasper-el-7.0.47.jar (123 kB at 149 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/tomcat                                                                                                             /tomcat-tribes/7.0.47/tomcat-tribes-7.0.47.jar
+Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/tomcat/                                                                                                             tomcat-coyote/7.0.47/tomcat-coyote-7.0.47.jar (833 kB at 976 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/tomcat                                                                                                             /tomcat-catalina-ha/7.0.47/tomcat-catalina-ha-7.0.47.jar
+Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/tomcat/                                                                                                             tomcat-jasper/7.0.47/tomcat-jasper-7.0.47.jar (600 kB at 669 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/tomcat                                                                                                             /tomcat-annotations-api/7.0.47/tomcat-annotations-api-7.0.47.jar
+Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/tomcat/                                                                                                             tomcat-tribes/7.0.47/tomcat-tribes-7.0.47.jar (258 kB at 277 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/tomcat                                                                                                             /tomcat-juli/7.0.47/tomcat-juli-7.0.47.jar
+Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/tomcat/                                                                                                             tomcat-catalina-ha/7.0.47/tomcat-catalina-ha-7.0.47.jar (135 kB at 144 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/tomcat                                                                                                             /embed/tomcat-embed-logging-juli/7.0.47/tomcat-embed-logging-juli-7.0.47.jar
+Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/tomcat/                                                                                                             tomcat-annotations-api/7.0.47/tomcat-annotations-api-7.0.47.jar (16 kB at 17 kB/                                                                                                             s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/tomcat                                                                                                             /embed/tomcat-embed-logging-log4j/7.0.47/tomcat-embed-logging-log4j-7.0.47.jar
+Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/tomcat/                                                                                                             tomcat-juli/7.0.47/tomcat-juli-7.0.47.jar (39 kB at 40 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/eclipse/jdt/c                                                                                                             ore/compiler/ecj/4.2.2/ecj-4.2.2.jar
+Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/tomcat/                                                                                                             embed/tomcat-embed-logging-juli/7.0.47/tomcat-embed-logging-juli-7.0.47.jar (39                                                                                                              kB at 39 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/tomcat                                                                                                             /maven/common-tomcat-maven-plugin/2.2/common-tomcat-maven-plugin-2.2.jar
+Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/tomcat/                                                                                                             embed/tomcat-embed-logging-log4j/7.0.47/tomcat-embed-logging-log4j-7.0.47.jar (8                                                                                                             4 kB at 83 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/com/google/guava/                                                                                                             guava/10.0.1/guava-10.0.1.jar
+Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/tomcat/                                                                                                             maven/common-tomcat-maven-plugin/2.2/common-tomcat-maven-plugin-2.2.jar (38 kB a                                                                                                             t 36 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/httpco                                                                                                             mponents/httpclient/4.3.1/httpclient-4.3.1.jar
+Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/httpcom                                                                                                             ponents/httpclient/4.3.1/httpclient-4.3.1.jar (586 kB at 339 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/httpco                                                                                                             mponents/httpcore/4.3/httpcore-4.3.jar
+Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/tomcat/                                                                                                             embed/tomcat-embed-core/7.0.47/tomcat-embed-core-7.0.47.jar (2.8 MB at 1.3 MB/s)
+Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/tomcat/                                                                                                             tomcat-catalina/7.0.47/tomcat-catalina-7.0.47.jar (1.6 MB at 703 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/commons-codec/com                                                                                                             mons-codec/1.6/commons-codec-1.6.jar
+Downloading from central: https://repo.maven.apache.org/maven2/commons-logging/c                                                                                                             ommons-logging/1.1.3/commons-logging-1.1.3.jar
+Downloaded from central: https://repo.maven.apache.org/maven2/commons-logging/co                                                                                                             mmons-logging/1.1.3/commons-logging-1.1.3.jar (62 kB at 27 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/tomcat                                                                                                             /maven/tomcat7-war-runner/2.2/tomcat7-war-runner-2.2.jar
+Downloaded from central: https://repo.maven.apache.org/maven2/commons-codec/comm                                                                                                             ons-codec/1.6/commons-codec-1.6.jar (233 kB at 99 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/                                                                                                             maven-archiver/2.4.2/maven-archiver-2.4.2.jar
+Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/httpcom                                                                                                             ponents/httpcore/4.3/httpcore-4.3.jar (282 kB at 119 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/common                                                                                                             s/commons-compress/1.4.1/commons-compress-1.4.1.jar
+Downloaded from central: https://repo.maven.apache.org/maven2/com/google/guava/g                                                                                                             uava/10.0.1/guava-10.0.1.jar (1.5 MB at 619 kB/s)
+Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/m                                                                                                             aven-archiver/2.4.2/maven-archiver-2.4.2.jar (20 kB at 8.3 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/codehaus/plex                                                                                                             us/plexus-archiver/2.1.1/plexus-archiver-2.1.1.jar
+Downloading from central: https://repo.maven.apache.org/maven2/org/tukaani/xz/1.                                                                                                             0/xz-1.0.jar
+Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/commons                                                                                                             /commons-compress/1.4.1/commons-compress-1.4.1.jar (241 kB at 99 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/junit/junit/4.10/                                                                                                             junit-4.10.jar
+Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/tomcat/                                                                                                             maven/tomcat7-war-runner/2.2/tomcat7-war-runner-2.2.jar (25 kB at 10 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/hamcrest/hamc                                                                                                             rest-core/1.1/hamcrest-core-1.1.jar
+Downloaded from central: https://repo.maven.apache.org/maven2/org/codehaus/plexu                                                                                                             s/plexus-archiver/2.1.1/plexus-archiver-2.1.1.jar (185 kB at 75 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/codehaus/plex                                                                                                             us/plexus-io/2.0.3/plexus-io-2.0.3.jar
+Downloaded from central: https://repo.maven.apache.org/maven2/org/hamcrest/hamcr                                                                                                             est-core/1.1/hamcrest-core-1.1.jar (77 kB at 31 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/                                                                                                             shared/maven-filtering/1.0/maven-filtering-1.0.jar
+Downloaded from central: https://repo.maven.apache.org/maven2/org/tukaani/xz/1.0                                                                                                             /xz-1.0.jar (95 kB at 38 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/slf4j/jcl-ove                                                                                                             r-slf4j/1.7.5/jcl-over-slf4j-1.7.5.jar
+Downloaded from central: https://repo.maven.apache.org/maven2/org/codehaus/plexu                                                                                                             s/plexus-io/2.0.3/plexus-io-2.0.3.jar (58 kB at 23 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/slf4j/slf4j-a                                                                                                             pi/1.7.5/slf4j-api-1.7.5.jar
+Downloaded from central: https://repo.maven.apache.org/maven2/junit/junit/4.10/j                                                                                                             unit-4.10.jar (253 kB at 100 kB/s)
+Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/s                                                                                                             hared/maven-filtering/1.0/maven-filtering-1.0.jar (43 kB at 17 kB/s)
+Downloaded from central: https://repo.maven.apache.org/maven2/org/slf4j/jcl-over                                                                                                             -slf4j/1.7.5/jcl-over-slf4j-1.7.5.jar (17 kB at 6.5 kB/s)
+Downloaded from central: https://repo.maven.apache.org/maven2/org/eclipse/jdt/co                                                                                                             re/compiler/ecj/4.2.2/ecj-4.2.2.jar (1.8 MB at 706 kB/s)
+Downloaded from central: https://repo.maven.apache.org/maven2/org/slf4j/slf4j-ap                                                                                                             i/1.7.5/slf4j-api-1.7.5.jar (26 kB at 10 kB/s)
+[INFO] Deploying war to http://3.19.237.84:8080/mkyongWebApp
+Uploading: http://3.19.237.84:8080/manager/text/deploy?path=%2FmkyongWebApp
+2192/5807 KB
+[INFO] I/O exception (java.net.SocketException) caught when processing request:                                                                                                              Connection reset
+[INFO] Retrying request
+Uploading: http://3.19.237.84:8080/manager/text/deploy?path=%2FmkyongWebApp
+2696/5807 KB
+[INFO] I/O exception (java.net.SocketException) caught when processing request:                                                                                                              Connection reset
+[INFO] Retrying request
+Uploading: http://3.19.237.84:8080/manager/text/deploy?path=%2FmkyongWebApp
+2058/5807 KB
+[INFO] I/O exception (java.net.SocketException) caught when processing request:                                                                                                              Connection reset
+[INFO] Retrying request
+Uploading: http://3.19.237.84:8080/manager/text/deploy?path=%2FmkyongWebApp
+2130/5807 KB
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 9.171 s
+[INFO] Finished at: 2021-11-23T02:44:05Z
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.tomcat.maven:tomcat7-maven-plugin:2.2:                                                                                                             deploy (default-cli) on project mavewebappdemo: Cannot invoke Tomcat manager: Co                                                                                                             nnection reset -> [Help 1]
+[ERROR]
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e swit                                                                                                             ch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR]
+[ERROR] For more information about the errors and possible solutions, please rea                                                                                                             d the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoExecutionE                                                                                                             xception
+[root@ip-172-31-24-251 mavewebappdemo]# cd /opt
+[root@ip-172-31-24-251 opt]# cd apache-tomcat-8.5.3/
+[root@ip-172-31-24-251 apache-tomcat-8.5.3]# ls
+bin  conf  lib  LICENSE  logs  NOTICE  RELEASE-NOTES  RUNNING.txt  temp  webapps  work
+[root@ip-172-31-24-251 apache-tomcat-8.5.3]# cd ..
+[root@ip-172-31-24-251 opt]# ls
+apache-maven-3.5.3   https-github.com-wakaleo-game-of-life  nginx-1.21.4
+apache-tomcat-8.5.3  jdk1.8.0_311                           vamsi
+[root@ip-172-31-24-251 opt]# cd vamsi/
+[root@ip-172-31-24-251 vamsi]# ls
+Jenkinsfile  mavewebappdemo  raci.txt  raviteja.txt
+[root@ip-172-31-24-251 vamsi]# cd mavewebappdemo/
+[root@ip-172-31-24-251 mavewebappdemo]# ls
+Jenkinsfile  pom.xml  src  target
+[root@ip-172-31-24-251 mavewebappdemo]# cd target/
+[root@ip-172-31-24-251 target]# ls
+maven-archiver  mavewebappdemo  mavewebappdemo.war
+[root@ip-172-31-24-251 target]# cd ..
+[root@ip-172-31-24-251 mavewebappdemo]# ls
+Jenkinsfile  pom.xml  src  target
+[root@ip-172-31-24-251 mavewebappdemo]# vi pom.xml
+[root@ip-172-31-24-251 mavewebappdemo]# cd /opt
+[root@ip-172-31-24-251 opt]# cd apache-tomcat-8.5.3/
+[root@ip-172-31-24-251 apache-tomcat-8.5.3]# ls
+bin  conf  lib  LICENSE  logs  NOTICE  RELEASE-NOTES  RUNNING.txt  temp  webapps  work
+[root@ip-172-31-24-251 apache-tomcat-8.5.3]# cd conf/
+[root@ip-172-31-24-251 conf]# ls
+Catalina         catalina.properties  jaspic-providers.xml  logging.properties  tomcat-users.xml  web.xml
+catalina.policy  context.xml          jaspic-providers.xsd  server.xml          tomcat-users.xsd
+[root@ip-172-31-24-251 conf]# vi tomcat-users.xml
+[root@ip-172-31-24-251 conf]# cd /opt
+[root@ip-172-31-24-251 opt]# ls
+apache-maven-3.5.3   https-github.com-wakaleo-game-of-life  nginx-1.21.4
+apache-tomcat-8.5.3  jdk1.8.0_311                           vamsi
+[root@ip-172-31-24-251 opt]# cd apache-maven-3.5.3/
+[root@ip-172-31-24-251 apache-maven-3.5.3]# ls
+bin  boot  conf  lib  LICENSE  NOTICE  README.txt
+[root@ip-172-31-24-251 apache-maven-3.5.3]# cd conf/
+[root@ip-172-31-24-251 conf]# ls
+logging  settings.xml  toolchains.xml
+[root@ip-172-31-24-251 conf]# vi settings.xml
+[root@ip-172-31-24-251 conf]# cd /opt
+[root@ip-172-31-24-251 opt]# ls
+apache-maven-3.5.3   https-github.com-wakaleo-game-of-life  nginx-1.21.4
+apache-tomcat-8.5.3  jdk1.8.0_311                           vamsi
+[root@ip-172-31-24-251 opt]# cd apache-tomcat-8.5.3/
+[root@ip-172-31-24-251 apache-tomcat-8.5.3]# ls
+bin  conf  lib  LICENSE  logs  NOTICE  RELEASE-NOTES  RUNNING.txt  temp  webapps  work
+[root@ip-172-31-24-251 apache-tomcat-8.5.3]# cd conf/
+[root@ip-172-31-24-251 conf]# ls
+Catalina         catalina.properties  jaspic-providers.xml  logging.properties  tomcat-users.xml  web.xml
+catalina.policy  context.xml          jaspic-providers.xsd  server.xml          tomcat-users.xsd
+[root@ip-172-31-24-251 conf]# vi tomcat-users.xml
+[root@ip-172-31-24-251 conf]# cd /opt
+[root@ip-172-31-24-251 opt]# ls
+apache-maven-3.5.3   https-github.com-wakaleo-game-of-life  nginx-1.21.4
+apache-tomcat-8.5.3  jdk1.8.0_311                           vamsi
+[root@ip-172-31-24-251 opt]# cd vamsi/
+[root@ip-172-31-24-251 vamsi]# cd mavewebappdemo/
+[root@ip-172-31-24-251 mavewebappdemo]# ls
+Jenkinsfile  pom.xml  src  target
+[root@ip-172-31-24-251 mavewebappdemo]# mvn tomcat7:deploy
+[INFO] Scanning for projects...
+[INFO]
+[INFO] -------------------< com.tecmax.demo:mavewebappdemo >-------------------
+[INFO] Building mavewebappdemo Maven Webapp 0.0.1-SNAPSHOT
+[INFO] --------------------------------[ war ]---------------------------------
+[INFO]
+[INFO] >>> tomcat7-maven-plugin:2.2:deploy (default-cli) > package @ mavewebappdemo >>>
+[INFO]
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ mavewebappdemo ---
+[WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform depende                                                                                nt!
+[INFO] skip non existing resourceDirectory /opt/vamsi/mavewebappdemo/src/main/resources
+[INFO]
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ mavewebappdemo ---
+[INFO] No sources to compile
+[INFO]
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ mavewebappdemo ---
+[WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform depende                                                                                nt!
+[INFO] skip non existing resourceDirectory /opt/vamsi/mavewebappdemo/src/test/resources
+[INFO]
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ mavewebappdemo ---
+[INFO] No sources to compile
+[INFO]
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ mavewebappdemo ---
+[INFO] No tests to run.
+[INFO]
+[INFO] --- maven-war-plugin:2.2:war (default-war) @ mavewebappdemo ---
+[INFO] Packaging webapp
+[INFO] Assembling webapp [mavewebappdemo] in [/opt/vamsi/mavewebappdemo/target/mavewebappdemo]
+[INFO] Processing war project
+[INFO] Copying webapp resources [/opt/vamsi/mavewebappdemo/src/main/webapp]
+[INFO] Webapp assembled in [74 msecs]
+[INFO] Building war: /opt/vamsi/mavewebappdemo/target/mavewebappdemo.war
+[INFO] WEB-INF/web.xml already added, skipping
+[INFO]
+[INFO] <<< tomcat7-maven-plugin:2.2:deploy (default-cli) < package @ mavewebappdemo <<<
+[INFO]
+[INFO]
+[INFO] --- tomcat7-maven-plugin:2.2:deploy (default-cli) @ mavewebappdemo ---
+[INFO] Deploying war to http://3.19.237.84:8080/mkyongWebApp
+Uploading: http://3.19.237.84:8080/manager/text/deploy?path=%2FmkyongWebApp
+2068/5807 KB
+[INFO] I/O exception (java.net.SocketException) caught when processing request: Connection reset
+[INFO] Retrying request
+Uploading: http://3.19.237.84:8080/manager/text/deploy?path=%2FmkyongWebApp
+Uploaded: http://3.19.237.84:8080/manager/text/deploy?path=%2FmkyongWebApp (5807 KB at 12223.3 KB/sec)
+
+[ERROR] Tomcat return http status error: 401, Reason Phrase:
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 3.234 s
+[INFO] Finished at: 2021-11-23T02:53:24Z
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.tomcat.maven:tomcat7-maven-plugin:2.2:deploy (default-cli) on proje                                                                                ct mavewebappdemo: Tomcat return http status error: 401, Reason Phrase: : <!DOCTYPE html PUBLIC "-//W3C//DTD                                                                                 HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+[ERROR] <html>
+[ERROR]  <head>
+[ERROR]   <title>401 Unauthorized</title>
+[ERROR]   <style type="text/css">
+[ERROR]     <!--
+[ERROR]     BODY {font-family:Tahoma,Arial,sans-serif;color:black;background-color:white;font-size:12px;}
+[ERROR]     H1 {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;font-size:22px;}
+[ERROR]     PRE, TT {border: 1px dotted #525D76}
+[ERROR]     A {color : black;}A.name {color : black;}
+[ERROR]     -->
+[ERROR]   </style>
+[ERROR]  </head>
+[ERROR]  <body>
+[ERROR]    <h1>401 Unauthorized</h1>
+[ERROR]    <p>
+[ERROR]     You are not authorized to view this page. If you have not changed
+[ERROR]     any configuration files, please examine the file
+[ERROR]     <tt>conf/tomcat-users.xml</tt> in your installation. That
+[ERROR]     file must contain the credentials to let you use this webapp.
+[ERROR]    </p>
+[ERROR]    <p>
+[ERROR]     For example, to add the <tt>manager-gui</tt> role to a user named
+[ERROR]     <tt>tomcat</tt> with a password of <tt>s3cret</tt>, add the following to the
+[ERROR]     config file listed above.
+[ERROR]    </p>
+[ERROR] <pre>
+[ERROR] &lt;role rolename="manager-gui"/&gt;
+[ERROR] &lt;user username="tomcat" password="s3cret" roles="manager-gui"/&gt;
+[ERROR] </pre>
+[ERROR]    <p>
+[ERROR]     Note that for Tomcat 7 onwards, the roles required to use the manager
+[ERROR]     application were changed from the single <tt>manager</tt> role to the
+[ERROR]     following four roles. You will need to assign the role(s) required for
+[ERROR]     the functionality you wish to access.
+[ERROR]    </p>
+[ERROR]     <ul>
+[ERROR]       <li><tt>manager-gui</tt> - allows access to the HTML GUI and the status
+[ERROR]           pages</li>
+[ERROR]       <li><tt>manager-script</tt> - allows access to the text interface and the
+[ERROR]           status pages</li>
+[ERROR]       <li><tt>manager-jmx</tt> - allows access to the JMX proxy and the status
+[ERROR]           pages</li>
+[ERROR]       <li><tt>manager-status</tt> - allows access to the status pages only</li>
+[ERROR]     </ul>
+[ERROR]    <p>
+[ERROR]     The HTML interface is protected against CSRF but the text and JMX interfaces
+[ERROR]     are not. To maintain the CSRF protection:
+[ERROR]    </p>
+[ERROR]    <ul>
+[ERROR]     <li>Users with the <tt>manager-gui</tt> role should not be granted either
+[ERROR]         the <tt>manager-script</tt> or <tt>manager-jmx</tt> roles.</li>
+[ERROR]     <li>If the text or jmx interfaces are accessed through a browser (e.g. for
+[ERROR]         testing since these interfaces are intended for tools not humans) then
+[ERROR]         the browser must be closed afterwards to terminate the session.</li>
+[ERROR]    </ul>
+[ERROR]    <p>
+[ERROR]     For more information - please see the
+[ERROR]     <a href="/docs/manager-howto.html">Manager App HOW-TO</a>.
+[ERROR]    </p>
+[ERROR]  </body>
+[ERROR]
+[ERROR] </html>
+[ERROR]
+[ERROR] -> [Help 1]
+[ERROR]
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR]
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoExecutionException
+[root@ip-172-31-24-251 mavewebappdemo]# cd /opt
+[root@ip-172-31-24-251 opt]# ls
+apache-maven-3.5.3   https-github.com-wakaleo-game-of-life  nginx-1.21.4
+apache-tomcat-8.5.3  jdk1.8.0_311                           vamsi
+[root@ip-172-31-24-251 opt]# cd apache-tom
+-bash: cd: apache-tom: No such file or directory
+[root@ip-172-31-24-251 opt]# cd apache-tomcat-8.5.3/
+[root@ip-172-31-24-251 apache-tomcat-8.5.3]# ls
+bin  conf  lib  LICENSE  logs  NOTICE  RELEASE-NOTES  RUNNING.txt  temp  webapps  work
+[root@ip-172-31-24-251 apache-tomcat-8.5.3]# cd bin/
+[root@ip-172-31-24-251 bin]# ls
+bootstrap.jar       commons-daemon-native.tar.gz  digest.sh         startup.bat           tool-wrapper.sh
+catalina.bat        configtest.bat                setclasspath.bat  startup.sh            version.bat
+catalina.sh         configtest.sh                 setclasspath.sh   tomcat-juli.jar       version.sh
+catalina-tasks.xml  daemon.sh                     shutdown.bat      tomcat-native.tar.gz
+commons-daemon.jar  digest.bat                    shutdown.sh       tool-wrapper.bat
+[root@ip-172-31-24-251 bin]# sh shutdown.sh
+Using CATALINA_BASE:   /opt/apache-tomcat-8.5.3
+Using CATALINA_HOME:   /opt/apache-tomcat-8.5.3
+Using CATALINA_TMPDIR: /opt/apache-tomcat-8.5.3/temp
+Using JRE_HOME:        /opt/jdk1.8.0_311/jre
+Using CLASSPATH:       /opt/apache-tomcat-8.5.3/bin/bootstrap.jar:/opt/apache-tomcat-8.5.3/bin/tomcat-juli.ja                                                                                r
+[root@ip-172-31-24-251 bin]# sh startup.sh
+Using CATALINA_BASE:   /opt/apache-tomcat-8.5.3
+Using CATALINA_HOME:   /opt/apache-tomcat-8.5.3
+Using CATALINA_TMPDIR: /opt/apache-tomcat-8.5.3/temp
+Using JRE_HOME:        /opt/jdk1.8.0_311/jre
+Using CLASSPATH:       /opt/apache-tomcat-8.5.3/bin/bootstrap.jar:/opt/apache-tomcat-8.5.3/bin/tomcat-juli.ja                                                                                r
+Tomcat started.
+[root@ip-172-31-24-251 bin]# cd /opt
+[root@ip-172-31-24-251 opt]# ls
+apache-maven-3.5.3   https-github.com-wakaleo-game-of-life  nginx-1.21.4
+apache-tomcat-8.5.3  jdk1.8.0_311                           vamsi
+[root@ip-172-31-24-251 opt]# cd vamsi/
+[root@ip-172-31-24-251 vamsi]# cd mavewebappdemo/
+[root@ip-172-31-24-251 mavewebappdemo]# mvn tomcat7:deploy
+[INFO] Scanning for projects...
+[INFO]
+[INFO] -------------------< com.tecmax.demo:mavewebappdemo >-------------------
+[INFO] Building mavewebappdemo Maven Webapp 0.0.1-SNAPSHOT
+[INFO] --------------------------------[ war ]---------------------------------
+[INFO]
+[INFO] >>> tomcat7-maven-plugin:2.2:deploy (default-cli) > package @ mavewebappdemo >>>
+[INFO]
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ mavewebappdemo ---
+[WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform depende                                                                                nt!
+[INFO] skip non existing resourceDirectory /opt/vamsi/mavewebappdemo/src/main/resources
+[INFO]
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ mavewebappdemo ---
+[INFO] No sources to compile
+[INFO]
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ mavewebappdemo ---
+[WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform depende                                                                                nt!
+[INFO] skip non existing resourceDirectory /opt/vamsi/mavewebappdemo/src/test/resources
+[INFO]
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ mavewebappdemo ---
+[INFO] No sources to compile
+[INFO]
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ mavewebappdemo ---
+[INFO] No tests to run.
+[INFO]
+[INFO] --- maven-war-plugin:2.2:war (default-war) @ mavewebappdemo ---
+[INFO] Packaging webapp
+[INFO] Assembling webapp [mavewebappdemo] in [/opt/vamsi/mavewebappdemo/target/mavewebappdemo]
+[INFO] Processing war project
+[INFO] Copying webapp resources [/opt/vamsi/mavewebappdemo/src/main/webapp]
+[INFO] Webapp assembled in [74 msecs]
+[INFO] Building war: /opt/vamsi/mavewebappdemo/target/mavewebappdemo.war
+[INFO] WEB-INF/web.xml already added, skipping
+[INFO]
+[INFO] <<< tomcat7-maven-plugin:2.2:deploy (default-cli) < package @ mavewebappdemo <<<
+[INFO]
+[INFO]
+[INFO] --- tomcat7-maven-plugin:2.2:deploy (default-cli) @ mavewebappdemo ---
+[INFO] Deploying war to http://3.19.237.84:8080/mkyongWebApp
+Uploading: http://3.19.237.84:8080/manager/text/deploy?path=%2FmkyongWebApp
+Uploaded: http://3.19.237.84:8080/manager/text/deploy?path=%2FmkyongWebApp (5807 KB at 22591.7 KB/sec)
+
+[INFO] tomcatManager status code:200, ReasonPhrase:
+[INFO] OK - Deployed application at context path /mkyongWebApp
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 3.368 s
+[INFO] Finished at: 2021-11-23T02:55:41Z
+[INFO] ------------------------------------------------------------------------

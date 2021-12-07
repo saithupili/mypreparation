@@ -1,0 +1,35 @@
+ sudo apt-get install software-properties-common apt-transport-https -y
+ 
+sudo add-apt-repository ppa:openjdk-r/ppa -y
+
+ sudo apt install openjdk-11-jdk -y
+
+ java –version
+ 
+wget -q -O - https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo apt-key add -
+
+echo 'deb https://pkg.jenkins.io/debian-stable binary/' | tee -a /etc/apt/sources.list
+
+sudo apt update
+
+sudo apt install jenkins -y
+
+sudo systemctl start jenkins
+
+sudo systemctl enable jenkins
+
+sudo apt install nginx -y
+
+sudo ufw allow OpenSSH
+
+sudo ufw allow 'Nginx Full'
+
+sudo ufw enable
+
+
+
+
+
+
+
+sudo ln -s /etc/nginx/sites-available/jenkins.yourdomainname.conf /etc/nginx/sites-enabled/jenkins.yourdomainname.conf

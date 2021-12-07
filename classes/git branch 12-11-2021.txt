@@ -1,0 +1,500 @@
+
+Mohan@LAPTOP-GGIT56Q4 MINGW64 ~/OneDrive/Desktop/mohanrepo (main)
+$ git beanch developer
+git: 'beanch' is not a git command. See 'git --help'.
+
+The most similar command is
+        branch
+
+Mohan@LAPTOP-GGIT56Q4 MINGW64 ~/OneDrive/Desktop/mohanrepo (main)
+$ git branch developer
+
+Mohan@LAPTOP-GGIT56Q4 MINGW64 ~/OneDrive/Desktop/mohanrepo (main)
+$ git checkout developer
+Switched to branch 'developer'
+M       mohan.txt
+
+Mohan@LAPTOP-GGIT56Q4 MINGW64 ~/OneDrive/Desktop/mohanrepo (developer)
+$ ls
+mohan.txt
+
+Mohan@LAPTOP-GGIT56Q4 MINGW64 ~/OneDrive/Desktop/mohanrepo (developer)
+$ touch file
+
+Mohan@LAPTOP-GGIT56Q4 MINGW64 ~/OneDrive/Desktop/mohanrepo (developer)
+$ git checkout main
+Switched to branch 'main'
+M       mohan.txt
+Your branch is up to date with 'origin/main'.
+
+Mohan@LAPTOP-GGIT56Q4 MINGW64 ~/OneDrive/Desktop/mohanrepo (main)
+$ ls
+file  mohan.txt
+
+Mohan@LAPTOP-GGIT56Q4 MINGW64 ~/OneDrive/Desktop/mohanrepo (main)
+$ git checkout developer
+Switched to branch 'developer'
+M       mohan.txt
+
+Mohan@LAPTOP-GGIT56Q4 MINGW64 ~/OneDrive/Desktop/mohanrepo (developer)
+$ git add file
+
+Mohan@LAPTOP-GGIT56Q4 MINGW64 ~/OneDrive/Desktop/mohanrepo (developer)
+$ git commit -m "i have created file"
+[developer 697b8e6] i have created file
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 file
+
+Mohan@LAPTOP-GGIT56Q4 MINGW64 ~/OneDrive/Desktop/mohanrepo (developer)
+$ git checkout main
+Switched to branch 'main'
+M       mohan.txt
+Your branch is up to date with 'origin/main'.
+
+Mohan@LAPTOP-GGIT56Q4 MINGW64 ~/OneDrive/Desktop/mohanrepo (main)
+$ ls
+mohan.txt
+
+Mohan@LAPTOP-GGIT56Q4 MINGW64 ~/OneDrive/Desktop/mohanrepo (main)
+$ git checkout developer
+Switched to branch 'developer'
+M       mohan.txt
+
+Mohan@LAPTOP-GGIT56Q4 MINGW64 ~/OneDrive/Desktop/mohanrepo (developer)
+$ touch file2
+
+Mohan@LAPTOP-GGIT56Q4 MINGW64 ~/OneDrive/Desktop/mohanrepo (developer)
+$ git add file2
+
+Mohan@LAPTOP-GGIT56Q4 MINGW64 ~/OneDrive/Desktop/mohanrepo (developer)
+$ git commit -m "i created file2"
+[developer ca8e72e] i created file2
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 file2
+
+Mohan@LAPTOP-GGIT56Q4 MINGW64 ~/OneDrive/Desktop/mohanrepo (developer)
+$ ls
+file  file2  mohan.txt
+
+Mohan@LAPTOP-GGIT56Q4 MINGW64 ~/OneDrive/Desktop/mohanrepo (developer)
+$ git checkout main
+Switched to branch 'main'
+M       mohan.txt
+Your branch is up to date with 'origin/main'.
+
+Mohan@LAPTOP-GGIT56Q4 MINGW64 ~/OneDrive/Desktop/mohanrepo (main)
+$ git merge developer main
+Updating 0fa7dec..ca8e72e
+Fast-forward
+ file  | 0
+ file2 | 0
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 file
+ create mode 100644 file2
+
+Mohan@LAPTOP-GGIT56Q4 MINGW64 ~/OneDrive/Desktop/mohanrepo (main)
+$ ls
+file  file2  mohan.txt
+
+Mohan@LAPTOP-GGIT56Q4 MINGW64 ~/OneDrive/Desktop/mohanrepo (main)
+$ touch f1
+
+Mohan@LAPTOP-GGIT56Q4 MINGW64 ~/OneDrive/Desktop/mohanrepo (main)
+$ git add f1
+
+Mohan@LAPTOP-GGIT56Q4 MINGW64 ~/OneDrive/Desktop/mohanrepo (main)
+$ git commit -m "i created f1"
+[main 529ae7f] i created f1
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 f1
+
+Mohan@LAPTOP-GGIT56Q4 MINGW64 ~/OneDrive/Desktop/mohanrepo (main)
+$ touch f2
+
+Mohan@LAPTOP-GGIT56Q4 MINGW64 ~/OneDrive/Desktop/mohanrepo (main)
+$ git add f2
+
+Mohan@LAPTOP-GGIT56Q4 MINGW64 ~/OneDrive/Desktop/mohanrepo (main)
+$ git commit -m "i created f2"
+[main 0c6b6e4] i created f2
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 f2
+
+Mohan@LAPTOP-GGIT56Q4 MINGW64 ~/OneDrive/Desktop/mohanrepo (main)
+$ touch f3
+
+Mohan@LAPTOP-GGIT56Q4 MINGW64 ~/OneDrive/Desktop/mohanrepo (main)
+$ git add f3
+
+Mohan@LAPTOP-GGIT56Q4 MINGW64 ~/OneDrive/Desktop/mohanrepo (main)
+$ git commit -m "i created f3"
+[main 3e63b38] i created f3
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 f3
+
+Mohan@LAPTOP-GGIT56Q4 MINGW64 ~/OneDrive/Desktop/mohanrepo (main)
+$ ls
+f1  f2  f3  file  file2  mohan.txt
+
+Mohan@LAPTOP-GGIT56Q4 MINGW64 ~/OneDrive/Desktop/mohanrepo (main)
+$ git log --oneline
+3e63b38 (HEAD -> main) i created f3
+0c6b6e4 i created f2
+529ae7f i created f1
+ca8e72e (developer) i created file2
+697b8e6 i have created file
+0fa7dec (origin/main) i created mohan.txt
+
+Mohan@LAPTOP-GGIT56Q4 MINGW64 ~/OneDrive/Desktop/mohanrepo (main)
+$ git checkout developer
+Switched to branch 'developer'
+M       mohan.txt
+
+Mohan@LAPTOP-GGIT56Q4 MINGW64 ~/OneDrive/Desktop/mohanrepo (developer)
+$ ^C
+
+Mohan@LAPTOP-GGIT56Q4 MINGW64 ~/OneDrive/Desktop/mohanrepo (developer)
+$ git cherry-pick 3e63b38
+[developer 1867e83] i created f3
+ Date: Fri Nov 12 08:10:32 2021 +0530
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 f3
+
+Mohan@LAPTOP-GGIT56Q4 MINGW64 ~/OneDrive/Desktop/mohanrepo (developer)
+$ ls
+f3  file  file2  mohan.txt
+
+Mohan@LAPTOP-GGIT56Q4 MINGW64 ~/OneDrive/Desktop/mohanrepo (developer)
+$ vi f3
+
+Mohan@LAPTOP-GGIT56Q4 MINGW64 ~/OneDrive/Desktop/mohanrepo (developer)
+$ git add f3
+warning: LF will be replaced by CRLF in f3.
+The file will have its original line endings in your working directory
+
+Mohan@LAPTOP-GGIT56Q4 MINGW64 ~/OneDrive/Desktop/mohanrepo (developer)
+$ git commit -m "i edited this file"
+[developer 6a7a3e5] i edited this file
+ 1 file changed, 1 insertion(+)
+
+Mohan@LAPTOP-GGIT56Q4 MINGW64 ~/OneDrive/Desktop/mohanrepo (developer)
+$ ls
+f3  file  file2  mohan.txt
+
+Mohan@LAPTOP-GGIT56Q4 MINGW64 ~/OneDrive/Desktop/mohanrepo (developer)
+$ git checkout main
+Switched to branch 'main'
+M       mohan.txt
+Your branch is ahead of 'origin/main' by 5 commits.
+  (use "git push" to publish your local commits)
+
+Mohan@LAPTOP-GGIT56Q4 MINGW64 ~/OneDrive/Desktop/mohanrepo (main)
+$ cat f3
+
+Mohan@LAPTOP-GGIT56Q4 MINGW64 ~/OneDrive/Desktop/mohanrepo (main)
+$ vi f3
+
+Mohan@LAPTOP-GGIT56Q4 MINGW64 ~/OneDrive/Desktop/mohanrepo (main)
+$ cat f3
+iam from naidupeta
+
+
+Mohan@LAPTOP-GGIT56Q4 MINGW64 ~/OneDrive/Desktop/mohanrepo (main)
+$ git add f3
+warning: LF will be replaced by CRLF in f3.
+The file will have its original line endings in your working directory
+
+Mohan@LAPTOP-GGIT56Q4 MINGW64 ~/OneDrive/Desktop/mohanrepo (main)
+$ git commit -m "i edited this one"
+[main eba68f7] i edited this one
+ 1 file changed, 2 insertions(+)
+
+Mohan@LAPTOP-GGIT56Q4 MINGW64 ~/OneDrive/Desktop/mohanrepo (main)
+$ git merge developer main
+CONFLICT (add/add): Merge conflict in f3
+Auto-merging f3
+Automatic merge failed; fix conflicts and then commit the result.
+
+Mohan@LAPTOP-GGIT56Q4 MINGW64 ~/OneDrive/Desktop/mohanrepo (main|MERGING)
+$ vi f3
+
+Mohan@LAPTOP-GGIT56Q4 MINGW64 ~/OneDrive/Desktop/mohanrepo (main|MERGING)
+$ vi f3
+
+Mohan@LAPTOP-GGIT56Q4 MINGW64 ~/OneDrive/Desktop/mohanrepo (main|MERGING)
+$ git add f3
+
+Mohan@LAPTOP-GGIT56Q4 MINGW64 ~/OneDrive/Desktop/mohanrepo (main|MERGING)
+$ git coomit -m "i resoved this file"
+git: 'coomit' is not a git command. See 'git --help'.
+
+The most similar command is
+        commit
+
+Mohan@LAPTOP-GGIT56Q4 MINGW64 ~/OneDrive/Desktop/mohanrepo (main|MERGING)
+$ ls
+f1  f2  f3  file  file2  mohan.txt
+
+Mohan@LAPTOP-GGIT56Q4 MINGW64 ~/OneDrive/Desktop/mohanrepo (main|MERGING)
+$ git merge developer main
+fatal: You have not concluded your merge (MERGE_HEAD exists).
+Please, commit your changes before you merge.
+
+Mohan@LAPTOP-GGIT56Q4 MINGW64 ~/OneDrive/Desktop/mohanrepo (main|MERGING)
+$ vi f3
+
+Mohan@LAPTOP-GGIT56Q4 MINGW64 ~/OneDrive/Desktop/mohanrepo (main|MERGING)
+$ git add f3
+
+Mohan@LAPTOP-GGIT56Q4 MINGW64 ~/OneDrive/Desktop/mohanrepo (main|MERGING)
+$ git commit -m "i resolved"
+[main 7b2a40d] i resolved
+
+Mohan@LAPTOP-GGIT56Q4 MINGW64 ~/OneDrive/Desktop/mohanrepo (main)
+$ git merge developer main
+Already up to date.
+
+Mohan@LAPTOP-GGIT56Q4 MINGW64 ~/OneDrive/Desktop/mohanrepo (main)
+$ git push -u origin main
+Enumerating objects: 22, done.
+Counting objects: 100% (22/22), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (18/18), done.
+Writing objects: 100% (21/21), 1.77 KiB | 361.00 KiB/s, done.
+Total 21 (delta 8), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (8/8), done.
+To https://github.com/Mohan23976/mohanrepo.git
+   0fa7dec..7b2a40d  main -> main
+Branch 'main' set up to track remote branch 'main' from 'origin'.
+
+Mohan@LAPTOP-GGIT56Q4 MINGW64 ~/OneDrive/Desktop/mohanrepo (main)
+$ touch mohan1
+
+Mohan@LAPTOP-GGIT56Q4 MINGW64 ~/OneDrive/Desktop/mohanrepo (main)
+$ git add mohan1
+
+Mohan@LAPTOP-GGIT56Q4 MINGW64 ~/OneDrive/Desktop/mohanrepo (main)
+$ git commit -m "this is a empty file"
+[main e969bbb] this is a empty file
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 mohan1
+
+Mohan@LAPTOP-GGIT56Q4 MINGW64 ~/OneDrive/Desktop/mohanrepo (main)
+$ vi mohan1
+
+Mohan@LAPTOP-GGIT56Q4 MINGW64 ~/OneDrive/Desktop/mohanrepo (main)
+$ git add mohan1
+warning: LF will be replaced by CRLF in mohan1.
+The file will have its original line endings in your working directory
+
+Mohan@LAPTOP-GGIT56Q4 MINGW64 ~/OneDrive/Desktop/mohanrepo (main)
+$ git commit -m "i edit"
+[main e6d6d38] i edit
+ 1 file changed, 1 insertion(+)
+
+Mohan@LAPTOP-GGIT56Q4 MINGW64 ~/OneDrive/Desktop/mohanrepo (main)
+$ git log --oneline
+e6d6d38 (HEAD -> main) i edit
+e969bbb this is a empty file
+7b2a40d (origin/main) i resolved
+eba68f7 i edited this one
+6a7a3e5 (developer) i edited this file
+1867e83 i created f3
+3e63b38 i created f3
+0c6b6e4 i created f2
+529ae7f i created f1
+ca8e72e i created file2
+697b8e6 i have created file
+0fa7dec i created mohan.txt
+
+Mohan@LAPTOP-GGIT56Q4 MINGW64 ~/OneDrive/Desktop/mohanrepo (main)
+$ git reflog
+e6d6d38 (HEAD -> main) HEAD@{0}: commit: i edit
+e969bbb HEAD@{1}: commit: this is a empty file
+7b2a40d (origin/main) HEAD@{2}: commit (merge): i resolved
+eba68f7 HEAD@{3}: commit: i edited this one
+3e63b38 HEAD@{4}: checkout: moving from developer to main
+6a7a3e5 (developer) HEAD@{5}: commit: i edited this file
+1867e83 HEAD@{6}: cherry-pick: i created f3
+ca8e72e HEAD@{7}: checkout: moving from main to developer
+3e63b38 HEAD@{8}: commit: i created f3
+0c6b6e4 HEAD@{9}: commit: i created f2
+529ae7f HEAD@{10}: commit: i created f1
+ca8e72e HEAD@{11}: merge developer: Fast-forward
+0fa7dec HEAD@{12}: checkout: moving from developer to main
+ca8e72e HEAD@{13}: commit: i created file2
+697b8e6 HEAD@{14}: checkout: moving from main to developer
+0fa7dec HEAD@{15}: checkout: moving from developer to main
+697b8e6 HEAD@{16}: commit: i have created file
+0fa7dec HEAD@{17}: checkout: moving from main to developer
+0fa7dec HEAD@{18}: checkout: moving from developer to main
+0fa7dec HEAD@{19}: checkout: moving from main to developer
+0fa7dec HEAD@{20}: reset: moving to HEAD
+0fa7dec HEAD@{21}: commit (initial): i created mohan.txt
+
+Mohan@LAPTOP-GGIT56Q4 MINGW64 ~/OneDrive/Desktop/mohanrepo (main)
+$ git reset --soft HEAD~1
+
+Mohan@LAPTOP-GGIT56Q4 MINGW64 ~/OneDrive/Desktop/mohanrepo (main)
+$ git status
+On branch main
+Your branch is ahead of 'origin/main' by 1 commit.
+  (use "git push" to publish your local commits)
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   mohan1
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   mohan.txt
+
+
+Mohan@LAPTOP-GGIT56Q4 MINGW64 ~/OneDrive/Desktop/mohanrepo (main)
+$ git reset --mixed HEAD~1
+Unstaged changes after reset:
+M       mohan.txt
+
+Mohan@LAPTOP-GGIT56Q4 MINGW64 ~/OneDrive/Desktop/mohanrepo (main)
+$ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   mohan.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        mohan1
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+Mohan@LAPTOP-GGIT56Q4 MINGW64 ~/OneDrive/Desktop/mohanrepo (main)
+$ cat mohan1
+hi
+
+Mohan@LAPTOP-GGIT56Q4 MINGW64 ~/OneDrive/Desktop/mohanrepo (main)
+$ git reset --hard HEAD~1
+HEAD is now at eba68f7 i edited this one
+
+Mohan@LAPTOP-GGIT56Q4 MINGW64 ~/OneDrive/Desktop/mohanrepo (main)
+$ git status
+On branch main
+Your branch is behind 'origin/main' by 3 commits, and can be fast-forwarded.
+  (use "git pull" to update your local branch)
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        mohan1
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+Mohan@LAPTOP-GGIT56Q4 MINGW64 ~/OneDrive/Desktop/mohanrepo (main)
+$ git log --oneline
+eba68f7 (HEAD -> main) i edited this one
+3e63b38 i created f3
+0c6b6e4 i created f2
+529ae7f i created f1
+ca8e72e i created file2
+697b8e6 i have created file
+0fa7dec i created mohan.txt
+
+Mohan@LAPTOP-GGIT56Q4 MINGW64 ~/OneDrive/Desktop/mohanrepo (main)
+$ git reflog --oneline
+eba68f7 (HEAD -> main) HEAD@{0}: reset: moving to HEAD~1
+7b2a40d (origin/main) HEAD@{1}: reset: moving to HEAD~1
+e969bbb HEAD@{2}: reset: moving to HEAD~1
+e6d6d38 HEAD@{3}: commit: i edit
+e969bbb HEAD@{4}: commit: this is a empty file
+7b2a40d (origin/main) HEAD@{5}: commit (merge): i resolved
+eba68f7 (HEAD -> main) HEAD@{6}: commit: i edited this one
+3e63b38 HEAD@{7}: checkout: moving from developer to main
+6a7a3e5 (developer) HEAD@{8}: commit: i edited this file
+1867e83 HEAD@{9}: cherry-pick: i created f3
+ca8e72e HEAD@{10}: checkout: moving from main to developer
+3e63b38 HEAD@{11}: commit: i created f3
+0c6b6e4 HEAD@{12}: commit: i created f2
+529ae7f HEAD@{13}: commit: i created f1
+ca8e72e HEAD@{14}: merge developer: Fast-forward
+0fa7dec HEAD@{15}: checkout: moving from developer to main
+ca8e72e HEAD@{16}: commit: i created file2
+697b8e6 HEAD@{17}: checkout: moving from main to developer
+0fa7dec HEAD@{18}: checkout: moving from developer to main
+697b8e6 HEAD@{19}: commit: i have created file
+0fa7dec HEAD@{20}: checkout: moving from main to developer
+0fa7dec HEAD@{21}: checkout: moving from developer to main
+0fa7dec HEAD@{22}: checkout: moving from main to developer
+0fa7dec HEAD@{23}: reset: moving to HEAD
+0fa7dec HEAD@{24}: commit (initial): i created mohan.txt
+
+Mohan@LAPTOP-GGIT56Q4 MINGW64 ~/OneDrive/Desktop/mohanrepo (main)
+$ git reset --hard HEAD@{3}
+HEAD is now at e6d6d38 i edit
+
+Mohan@LAPTOP-GGIT56Q4 MINGW64 ~/OneDrive/Desktop/mohanrepo (main)
+$ git log --oneline
+e6d6d38 (HEAD -> main) i edit
+e969bbb this is a empty file
+7b2a40d (origin/main) i resolved
+eba68f7 i edited this one
+6a7a3e5 (developer) i edited this file
+1867e83 i created f3
+3e63b38 i created f3
+0c6b6e4 i created f2
+529ae7f i created f1
+ca8e72e i created file2
+697b8e6 i have created file
+0fa7dec i created mohan.txt
+
+Mohan@LAPTOP-GGIT56Q4 MINGW64 ~/OneDrive/Desktop/mohanrepo (main)
+$ git status
+On branch main
+Your branch is ahead of 'origin/main' by 2 commits.
+  (use "git push" to publish your local commits)
+
+nothing to commit, working tree clean
+
+Mohan@LAPTOP-GGIT56Q4 MINGW64 ~/OneDrive/Desktop/mohanrepo (main)
+$ cat f3
+
+iam from naidupeta
+
+iam mohan
+
+Mohan@LAPTOP-GGIT56Q4 MINGW64 ~/OneDrive/Desktop/mohanrepo (main)
+$ git reflog --oneline
+e6d6d38 (HEAD -> main) HEAD@{0}: reset: moving to HEAD@{3}
+eba68f7 HEAD@{1}: reset: moving to HEAD~1
+7b2a40d (origin/main) HEAD@{2}: reset: moving to HEAD~1
+e969bbb HEAD@{3}: reset: moving to HEAD~1
+e6d6d38 (HEAD -> main) HEAD@{4}: commit: i edit
+e969bbb HEAD@{5}: commit: this is a empty file
+7b2a40d (origin/main) HEAD@{6}: commit (merge): i resolved
+eba68f7 HEAD@{7}: commit: i edited this one
+3e63b38 HEAD@{8}: checkout: moving from developer to main
+6a7a3e5 (developer) HEAD@{9}: commit: i edited this file
+1867e83 HEAD@{10}: cherry-pick: i created f3
+ca8e72e HEAD@{11}: checkout: moving from main to developer
+3e63b38 HEAD@{12}: commit: i created f3
+0c6b6e4 HEAD@{13}: commit: i created f2
+529ae7f HEAD@{14}: commit: i created f1
+ca8e72e HEAD@{15}: merge developer: Fast-forward
+0fa7dec HEAD@{16}: checkout: moving from developer to main
+ca8e72e HEAD@{17}: commit: i created file2
+697b8e6 HEAD@{18}: checkout: moving from main to developer
+0fa7dec HEAD@{19}: checkout: moving from developer to main
+697b8e6 HEAD@{20}: commit: i have created file
+0fa7dec HEAD@{21}: checkout: moving from main to developer
+0fa7dec HEAD@{22}: checkout: moving from developer to main
+0fa7dec HEAD@{23}: checkout: moving from main to developer
+0fa7dec HEAD@{24}: reset: moving to HEAD
+0fa7dec HEAD@{25}: commit (initial): i created mohan.txt
+
+Mohan@LAPTOP-GGIT56Q4 MINGW64 ~/OneDrive/Desktop/mohanrepo (main)
+$ ^C
+
+Mohan@LAPTOP-GGIT56Q4 MINGW64 ~/OneDrive/Desktop/mohanrepo (main)
+$

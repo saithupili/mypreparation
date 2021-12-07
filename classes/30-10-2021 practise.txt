@@ -1,0 +1,127 @@
+login as: ec2-user
+Authenticating with public key "imported-openssh-key"
+[ec2-user@ip-172-31-38-217 ~]$ sudo -i
+[root@ip-172-31-38-217 ~]# useradd user1
+[root@ip-172-31-38-217 ~]# passwd user1
+Changing password for user user1.
+New password:
+BAD PASSWORD: The password fails the dictionary check - it is too simplistic/sys                                                                                                             tematic
+Retype new password:
+passwd: all authentication tokens updated successfully.
+[root@ip-172-31-38-217 ~]# su user1
+[user1@ip-172-31-38-217 root]$ cat /etc/group | grep wheel
+wheel:x:10:
+[user1@ip-172-31-38-217 root]$ exit
+exit
+[root@ip-172-31-38-217 ~]# usermod -aG wheel user1
+[root@ip-172-31-38-217 ~]# cat /etc/group | grep user1
+wheel:x:10:user1
+user1:x:1001:
+[root@ip-172-31-38-217 ~]# su user1
+[user1@ip-172-31-38-217 root]$ cd
+[user1@ip-172-31-38-217 ~]$ sudo ls -la /root
+
+We trust you have received the usual lecture from the local System
+Administrator. It usually boils down to these three things:
+
+    #1) Respect the privacy of others.
+    #2) Think before you type.
+    #3) With great power comes great responsibility.
+
+[sudo] password for user1:
+total 36
+dr-xr-x---.  3 root root  149 Oct 31 12:22 .
+dr-xr-xr-x. 18 root root  236 May  4 17:28 ..
+-rw-------.  1 root root 6953 May  4 17:33 anaconda-ks.cfg
+-rw-r--r--.  1 root root   18 Aug 12  2018 .bash_logout
+-rw-r--r--.  1 root root  176 Aug 12  2018 .bash_profile
+-rw-r--r--.  1 root root  176 Aug 12  2018 .bashrc
+-rw-r--r--.  1 root root  100 Aug 12  2018 .cshrc
+-rw-------.  1 root root 6699 May  4 17:33 original-ks.cfg
+drwx------.  2 root root   29 Oct 31 12:22 .ssh
+-rw-r--r--.  1 root root  129 Aug 12  2018 .tcshrc
+[user1@ip-172-31-38-217 ~]$ exit
+exit
+[root@ip-172-31-38-217 ~]# useradd user2
+[root@ip-172-31-38-217 ~]# passwd user2
+Changing password for user user2.
+New password:
+BAD PASSWORD: The password fails the dictionary check - it is too simplistic/sys                                                                                                             tematic
+Retype new password:
+passwd: all authentication tokens updated successfully.
+[root@ip-172-31-38-217 ~]# su user2
+[user2@ip-172-31-38-217 root]$ cd
+[user2@ip-172-31-38-217 ~]$ mkdir kishore
+[user2@ip-172-31-38-217 ~]$ ls -la
+total 12
+drwx------. 3 user2 user2  77 Oct 31 12:26 .
+drwxr-xr-x. 5 root  root   48 Oct 31 12:25 ..
+-rw-r--r--. 1 user2 user2  18 Apr 21  2021 .bash_logout
+-rw-r--r--. 1 user2 user2 141 Apr 21  2021 .bash_profile
+-rw-r--r--. 1 user2 user2 376 Apr 21  2021 .bashrc
+drwxrwxr-x. 2 user2 user2   6 Oct 31 12:26 kishore
+[user2@ip-172-31-38-217 ~]$ exit
+exit
+[root@ip-172-31-38-217 ~]# useradd user3
+[root@ip-172-31-38-217 ~]# passwd user3
+Changing password for user user3.
+New password:
+BAD PASSWORD: The password fails the dictionary check - it is too simplistic/sys                                                                                                             tematic
+Retype new password:
+passwd: all authentication tokens updated successfully.
+[root@ip-172-31-38-217 ~]# chown -R user3:user3 /home/user2/kishore
+[root@ip-172-31-38-217 ~]# su dad
+su: user dad does not exist
+[root@ip-172-31-38-217 ~]# su user3
+[user3@ip-172-31-38-217 root]$ cd
+[user3@ip-172-31-38-217 ~]$ sudo cat /home/user2/kishore
+
+We trust you have received the usual lecture from the local System
+Administrator. It usually boils down to these three things:
+
+    #1) Respect the privacy of others.
+    #2) Think before you type.
+    #3) With great power comes great responsibility.
+
+[sudo] password for user3:
+user3 is not in the sudoers file.  This incident will be reported.
+[user3@ip-172-31-38-217 ~]$ su user1
+Password:
+[user1@ip-172-31-38-217 user3]$ cd
+[user1@ip-172-31-38-217 ~]$ cat /etc/group | grep bashrc
+[user1@ip-172-31-38-217 ~]$ exit
+exit
+[user3@ip-172-31-38-217 ~]$ usermod -aG bashrc user1
+usermod: Permission denied.
+usermod: cannot lock /etc/group; try again later.
+[user3@ip-172-31-38-217 ~]$ cat /etc/bashrc | grep user1
+[user3@ip-172-31-38-217 ~]$ ls
+[user3@ip-172-31-38-217 ~]$ exit
+exit
+[root@ip-172-31-38-217 ~]# usermod -aG bashrc user1
+usermod: group 'bashrc' does not exist
+[root@ip-172-31-38-217 ~]# ls -la /etc | grep bashrc
+-rw-r--r--.  1 root root     3019 Apr 15  2020 bashrc
+[root@ip-172-31-38-217 ~]# usermod -aG /etc/bashrc user1
+usermod: group '/etc/bashrc' does not exist
+[root@ip-172-31-38-217 ~]# vi bashrc
+[root@ip-172-31-38-217 ~]# history
+    1  useradd user1
+    2  passwd user1
+    3  su user1
+    4  usermod -aG wheel user1
+    5  cat /etc/group | grep user1
+    6  su user1
+    7  useradd user2
+    8  passwd user2
+    9  su user2
+   10  useradd user3
+   11  passwd user3
+   12  chown -R user3:user3 /home/user2/kishore
+   13  su dad
+   14  su user3
+   15  usermod -aG bashrc user1
+   16  ls -la /etc | grep bashrc
+   17  usermod -aG /etc/bashrc user1
+   18  vi bashrc
+   19  history

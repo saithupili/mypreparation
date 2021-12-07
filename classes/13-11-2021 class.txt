@@ -1,0 +1,311 @@
+SALINI@salinimungara MINGW64 ~
+$ git clone https://github.com/saithupili/repo.git
+Cloning into 'repo'...
+warning: You appear to have cloned an empty repository.
+
+SALINI@salinimungara MINGW64 ~
+$ cd repo
+
+SALINI@salinimungara MINGW64 ~/repo (main)
+$ touch sai.txt
+
+SALINI@salinimungara MINGW64 ~/repo (main)
+$ git add sai.txt
+
+SALINI@salinimungara MINGW64 ~/repo (main)
+$ git commit -m "this is an empty file"
+[main (root-commit) 3a77519] this is an empty file
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 sai.txt
+
+SALINI@salinimungara MINGW64 ~/repo (main)
+$ vi sai.txt
+
+SALINI@salinimungara MINGW64 ~/repo (main)
+$ git add sai.txt
+warning: LF will be replaced by CRLF in sai.txt.
+The file will have its original line endings in your working directory
+
+SALINI@salinimungara MINGW64 ~/repo (main)
+$ git commit -m "this is edited file"
+[main bc892ce] this is edited file
+ 1 file changed, 1 insertion(+)
+
+SALINI@salinimungara MINGW64 ~/repo (main)
+$ vi sai.txt
+
+SALINI@salinimungara MINGW64 ~/repo (main)
+$ git commit -m "this is again deleted file"
+On branch main
+Your branch is based on 'origin/main', but the upstream is gone.
+  (use "git branch --unset-upstream" to fixup)
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   sai.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+SALINI@salinimungara MINGW64 ~/repo (main)
+$ git add sai.txt
+warning: LF will be replaced by CRLF in sai.txt.
+The file will have its original line endings in your working directory
+
+SALINI@salinimungara MINGW64 ~/repo (main)
+$ git commit -m "this is again deleted file"
+[main 79d8acc] this is again deleted file
+ 1 file changed, 1 insertion(+)
+
+SALINI@salinimungara MINGW64 ~/repo (main)
+$ git log --oneline
+79d8acc (HEAD -> main) this is again deleted file
+bc892ce this is edited file
+3a77519 this is an empty file
+
+SALINI@salinimungara MINGW64 ~/repo (main)
+$ git revert 79d8acc
+[main 7b79620] i am deleting the latest commit
+ 1 file changed, 1 deletion(-)
+
+SALINI@salinimungara MINGW64 ~/repo (main)
+$ cat sai.txt
+this is first edited file
+
+SALINI@salinimungara MINGW64 ~/repo (main)
+$ git log --oneline
+7b79620 (HEAD -> main) i am deleting the latest commit
+79d8acc this is again deleted file
+bc892ce this is edited file
+3a77519 this is an empty file
+
+SALINI@salinimungara MINGW64 ~/repo (main)
+$ git revert 7b79620
+[main d87f6de] i am getting back my data
+ 1 file changed, 1 insertion(+)
+
+SALINI@salinimungara MINGW64 ~/repo (main)
+$ cat sai.txt
+this is first edited file
+ this is edited
+
+SALINI@salinimungara MINGW64 ~/repo (main)
+$ touch k.txt
+
+SALINI@salinimungara MINGW64 ~/repo (main)
+$ git add k.txt
+
+SALINI@salinimungara MINGW64 ~/repo (main)
+$ git commit -m "this is empty file"
+[main 05f83c4] this is empty file
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 k.txt
+
+SALINI@salinimungara MINGW64 ~/repo (main)
+$ vi k.txt
+
+SALINI@salinimungara MINGW64 ~/repo (main)
+$ git add k.txt
+warning: LF will be replaced by CRLF in k.txt.
+The file will have its original line endings in your working directory
+
+SALINI@salinimungara MINGW64 ~/repo (main)
+$ git commit -m "this filehaving one file"
+[main 813c853] this filehaving one file
+ 1 file changed, 1 insertion(+)
+
+SALINI@salinimungara MINGW64 ~/repo (main)
+$ vi k.txt
+
+SALINI@salinimungara MINGW64 ~/repo (main)
+$ git add k.txt
+warning: LF will be replaced by CRLF in k.txt.
+The file will have its original line endings in your working directory
+
+SALINI@salinimungara MINGW64 ~/repo (main)
+$ git commit -m " this file have two folders"
+[main 86169a5]  this file have two folders
+ 1 file changed, 1 insertion(+)
+
+SALINI@salinimungara MINGW64 ~/repo (main)
+$ vi k.txt
+
+SALINI@salinimungara MINGW64 ~/repo (main)
+$ git add k.txt
+warning: LF will be replaced by CRLF in k.txt.
+The file will have its original line endings in your working directory
+
+SALINI@salinimungara MINGW64 ~/repo (main)
+$ git commit -m " this file having three folders"
+[main 440f8d9]  this file having three folders
+ 1 file changed, 1 insertion(+)
+
+SALINI@salinimungara MINGW64 ~/repo (main)
+$ git log --oneline
+440f8d9 (HEAD -> main)  this file having three folders
+86169a5  this file have two folders
+813c853 this filehaving one file
+05f83c4 this is empty file
+d87f6de i am getting back my data
+7b79620 i am deleting the latest commit
+79d8acc this is again deleted file
+bc892ce this is edited file
+3a77519 this is an empty file
+
+SALINI@salinimungara MINGW64 ~/repo (main)
+$ git checkout 813c853
+Note: switching to '813c853'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c <new-branch-name>
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+HEAD is now at 813c853 this filehaving one file
+
+SALINI@salinimungara MINGW64 ~/repo ((813c853...))
+$ log --oneline
+bash: log: command not found
+
+SALINI@salinimungara MINGW64 ~/repo ((813c853...))
+$ git log --oneline
+813c853 (HEAD) this filehaving one file
+05f83c4 this is empty file
+d87f6de i am getting back my data
+7b79620 i am deleting the latest commit
+79d8acc this is again deleted file
+bc892ce this is edited file
+3a77519 this is an empty file
+
+SALINI@salinimungara MINGW64 ~/repo ((813c853...))
+$ cat k.txt
+kiran
+
+SALINI@salinimungara MINGW64 ~/repo ((813c853...))
+$ cp k.txt backup.txt
+
+SALINI@salinimungara MINGW64 ~/repo ((813c853...))
+$ ls
+backup.txt  k.txt  sai.txt
+
+SALINI@salinimungara MINGW64 ~/repo ((813c853...))
+$ git checkout main
+Previous HEAD position was 813c853 this filehaving one file
+Switched to branch 'main'
+Your branch is based on 'origin/main', but the upstream is gone.
+  (use "git branch --unset-upstream" to fixup)
+
+SALINI@salinimungara MINGW64 ~/repo (main)
+$ cat k.txt
+kiran
+kishore
+varadaiah
+
+SALINI@salinimungara MINGW64 ~/repo (main)
+$ cat backup.txt
+kiran
+
+SALINI@salinimungara MINGW64 ~/repo (main)
+$ git push
+Enumerating objects: 22, done.
+Counting objects: 100% (22/22), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (13/13), done.
+Writing objects: 100% (22/22), 1.90 KiB | 114.00 KiB/s, done.
+Total 22 (delta 2), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (2/2), done.
+To https://github.com/saithupili/repo.git
+ * [new branch]      main -> main
+
+SALINI@salinimungara MINGW64 ~/repo (main)
+$ ls
+backup.txt  k.txt  sai.txt
+
+SALINI@salinimungara MINGW64 ~/repo (main)
+$ ls
+backup.txt  k.txt  sai.txt
+
+SALINI@salinimungara MINGW64 ~/repo (main)
+$ git fetch main
+fatal: 'main' does not appear to be a git repository
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+
+SALINI@salinimungara MINGW64 ~/repo (main)
+$ git fetch origin main
+remote: Enumerating objects: 5, done.
+remote: Counting objects: 100% (5/5), done.
+remote: Compressing objects: 100% (2/2), done.
+remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (3/3), 690 bytes | 5.00 KiB/s, done.
+From https://github.com/saithupili/repo
+ * branch            main       -> FETCH_HEAD
+   440f8d9..f186d27  main       -> origin/main
+
+SALINI@salinimungara MINGW64 ~/repo (main)
+$ ls
+backup.txt  k.txt  sai.txt
+
+SALINI@salinimungara MINGW64 ~/repo (main)
+$ cat k.txt
+kiran
+kishore
+varadaiah
+
+SALINI@salinimungara MINGW64 ~/repo (main)
+$ vi sai.txt
+
+SALINI@salinimungara MINGW64 ~/repo (main)
+$ git add sai.txt
+
+SALINI@salinimungara MINGW64 ~/repo (main)
+$ git commit -m " this is my original file"
+[main 30dcda2]  this is my original file
+ 1 file changed, 1 insertion(+)
+
+SALINI@salinimungara MINGW64 ~/repo (main)
+$ git push -u origin main
+To https://github.com/saithupili/repo.git
+ ! [rejected]        main -> main (non-fast-forward)
+error: failed to push some refs to 'https://github.com/saithupili/repo.git'
+hint: Updates were rejected because the tip of your current branch is behind
+hint: its remote counterpart. Integrate the remote changes (e.g.
+hint: 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+
+SALINI@salinimungara MINGW64 ~/repo (main)
+$ git merge origin/main
+Merge made by the 'recursive' strategy.
+ k.txt | 1 +
+ 1 file changed, 1 insertion(+)
+
+SALINI@salinimungara MINGW64 ~/repo (main)
+$ cat k.txt
+kiran
+kishore
+varadaiah
+sai krishna
+
+SALINI@salinimungara MINGW64 ~/repo (main)
+$ git push -u origin main
+Enumerating objects: 9, done.
+Counting objects: 100% (8/8), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (5/5), done.
+Writing objects: 100% (5/5), 602 bytes | 150.00 KiB/s, done.
+Total 5 (delta 0), reused 0 (delta 0), pack-reused 0
+To https://github.com/saithupili/repo.git
+   f186d27..8fe2c47  main -> main
+Branch 'main' set up to track remote branch 'main' from 'origin'.

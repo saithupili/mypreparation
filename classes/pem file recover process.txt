@@ -1,0 +1,211 @@
+login as: ec2-user
+Authenticating with public key "imported-openssh-key"
+[ec2-user@ip-172-31-16-36 ~]$ sudo -i
+[root@ip-172-31-16-36 ~]# lsblk -f
+NAME    FSTYPE LABEL UUID                                 MOUNTPOINT
+xvda
+├─xvda1
+└─xvda2 xfs          c9aa25ee-e65c-4818-9b2f-fa411d89f585 /
+xvdf
+├─xvdf1
+└─xvdf2 xfs          c9aa25ee-e65c-4818-9b2f-fa411d89f585
+[root@ip-172-31-16-36 ~]# sudo mkdir /mnt/tempvol
+[root@ip-172-31-16-36 ~]# sudo mount /dev/xvdf1 /mnt/tempvol
+mount: /mnt/tempvol: wrong fs type, bad option, bad superblock on /dev/xvdf1, mi       ssing codepage or helper program, or other error.
+[root@ip-172-31-16-36 ~]# exit
+logout
+[ec2-user@ip-172-31-16-36 ~]$ lsblk -f
+NAME    FSTYPE LABEL UUID                                 MOUNTPOINT
+xvda
+├─xvda1
+└─xvda2 xfs          c9aa25ee-e65c-4818-9b2f-fa411d89f585 /
+xvdf
+├─xvdf1
+└─xvdf2 xfs          c9aa25ee-e65c-4818-9b2f-fa411d89f585
+[ec2-user@ip-172-31-16-36 ~]$ sudo /mnt/tempvol
+sudo: /mnt/tempvol: command not found
+[ec2-user@ip-172-31-16-36 ~]$ sudo mount /dev/xvdf1 /mnt/tempvol
+mount: /mnt/tempvol: wrong fs type, bad option, bad superblock on /dev/xvdf1, mi       ssing codepage or helper program, or other error.
+[ec2-user@ip-172-31-16-36 ~]$ sudo mount /dev/xvdf1 /mnt/tempvol
+mount: /mnt/tempvol: wrong fs type, bad option, bad superblock on /dev/xvdf1, mi       ssing codepage or helper program, or other error.
+[ec2-user@ip-172-31-16-36 ~]$ sudo mkdir /mnt/tempvol
+mkdir: cannot create directory ‘/mnt/tempvol’: File exists
+[ec2-user@ip-172-31-16-36 ~]$ sudo mount /dev/xvdf1 /mnt/tempvol
+mount: /mnt/tempvol: wrong fs type, bad option, bad superblock on /dev/xvdf1, missing codepage or helper program, or other error.
+[ec2-user@ip-172-31-16-36 ~]$ lsblk -f
+NAME    FSTYPE LABEL UUID                                 MOUNTPOINT
+xvda
+├─xvda1
+└─xvda2 xfs          c9aa25ee-e65c-4818-9b2f-fa411d89f585 /
+xvdf
+├─xvdf1
+└─xvdf2 xfs          c9aa25ee-e65c-4818-9b2f-fa411d89f585
+[ec2-user@ip-172-31-16-36 ~]$ ls -ls /mnt/tempvol/
+total 0
+[ec2-user@ip-172-31-16-36 ~]$ ls -la /mnt/tempvol/
+total 0
+drwxr-xr-x. 2 root root  6 Nov 24 12:02 .
+drwxr-xr-x. 3 root root 21 Nov 24 12:02 ..
+[ec2-user@ip-172-31-16-36 ~]$ sudo mount /dev/xvdf1 /mnt/tempvol/
+mount: /mnt/tempvol: wrong fs type, bad option, bad superblock on /dev/xvdf1, missing codepage or helper program, or other error.
+[ec2-user@ip-172-31-16-36 ~]$ ls -laf /mnt/tempvol/
+.  ..
+[ec2-user@ip-172-31-16-36 ~]$ sudo mount /dev/xvdf2 /mnt/tempvol/
+mount: /mnt/tempvol: wrong fs type, bad option, bad superblock on /dev/xvdf2, missing codepage or helper program, or other error.
+[ec2-user@ip-172-31-16-36 ~]$ ssh -i ~/keys/recovery.pem redhat@ec2-public-dns-ip
+Warning: Identity file /home/ec2-user/keys/recovery.pem not accessible: No such file or directory.
+ssh: Could not resolve hostname ec2-public-dns-ip: Name or service not known
+[ec2-user@ip-172-31-16-36 ~]$ ssh -i ~/keys/recovery.pem redhat@ec2-ec2-3-15-166-100.us-east-2.compute.amazonaws.com
+Warning: Identity file /home/ec2-user/keys/recovery.pem not accessible: No such file or directory.
+ssh: Could not resolve hostname ec2-ec2-3-15-166-100.us-east-2.compute.amazonaws.com: Name or service not known
+[ec2-user@ip-172-31-16-36 ~]$ ssh -i ~/keys/recovery.pem redhat@ec2-3-15-166-100.us-east-2.compute.amazonaws.com
+Warning: Identity file /home/ec2-user/keys/recovery.pem not accessible: No such file or directory.
+The authenticity of host 'ec2-3-15-166-100.us-east-2.compute.amazonaws.com (172.31.16.36)' can't be established.
+ECDSA key fingerprint is SHA256:L81Je68+TQwi8Dlpl9x7TLrLWPJF8cFET6+xJ/E6gOg.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? y
+Please type 'yes', 'no' or the fingerprint: y
+Please type 'yes', 'no' or the fingerprint: y
+Please type 'yes', 'no' or the fingerprint: y
+Please type 'yes', 'no' or the fingerprint: y
+Please type 'yes', 'no' or the fingerprint: y
+Please type 'yes', 'no' or the fingerprint: y
+Please type 'yes', 'no' or the fingerprint: y
+Please type 'yes', 'no' or the fingerprint: y
+Please type 'yes', 'no' or the fingerprint: y
+Please type 'yes', 'no' or the fingerprint: y
+Please type 'yes', 'no' or the fingerprint: y
+Please type 'yes', 'no' or the fingerprint: y
+Please type 'yes', 'no' or the fingerprint: y
+Please type 'yes', 'no' or the fingerprint: y
+Please type 'yes', 'no' or the fingerprint: y
+Please type 'yes', 'no' or the fingerprint: y
+Please type 'yes', 'no' or the fingerprint: y
+Please type 'yes', 'no' or the fingerprint: y
+Please type 'yes', 'no' or the fingerprint: y
+Please type 'yes', 'no' or the fingerprint: y
+Please type 'yes', 'no' or the fingerprint: y
+Please type 'yes', 'no' or the fingerprint: y
+Please type 'yes', 'no' or the fingerprint: yy
+Please type 'yes', 'no' or the fingerprint: y
+Please type 'yes', 'no' or the fingerprint: y
+Please type 'yes', 'no' or the fingerprint: y
+Please type 'yes', 'no' or the fingerprint:
+Host key verification failed.
+[ec2-user@ip-172-31-16-36 ~]$
+[ec2-user@ip-172-31-16-36 ~]$ ssh -i ~/keys/recovery.pem redhat@ec2-3-15-166-100.us-east-2.compute.amazonaws.com
+Warning: Identity file /home/ec2-user/keys/recovery.pem not accessible: No such file or directory.
+The authenticity of host 'ec2-3-15-166-100.us-east-2.compute.amazonaws.com (172.31.16.36)' can't be established.
+ECDSA key fingerprint is SHA256:L81Je68+TQwi8Dlpl9x7TLrLWPJF8cFET6+xJ/E6gOg.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? y
+Please type 'yes', 'no' or the fingerprint: y
+Please type 'yes', 'no' or the fingerprint: y
+Please type 'yes', 'no' or the fingerprint: y
+Please type 'yes', 'no' or the fingerprint: y
+Please type 'yes', 'no' or the fingerprint: y
+Please type 'yes', 'no' or the fingerprint: y
+Please type 'yes', 'no' or the fingerprint: y
+Please type 'yes', 'no' or the fingerprint: y
+Please type 'yes', 'no' or the fingerprint: y
+Please type 'yes', 'no' or the fingerprint: y
+Please type 'yes', 'no' or the fingerprint: y
+Please type 'yes', 'no' or the fingerprint: y
+Please type 'yes', 'no' or the fingerprint: y
+Please type 'yes', 'no' or the fingerprint: y
+Please type 'yes', 'no' or the fingerprint: y
+Please type 'yes', 'no' or the fingerprint: y
+Please type 'yes', 'no' or the fingerprint: y
+Please type 'yes', 'no' or the fingerprint: y
+Please type 'yes', 'no' or the fingerprint: y
+Please type 'yes', 'no' or the fingerprint: y
+Please type 'yes', 'no' or the fingerprint: y
+Please type 'yes', 'no' or the fingerprint: y
+Please type 'yes', 'no' or the fingerprint: y
+Please type 'yes', 'no' or the fingerprint: y
+Please type 'yes', 'no' or the fingerprint: y
+Please type 'yes', 'no' or the fingerprint: y
+Please type 'yes', 'no' or the fingerprint: y
+Please type 'yes', 'no' or the fingerprint: y
+Please type 'yes', 'no' or the fingerprint: y
+Please type 'yes', 'no' or the fingerprint: y
+Please type 'yes', 'no' or the fingerprint: y
+Please type 'yes', 'no' or the fingerprint: y
+Please type 'yes', 'no' or the fingerprint: y
+Please type 'yes', 'no' or the fingerprint: y
+Please type 'yes', 'no' or the fingerprint: y
+Please type 'yes', 'no' or the fingerprint: y
+Please type 'yes', 'no' or the fingerprint: y
+Please type 'yes', 'no' or the fingerprint: y
+Please type 'yes', 'no' or the fingerprint: y
+Please type 'yes', 'no' or the fingerprint: y
+Please type 'yes', 'no' or the fingerprint: y
+Please type 'yes', 'no' or the fingerprint: y
+Please type 'yes', 'no' or the fingerprint: y
+Please type 'yes', 'no' or the fingerprint: y
+Please type 'yes', 'no' or the fingerprint: y
+Please type 'yes', 'no' or the fingerprint: y
+Please type 'yes', 'no' or the fingerprint: y
+Please type 'yes', 'no' or the fingerprint: y
+Please type 'yes', 'no' or the fingerprint: y
+Please type 'yes', 'no' or the fingerprint: y
+Please type 'yes', 'no' or the fingerprint: y
+Please type 'yes', 'no' or the fingerprint: y
+Please type 'yes', 'no' or the fingerprint: y
+Please type 'yes', 'no' or the fingerprint: yy
+Please type 'yes', 'no' or the fingerprint: the fingerprint
+Please type 'yes', 'no' or the fingerprint: yes
+Warning: Permanently added 'ec2-3-15-166-100.us-east-2.compute.amazonaws.com,172.31.16.36' (ECDSA) to the list of known hosts.
+redhat@ec2-3-15-166-100.us-east-2.compute.amazonaws.com: Permission denied (publickey,gssapi-keyex,gssapi-with-mic).
+[ec2-user@ip-172-31-16-36 ~]$ ls
+[ec2-user@ip-172-31-16-36 ~]$ sudo mkdir /mnt/tempvol
+mkdir: cannot create directory ‘/mnt/tempvol’: File exists
+[ec2-user@ip-172-31-16-36 ~]$ lsblk -f
+NAME    FSTYPE LABEL UUID                                 MOUNTPOINT
+xvda
+├─xvda1
+└─xvda2 xfs          c9aa25ee-e65c-4818-9b2f-fa411d89f585 /
+xvdf
+├─xvdf1
+└─xvdf2 xfs          c9aa25ee-e65c-4818-9b2f-fa411d89f585
+[ec2-user@ip-172-31-16-36 ~]$ sudo mount /dev/xvdf2 /mnt/tempvol/
+mount: /mnt/tempvol: wrong fs type, bad option, bad superblock on /dev/xvdf2, missing codepage or helper program, or other error.
+[ec2-user@ip-172-31-16-36 ~]$ sudo mount /dev/xvdf1 /mnt/tempvol/
+mount: /mnt/tempvol: wrong fs type, bad option, bad superblock on /dev/xvdf1, missing codepage or helper program, or other error.
+[ec2-user@ip-172-31-16-36 ~]$ sudo -i
+[root@ip-172-31-16-36 ~]# mount -o nouuid /dev/xvdf2 /mnt/tempvol
+[root@ip-172-31-16-36 ~]# lsblk -f
+NAME    FSTYPE LABEL UUID                                 MOUNTPOINT
+xvda
+├─xvda1
+└─xvda2 xfs          c9aa25ee-e65c-4818-9b2f-fa411d89f585 /
+xvdf
+├─xvdf1
+└─xvdf2 xfs          c9aa25ee-e65c-4818-9b2f-fa411d89f585 /mnt/tempvol
+[root@ip-172-31-16-36 ~]# cp .ssh/authorized_keys /mnt/tempvol/home/ec2-user/.ssh
+cp: overwrite '/mnt/tempvol/home/ec2-user/.ssh/authorized_keys'? y
+[root@ip-172-31-16-36 ~]# ls -lah /mnt/tempvol/home/ec2-user/.ssh
+total 4.0K
+drwx------. 2 ec2-user ec2-user  29 Nov 24 11:13 .
+drwx------. 3 ec2-user ec2-user  74 Nov 24 11:13 ..
+-rw-------. 1 ec2-user ec2-user 556 Nov 24 12:23 authorized_keys
+[root@ip-172-31-16-36 ~]# sudo umount /mnt/tempvol/
+[root@ip-172-31-16-36 ~]# lsblk -f
+NAME    FSTYPE LABEL UUID                                 MOUNTPOINT
+xvda
+├─xvda1
+└─xvda2 xfs          c9aa25ee-e65c-4818-9b2f-fa411d89f585 /
+xvdf
+├─xvdf1
+└─xvdf2 xfs          c9aa25ee-e65c-4818-9b2f-fa411d89f585
+[root@ip-172-31-16-36 ~]# history
+    1  lsblk -f
+    2  sudo mkdir /mnt/tempvol
+    3  sudo mount /dev/xvdf1 /mnt/tempvol
+    4  exit
+    5  mount -o nouuid /dev/xvdf2 /mnt/tempvol
+    6  lsblk -f
+    7  cp .ssh/authorized_keys /mnt/tempvol/home/ec2-user/.ssh
+    8  ls -lah /mnt/tempvol/home/ec2-user/.ssh
+    9  sudo umount /mnt/tempvol/
+   10  lsblk -f
+   11  history
+[root@ip-172-31-16-36 ~]#

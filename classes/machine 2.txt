@@ -1,0 +1,49 @@
+root@sai:~# ls -la
+total 28
+drwx------  4 root root 4096 Oct 26 02:43 .
+drwxr-xr-x 19 root root 4096 Oct 26 02:08 ..
+-rw-------  1 root root  222 Oct 26 02:43 .bash_history
+-rw-r--r--  1 root root 3106 Dec  5  2019 .bashrc
+-rw-r--r--  1 root root  161 Dec  5  2019 .profile
+drwx------  2 root root 4096 Oct 26 02:46 .ssh
+drwxr-xr-x  4 root root 4096 Oct 26 02:08 snap
+root@sai:~# cd .ssh
+root@sai:~/.ssh# ls
+authorized_keys  id_rsa  id_rsa.pub
+root@sai:~/.ssh# passwd root
+New password:
+Retype new password:
+passwd: password updated successfully
+root@sai:~/.ssh# cd /etc/ssh
+root@sai:/etc/ssh# ls
+moduli                ssh_host_ecdsa_key        ssh_host_rsa_key.pub
+ssh_config            ssh_host_ecdsa_key.pub    ssh_import_id
+ssh_config.d          ssh_host_ed25519_key      sshd_config
+ssh_host_dsa_key      ssh_host_ed25519_key.pub  sshd_config.d
+ssh_host_dsa_key.pub  ssh_host_rsa_key
+root@sai:/etc/ssh# vi sshd_config.d
+root@sai:/etc/ssh# vi sshd_config
+root@sai:/etc/ssh# service sshd restart
+root@sai:/etc/ssh# cd /opt
+root@sai:/opt# touch g j k
+root@sai:/opt# history
+    1  apt install net-tools
+    2  apt updat -y
+    3  apt update -y
+    4  cd /
+    5  apt update -y
+    6  apt install net-tools
+    7  hostname sai
+    8  exit
+    9  ls -la
+   10  cd .ssh
+   11  ls
+   12  passwd root
+   13  cd /etc/ssh
+   14  ls
+   15  vi sshd_config.d
+   16  vi sshd_config
+   17  service sshd restart
+   18  cd /opt
+   19  touch g j k
+   20  history

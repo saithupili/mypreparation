@@ -1,0 +1,219 @@
+root@ip-172-31-27-56:~# cd /
+root@ip-172-31-27-56:/# cd /opt
+root@ip-172-31-27-56:/opt#  adduser sai
+Adding user `sai' ...
+Adding new group `sai' (1001) ...
+Adding new user `sai' (1001) with group `sai' ...
+Creating home directory `/home/sai' ...
+Copying files from `/etc/skel' ...
+New password:
+Retype new password:
+passwd: password updated successfully
+Changing the user information for sai
+Enter the new value, or press ENTER for the default
+        Full Name []: sai krishna
+        Room Number []:
+        Work Phone []:
+        Home Phone []:
+        Other []:
+Is the information correct? [Y/n] y
+root@ip-172-31-27-56:/opt# cd /home
+root@ip-172-31-27-56:/home# ls
+sai  ubuntu
+root@ip-172-31-27-56:/home# cat /etc/passwd
+root:x:0:0:root:/root:/bin/bash
+daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
+bin:x:2:2:bin:/bin:/usr/sbin/nologin
+sys:x:3:3:sys:/dev:/usr/sbin/nologin
+sync:x:4:65534:sync:/bin:/bin/sync
+games:x:5:60:games:/usr/games:/usr/sbin/nologin
+man:x:6:12:man:/var/cache/man:/usr/sbin/nologin
+lp:x:7:7:lp:/var/spool/lpd:/usr/sbin/nologin
+mail:x:8:8:mail:/var/mail:/usr/sbin/nologin
+news:x:9:9:news:/var/spool/news:/usr/sbin/nologin
+uucp:x:10:10:uucp:/var/spool/uucp:/usr/sbin/nologin
+proxy:x:13:13:proxy:/bin:/usr/sbin/nologin
+www-data:x:33:33:www-data:/var/www:/usr/sbin/nologin
+backup:x:34:34:backup:/var/backups:/usr/sbin/nologin
+list:x:38:38:Mailing List Manager:/var/list:/usr/sbin/nologin
+irc:x:39:39:ircd:/var/run/ircd:/usr/sbin/nologin
+gnats:x:41:41:Gnats Bug-Reporting System (admin):/var/lib/gnats:/usr/sbin/nologi n
+nobody:x:65534:65534:nobody:/nonexistent:/usr/sbin/nologin
+systemd-network:x:100:102:systemd Network Management,,,:/run/systemd:/usr/sbin/n ologin
+systemd-resolve:x:101:103:systemd Resolver,,,:/run/systemd:/usr/sbin/nologin
+systemd-timesync:x:102:104:systemd Time Synchronization,,,:/run/systemd:/usr/sbi n/nologin
+messagebus:x:103:106::/nonexistent:/usr/sbin/nologin
+syslog:x:104:110::/home/syslog:/usr/sbin/nologin
+_apt:x:105:65534::/nonexistent:/usr/sbin/nologin
+tss:x:106:111:TPM software stack,,,:/var/lib/tpm:/bin/false
+uuidd:x:107:112::/run/uuidd:/usr/sbin/nologin
+tcpdump:x:108:113::/nonexistent:/usr/sbin/nologin
+sshd:x:109:65534::/run/sshd:/usr/sbin/nologin
+landscape:x:110:115::/var/lib/landscape:/usr/sbin/nologin
+pollinate:x:111:1::/var/cache/pollinate:/bin/false
+ec2-instance-connect:x:112:65534::/nonexistent:/usr/sbin/nologin
+systemd-coredump:x:999:999:systemd Core Dumper:/:/usr/sbin/nologin
+ubuntu:x:1000:1000:Ubuntu:/home/ubuntu:/bin/bash
+lxd:x:998:100::/var/snap/lxd/common/lxd:/bin/false
+sai:x:1001:1001:sai krishna,,,:/home/sai:/bin/bash
+root@ip-172-31-27-56:/home# cat /etc/shadow
+root:*:18747:0:99999:7:::
+daemon:*:18747:0:99999:7:::
+bin:*:18747:0:99999:7:::
+sys:*:18747:0:99999:7:::
+sync:*:18747:0:99999:7:::
+games:*:18747:0:99999:7:::
+man:*:18747:0:99999:7:::
+lp:*:18747:0:99999:7:::
+mail:*:18747:0:99999:7:::
+news:*:18747:0:99999:7:::
+uucp:*:18747:0:99999:7:::
+proxy:*:18747:0:99999:7:::
+www-data:*:18747:0:99999:7:::
+backup:*:18747:0:99999:7:::
+list:*:18747:0:99999:7:::
+irc:*:18747:0:99999:7:::
+gnats:*:18747:0:99999:7:::
+nobody:*:18747:0:99999:7:::
+systemd-network:*:18747:0:99999:7:::
+systemd-resolve:*:18747:0:99999:7:::
+systemd-timesync:*:18747:0:99999:7:::
+messagebus:*:18747:0:99999:7:::
+syslog:*:18747:0:99999:7:::
+_apt:*:18747:0:99999:7:::
+tss:*:18747:0:99999:7:::
+uuidd:*:18747:0:99999:7:::
+tcpdump:*:18747:0:99999:7:::
+sshd:*:18747:0:99999:7:::
+landscape:*:18747:0:99999:7:::
+pollinate:*:18747:0:99999:7:::
+ec2-instance-connect:!:18747:0:99999:7:::
+systemd-coredump:!!:18926::::::
+ubuntu:!:18926:0:99999:7:::
+lxd:!:18926::::::
+sai:$6$Wciu7.7tFrlIEXMz$erLZEyCcaw/LL0Jcp4duGfuRlTIio/nktUcAZivk5o2yIL8jShyCdT5Q vpby2dAhCNbBeL1vFOxMzFTyEETC.1:18926:0:99999:7:::
+root@ip-172-31-27-56:/home# hostname salini
+root@ip-172-31-27-56:/home# exit
+logout
+ubuntu@ip-172-31-27-56:/$ sudo -i
+root@salini:~# ssh-keygen
+Generating public/private rsa key pair.
+Enter file in which to save the key (/root/.ssh/id_rsa):
+Enter passphrase (empty for no passphrase):
+Enter same passphrase again:
+Your identification has been saved in /root/.ssh/id_rsa
+Your public key has been saved in /root/.ssh/id_rsa.pub
+The key fingerprint is:
+SHA256:8wrWbIuWy2bmcVIN6HDLbz05i+NAHQtPL/9IfGQYtdM root@salini
+The key's randomart image is:
++---[RSA 3072]----+
+|            .    |
+|       .   . o   |
+|    . + + . o E  |
+|     = * * o .   |
+|      = S + o    |
+|     . = B +     |
+|      *.B X .    |
+|     o*X.= B     |
+|     *=o=.o .    |
++----[SHA256]-----+
+root@salini:~# ls -la
+total 28
+drwx------  4 root root 4096 Oct 26 02:43 .
+drwxr-xr-x 19 root root 4096 Oct 26 02:08 ..
+-rw-------  1 root root  222 Oct 26 02:43 .bash_history
+-rw-r--r--  1 root root 3106 Dec  5  2019 .bashrc
+-rw-r--r--  1 root root  161 Dec  5  2019 .profile
+drwx------  2 root root 4096 Oct 26 02:46 .ssh
+drwxr-xr-x  4 root root 4096 Oct 26 02:08 snap
+root@salini:~# cd .ssh
+root@salini:~/.ssh# ls
+authorized_keys  id_rsa  id_rsa.pub
+root@salini:~/.ssh# cd /
+root@salini:/# ssh-copy-id 18.188.172.231
+/usr/bin/ssh-copy-id: INFO: Source of key(s) to be installed: "/root/.ssh/id_rsa .pub"
+The authenticity of host '18.188.172.231 (18.188.172.231)' can't be established.
+ECDSA key fingerprint is SHA256:MPRClRZZeblPFWDhugF1sxyRHj3rDooqnli8oWxr38I.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+/usr/bin/ssh-copy-id: INFO: attempting to log in with the new key(s), to filter  out any that are already installed
+/usr/bin/ssh-copy-id: INFO: 1 key(s) remain to be installed -- if you are prompt ed now it is to install the new keys
+root@18.188.172.231's password:
+
+Number of key(s) added: 1
+
+Now try logging into the machine, with:   "ssh '18.188.172.231'"
+and check to make sure that only the key(s) you wanted were added.
+
+root@salini:/# ssh 18.188.172.231
+Welcome to Ubuntu 20.04.2 LTS (GNU/Linux 5.4.0-1045-aws x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+  System information as of Tue Oct 26 03:11:53 UTC 2021
+
+  System load:  0.0               Processes:             114
+  Usage of /:   1.5% of 96.88GB   Users logged in:       1
+  Memory usage: 26%               IPv4 address for eth0: 172.31.27.56
+  Swap usage:   0%
+
+
+
+
+
+root@salini:~# ^C
+root@salini:~# ssh 172.31.27.56
+The authenticity of host '172.31.27.56 (172.31.27.56)' can't be established.
+ECDSA key fingerprint is SHA256:MPRClRZZeblPFWDhugF1sxyRHj3rDooqnli8oWxr38I.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Warning: Permanently added '172.31.27.56' (ECDSA) to the list of known hosts.
+Welcome to Ubuntu 20.04.2 LTS (GNU/Linux 5.4.0-1045-aws x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+  System information as of Tue Oct 26 03:13:57 UTC 2021
+
+  System load:  0.0               Processes:             115
+  Usage of /:   1.5% of 96.88GB   Users logged in:       2
+  Memory usage: 26%               IPv4 address for eth0: 172.31.27.56
+  Swap usage:   0%
+
+
+
+
+
+Last login: Tue Oct 26 03:11:54 2021 from 18.188.172.231
+root@salini:~# cd /op
+-bash: cd: /op: No such file or directory
+root@salini:~# ls
+snap
+root@salini:~# cd /opt
+root@salini:/opt# ls
+g  j  k
+root@salini:/opt# exit
+logout
+Connection to 172.31.27.56 closed.
+root@salini:~# history
+    1  apt install net-tools
+    2  apt updat -y
+    3  apt update -y
+    4  cd /
+    5  apt update -y
+    6  apt install net-tools
+    7  hostname sai
+    8  exit
+    9  apt install net-tools
+   10  apt update -y
+   11  cd /
+   12  cd /opt
+   13  cd /home
+   14  ls
+   15  cat /etc/passwd
+   16  cat /etc/shadow
+   17  hostname salini
+   18  exit
+   19  ssh 172.31.27.56
+   20  history

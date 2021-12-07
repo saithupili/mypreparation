@@ -1,0 +1,215 @@
+login as: ec2-user
+Authenticating with public key "imported-openssh-key"
+Last login: Mon Nov  8 02:07:38 2021 from 223.187.36.208
+[ec2-user@ip-172-31-1-87 ~]$ sudo -i
+[root@ip-172-31-1-87 ~]# ls
+anaconda-ks.cfg  original-ks.cfg
+[root@ip-172-31-1-87 ~]# adduser sai
+adduser: user 'sai' already exists
+[root@ip-172-31-1-87 ~]# usermod -aG wheel sai
+[root@ip-172-31-1-87 ~]# ls wheel
+ls: cannot access 'wheel': No such file or directory
+[root@ip-172-31-1-87 ~]# ls -la
+total 36
+dr-xr-x---.  3 root root  149 Nov  8 02:05 .
+dr-xr-xr-x. 18 root root  236 May  4  2021 ..
+-rw-------.  1 root root 6953 May  4  2021 anaconda-ks.cfg
+-rw-r--r--.  1 root root   18 Aug 12  2018 .bash_logout
+-rw-r--r--.  1 root root  176 Aug 12  2018 .bash_profile
+-rw-r--r--.  1 root root  176 Aug 12  2018 .bashrc
+-rw-r--r--.  1 root root  100 Aug 12  2018 .cshrc
+-rw-------.  1 root root 6699 May  4  2021 original-ks.cfg
+drwx------.  2 root root   29 Nov  8 02:05 .ssh
+-rw-r--r--.  1 root root  129 Aug 12  2018 .tcshrc
+[root@ip-172-31-1-87 ~]# touch sai.txt
+[root@ip-172-31-1-87 ~]# getfacl sai.txt
+# file: sai.txt
+# owner: root
+# group: root
+user::rw-
+group::r--
+other::r--
+
+[root@ip-172-31-1-87 ~]# useradd user1
+[root@ip-172-31-1-87 ~]# useradd user2
+[root@ip-172-31-1-87 ~]# passwd user1
+Changing password for user user1.
+New password:
+BAD PASSWORD: The password is shorter than 8 characters
+Retype new password:
+passwd: all authentication tokens updated successfully.
+[root@ip-172-31-1-87 ~]# passwd user2
+Changing password for user user2.
+New password:
+BAD PASSWORD: The password is shorter than 8 characters
+Retype new password:
+passwd: all authentication tokens updated successfully.
+[root@ip-172-31-1-87 ~]# su user1
+[user1@ip-172-31-1-87 root]$ echo "iamgood" >> file1
+bash: file1: Permission denied
+[user1@ip-172-31-1-87 root]$ touch sai.txt
+touch: cannot touch 'sai.txt': Permission denied
+[user1@ip-172-31-1-87 root]$ cd
+[user1@ip-172-31-1-87 ~]$ touch sai.txt
+[user1@ip-172-31-1-87 ~]$ vi sai.txt
+[user1@ip-172-31-1-87 ~]$ cat sai.txt
+i am good
+i will:
+[user1@ip-172-31-1-87 ~]$ exot
+bash: exot: command not found
+[user1@ip-172-31-1-87 ~]$ exit
+exit
+[root@ip-172-31-1-87 ~]# su user2
+[user2@ip-172-31-1-87 root]$ cd
+[user2@ip-172-31-1-87 ~]$ touch sai1.txt
+[user2@ip-172-31-1-87 ~]$ vi sai1.txt
+[user2@ip-172-31-1-87 ~]$ ls
+sai1.txt
+[user2@ip-172-31-1-87 ~]$ exit
+exit
+[root@ip-172-31-1-87 ~]# su user1
+[user1@ip-172-31-1-87 root]$ cd
+[user1@ip-172-31-1-87 ~]$ exit
+exit
+[root@ip-172-31-1-87 ~]# chmod 666 /home/user2/sai1.txt
+[root@ip-172-31-1-87 ~]# su user1
+[user1@ip-172-31-1-87 root]$ cd
+[user1@ip-172-31-1-87 ~]$ cat sai1.txt
+cat: sai1.txt: No such file or directory
+[user1@ip-172-31-1-87 ~]$ cat /home/user2/sai1.txt
+cat: /home/user2/sai1.txt: Permission denied
+[user1@ip-172-31-1-87 ~]$ sudo cat /home/user2/sai1.txt
+
+We trust you have received the usual lecture from the local System
+Administrator. It usually boils down to these three things:
+
+    #1) Respect the privacy of others.
+    #2) Think before you type.
+    #3) With great power comes great responsibility.
+
+[sudo] password for user1:
+user1 is not in the sudoers file.  This incident will be reported.
+[user1@ip-172-31-1-87 ~]$ exit
+exit
+[root@ip-172-31-1-87 ~]# visudo
+[root@ip-172-31-1-87 ~]# su user1
+[user1@ip-172-31-1-87 root]$ cd
+[user1@ip-172-31-1-87 ~]$ sudo cat /home/user2/sai1.txt
+i am too good
+[user1@ip-172-31-1-87 ~]$ sudo vi /home/user2/sai1.txt
+[user1@ip-172-31-1-87 ~]$ sudo cat /home/user2/sai1.txt
+i am too good
+cool
+[user1@ip-172-31-1-87 ~]$ exit
+exit
+[root@ip-172-31-1-87 ~]# visudo
+[root@ip-172-31-1-87 ~]# adduser user3
+[root@ip-172-31-1-87 ~]# adduser user4
+[root@ip-172-31-1-87 ~]# adduser user5
+[root@ip-172-31-1-87 ~]# passwd user3
+Changing password for user user3.
+New password:
+BAD PASSWORD: The password is shorter than 8 characters
+Retype new password:
+passwd: all authentication tokens updated successfully.
+[root@ip-172-31-1-87 ~]# passwd user4
+Changing password for user user4.
+New password:
+BAD PASSWORD: The password is shorter than 8 characters
+Retype new password:
+passwd: all authentication tokens updated successfully.
+[root@ip-172-31-1-87 ~]# passwd user5
+Changing password for user user5.
+New password:
+BAD PASSWORD: The password is shorter than 8 characters
+Retype new password:
+Sorry, passwords do not match.
+passwd: Authentication token manipulation error
+[root@ip-172-31-1-87 ~]# passwd user5
+Changing password for user user5.
+New password:
+BAD PASSWORD: The password is shorter than 8 characters
+Retype new password:
+passwd: all authentication tokens updated successfully.
+[root@ip-172-31-1-87 ~]# chmod 664 /home/user2/sai1.txt
+[root@ip-172-31-1-87 ~]# setfacl
+Usage: setfacl [-bkndRLP] { -m|-M|-x|-X ... } file ...
+Try `setfacl --help' for more information.
+[root@ip-172-31-1-87 ~]# setfacl -m
+Usage: setfacl [-bkndRLP] { -m|-M|-x|-X ... } file ...
+Try `setfacl --help' for more information.
+[root@ip-172-31-1-87 ~]# setfacl -m u:user4:rw /home/user2/sai1.txt
+[root@ip-172-31-1-87 ~]# su user4
+[user4@ip-172-31-1-87 root]$ cd
+[user4@ip-172-31-1-87 ~]$ sudo cat /home/user2/sai1.txt
+
+We trust you have received the usual lecture from the local System
+Administrator. It usually boils down to these three things:
+
+    #1) Respect the privacy of others.
+    #2) Think before you type.
+    #3) With great power comes great responsibility.
+
+[sudo] password for user4:
+user4 is not in the sudoers file.  This incident will be reported.
+[user4@ip-172-31-1-87 ~]$ visudo
+visudo: /etc/sudoers: Permission denied
+[user4@ip-172-31-1-87 ~]$ exit
+exit
+[root@ip-172-31-1-87 ~]# visudo
+[root@ip-172-31-1-87 ~]# su user4
+[user4@ip-172-31-1-87 root]$ cd
+[user4@ip-172-31-1-87 ~]$ sudo cat /home/user2/sai1.txt
+i am too good
+cool
+[user4@ip-172-31-1-87 ~]$ exit
+exit
+[root@ip-172-31-1-87 ~]# getfasl /home/user2/sai1.txt
+-bash: getfasl: command not found
+[root@ip-172-31-1-87 ~]# getfacl /home/user2/sai1.txt
+getfacl: Removing leading '/' from absolute path names
+# file: home/user2/sai1.txt
+# owner: user2
+# group: user2
+user::rw-
+user:user4:rw-
+group::rw-
+mask::rw-
+other::r--
+
+[root@ip-172-31-1-87 ~]# history
+    1  ls
+    2  adduser sai
+    3  usermod -aG wheel sai
+    4  ls wheel
+    5  ls -la
+    6  touch sai.txt
+    7  getfacl sai.txt
+    8  useradd user1
+    9  useradd user2
+   10  passwd user1
+   11  passwd user2
+   12  su user1
+   13  su user2
+   14  su user1
+   15*
+   16  su user1
+   17  visudo
+   18  su user1
+   19  visudo
+   20  adduser user3
+   21  adduser user4
+   22  adduser user5
+   23  passwd user3
+   24  passwd user4
+   25  passwd user5
+   26  chmod 664 /home/user2/sai1.txt
+   27  setfacl
+   28  setfacl -m
+   29  setfacl -m u:user4:rw /home/user2/sai1.txt
+   30  su user4
+   31  visudo
+   32  su user4
+   33  getfasl /home/user2/sai1.txt
+   34  getfacl /home/user2/sai1.txt
+   35  history

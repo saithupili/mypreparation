@@ -1,0 +1,1283 @@
+login as: ubuntu
+Authenticating with public key "imported-openssh-key"
+Welcome to Ubuntu 20.04.3 LTS (GNU/Linux 5.11.0-1020-aws x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+  System information as of Thu Nov 25 07:16:50 UTC 2021
+
+  System load:  0.0                Processes:             140
+  Usage of /:   1.1% of 242.29GB   Users logged in:       1
+  Memory usage: 2%                 IPv4 address for ens3: 172.31.29.158
+  Swap usage:   0%
+
+
+15 updates can be applied immediately.
+To see these additional updates run: apt list --upgradable
+
+
+*** System restart required ***
+Last login: Thu Nov 25 04:22:16 2021 from 49.204.200.64
+ubuntu@ip-172-31-29-158:~$ sudo -i
+root@ip-172-31-29-158:~# ls
+snap
+root@ip-172-31-29-158:~# cd /opt
+root@ip-172-31-29-158:/opt# ls
+apache-maven-3.5.3  apache-tomcat-8.5.3  jenkins.war
+root@ip-172-31-29-158:/opt# rm -rf apache-maven-3.5.3/
+root@ip-172-31-29-158:/opt# rm -rf apache-tomcat-8.5.3/
+root@ip-172-31-29-158:/opt# rm -rf jenkins.war
+root@ip-172-31-29-158:/opt# ls
+root@ip-172-31-29-158:/opt# cd /
+root@ip-172-31-29-158:/# cd
+root@ip-172-31-29-158:~# sudo yum update
+sudo: yum: command not found
+root@ip-172-31-29-158:~# yum update -y
+
+Command 'yum' not found, did you mean:
+
+  command 'sum' from deb coreutils (8.30-3ubuntu2)
+  command 'num' from deb quickcal (2.4-1)
+  command 'zum' from deb perforate (1.2-5.1)
+  command 'uum' from deb freewnn-jserver (1.1.1~a021+cvs20130302-7build1)
+
+Try: apt install <deb name>
+
+root@ip-172-31-29-158:~# apt install java -y
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+E: Unable to locate package java
+root@ip-172-31-29-158:~# sudo apt install java -y
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+E: Unable to locate package java
+root@ip-172-31-29-158:~# sudo apt-get install software-properties-common apt-tra        nsport-https -y
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+The following additional packages will be installed:
+  python3-software-properties
+The following NEW packages will be installed:
+  apt-transport-https
+The following packages will be upgraded:
+  python3-software-properties software-properties-common
+2 upgraded, 1 newly installed, 0 to remove and 15 not upgraded.
+Need to get 40.2 kB of archives.
+After this operation, 162 kB of additional disk space will be used.
+Get:1 http://us-east-2.ec2.archive.ubuntu.com/ubuntu focal-updates/universe amd6        4 apt-transport-https all 2.0.6 [4680 B]
+Get:2 http://us-east-2.ec2.archive.ubuntu.com/ubuntu focal-updates/main amd64 so        ftware-properties-common all 0.99.9.8 [10.6 kB]
+Get:3 http://us-east-2.ec2.archive.ubuntu.com/ubuntu focal-updates/main amd64 py        thon3-software-properties all 0.99.9.8 [24.9 kB]
+Fetched 40.2 kB in 0s (2095 kB/s)
+Selecting previously unselected package apt-transport-https.
+(Reading database ... 98140 files and directories currently installed.)
+Preparing to unpack .../apt-transport-https_2.0.6_all.deb ...
+Unpacking apt-transport-https (2.0.6) ...
+Preparing to unpack .../software-properties-common_0.99.9.8_all.deb ...
+Unpacking software-properties-common (0.99.9.8) over (0.98.9.5) ...
+Preparing to unpack .../python3-software-properties_0.99.9.8_all.deb ...
+Unpacking python3-software-properties (0.99.9.8) over (0.98.9.5) ...
+Setting up apt-transport-https (2.0.6) ...
+Setting up python3-software-properties (0.99.9.8) ...
+Setting up software-properties-common (0.99.9.8) ...
+Processing triggers for man-db (2.9.1-1) ...
+Processing triggers for dbus (1.12.16-2ubuntu2.1) ...
+root@ip-172-31-29-158:~# sudo add-apt-repository ppa:openjdk-r/ppa -y
+Hit:1 http://us-east-2.ec2.archive.ubuntu.com/ubuntu focal InRelease
+Get:2 http://us-east-2.ec2.archive.ubuntu.com/ubuntu focal-updates InRelease [11        4 kB]
+Get:3 http://us-east-2.ec2.archive.ubuntu.com/ubuntu focal-backports InRelease [        101 kB]
+Get:4 http://security.ubuntu.com/ubuntu focal-security InRelease [114 kB]
+Get:5 http://ppa.launchpad.net/openjdk-r/ppa/ubuntu focal InRelease [23.8 kB]
+Get:6 http://ppa.launchpad.net/openjdk-r/ppa/ubuntu focal/main amd64 Packages [1        4.4 kB]
+Get:7 http://ppa.launchpad.net/openjdk-r/ppa/ubuntu focal/main Translation-en [1        480 B]
+Fetched 368 kB in 1s (442 kB/s)
+Reading package lists... Done
+root@ip-172-31-29-158:~# sudo apt install openjdk-11-jdk -y
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+openjdk-11-jdk is already the newest version (11.0.11+9-0ubuntu2~20.04).
+openjdk-11-jdk set to manually installed.
+0 upgraded, 0 newly installed, 0 to remove and 15 not upgraded.
+root@ip-172-31-29-158:~# java -version
+openjdk version "11.0.11" 2021-04-20
+OpenJDK Runtime Environment (build 11.0.11+9-Ubuntu-0ubuntu2.20.04)
+OpenJDK 64-Bit Server VM (build 11.0.11+9-Ubuntu-0ubuntu2.20.04, mixed mode, sha        ring)
+root@ip-172-31-29-158:~# wget -q -O - https://pkg.jenkins.io/debian-stable/jenki        ns.io.key | sudo apt-key add -
+OK
+root@ip-172-31-29-158:~# echo 'deb https://pkg.jenkins.io/debian-stable binary/'         | tee -a /etc/apt/sources.list
+deb https://pkg.jenkins.io/debian-stable binary/
+root@ip-172-31-29-158:~# sudo apt update
+Hit:1 http://us-east-2.ec2.archive.ubuntu.com/ubuntu focal InRelease
+Hit:2 http://us-east-2.ec2.archive.ubuntu.com/ubuntu focal-updates InRelease
+Hit:3 http://us-east-2.ec2.archive.ubuntu.com/ubuntu focal-backports InRelease
+Ign:4 https://pkg.jenkins.io/debian-stable binary/ InRelease
+Get:5 https://pkg.jenkins.io/debian-stable binary/ Release [2044 B]
+Get:6 https://pkg.jenkins.io/debian-stable binary/ Release.gpg [833 B]
+Hit:7 http://ppa.launchpad.net/openjdk-r/ppa/ubuntu focal InRelease
+Hit:8 http://security.ubuntu.com/ubuntu focal-security InRelease
+Get:9 https://pkg.jenkins.io/debian-stable binary/ Packages [20.9 kB]
+Fetched 23.8 kB in 1s (44.3 kB/s)
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+15 packages can be upgraded. Run 'apt list --upgradable' to see them.
+root@ip-172-31-29-158:~# sudo apt install jenkins -y
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+The following additional packages will be installed:
+  daemon
+The following NEW packages will be installed:
+  daemon jenkins
+0 upgraded, 2 newly installed, 0 to remove and 15 not upgraded.
+Need to get 72.0 MB of archives.
+After this operation, 72.7 MB of additional disk space will be used.
+Get:1 http://us-east-2.ec2.archive.ubuntu.com/ubuntu focal/universe amd64 daemon         amd64 0.6.4-1build2 [96.3 kB]
+Get:2 https://pkg.jenkins.io/debian-stable binary/ jenkins 2.303.3 [71.9 MB]
+Fetched 72.0 MB in 16s (4371 kB/s)
+Selecting previously unselected package daemon.
+(Reading database ... 98144 files and directories currently installed.)
+Preparing to unpack .../daemon_0.6.4-1build2_amd64.deb ...
+Unpacking daemon (0.6.4-1build2) ...
+Selecting previously unselected package jenkins.
+Preparing to unpack .../jenkins_2.303.3_all.deb ...
+Unpacking jenkins (2.303.3) ...
+Setting up daemon (0.6.4-1build2) ...
+Setting up jenkins (2.303.3) ...
+
+Configuration file '/etc/default/jenkins'
+ ==> File on system created by you or by a script.
+ ==> File also in package provided by package maintainer.
+   What would you like to do about it ?  Your options are:
+    Y or I  : install the package maintainer's version
+    N or O  : keep your currently-installed version
+      D     : show the differences between the versions
+      Z     : start a shell to examine the situation
+ The default action is to keep your current version.
+*** jenkins (Y/I/N/O/D/Z) [default=N] ? y
+Installing new version of config file /etc/default/jenkins ...
+Processing triggers for man-db (2.9.1-1) ...
+Processing triggers for systemd (245.4-4ubuntu3.13) ...
+root@ip-172-31-29-158:~# sudo systemctl start jenkins
+root@ip-172-31-29-158:~# sudo systemctl enable jenkins
+jenkins.service is not a native service, redirecting to systemd-sysv-install.
+Executing: /lib/systemd/systemd-sysv-install enable jenkins
+root@ip-172-31-29-158:~# sudo apt-get update
+Hit:1 http://us-east-2.ec2.archive.ubuntu.com/ubuntu focal InRelease
+Hit:2 http://us-east-2.ec2.archive.ubuntu.com/ubuntu focal-updates InRelease
+Hit:3 http://us-east-2.ec2.archive.ubuntu.com/ubuntu focal-backports InRelease
+Ign:4 https://pkg.jenkins.io/debian-stable binary/ InRelease
+Hit:5 https://pkg.jenkins.io/debian-stable binary/ Release
+Hit:6 http://security.ubuntu.com/ubuntu focal-security InRelease
+Hit:7 http://ppa.launchpad.net/openjdk-r/ppa/ubuntu focal InRelease
+Reading package lists... Done
+root@ip-172-31-29-158:~# sudo apt-get install nginx -y
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+nginx is already the newest version (1.18.0-0ubuntu1.2).
+0 upgraded, 0 newly installed, 0 to remove and 15 not upgraded.
+root@ip-172-31-29-158:~# sudo a2enmod proxy
+sudo: a2enmod: command not found
+root@ip-172-31-29-158:~# cd /etc/nginx/
+root@ip-172-31-29-158:/etc/nginx# ls
+conf.d          koi-win            nginx.conf       sites-enabled
+fastcgi.conf    mime.types         proxy_params     snippets
+fastcgi_params  modules-available  scgi_params      uwsgi_params
+koi-utf         modules-enabled    sites-available  win-utf
+root@ip-172-31-29-158:/etc/nginx# cd conf.d/
+root@ip-172-31-29-158:/etc/nginx/conf.d# ls
+root@ip-172-31-29-158:/etc/nginx/conf.d# cd ..
+root@ip-172-31-29-158:/etc/nginx# cd sites-available/
+root@ip-172-31-29-158:/etc/nginx/sites-available# ls
+default  www.saijenkins.info
+root@ip-172-31-29-158:/etc/nginx/sites-available# rm -rf www.saijenkins.info
+root@ip-172-31-29-158:/etc/nginx/sites-available# ls
+default
+root@ip-172-31-29-158:/etc/nginx/sites-available# cd ..
+root@ip-172-31-29-158:/etc/nginx# cd sites-available/
+root@ip-172-31-29-158:/etc/nginx/sites-available# vi default
+root@ip-172-31-29-158:/etc/nginx/sites-available# vi saijenkins.info
+root@ip-172-31-29-158:/etc/nginx/sites-available# sudo nginx -t
+nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
+nginx: configuration file /etc/nginx/nginx.conf test is successful
+root@ip-172-31-29-158:/etc/nginx/sites-available# sudo vi /etc/default/jenkins
+root@ip-172-31-29-158:/etc/nginx/sites-available# sudo systemctl restart jenkins
+Job for jenkins.service failed because the control process exited with error cod        e.
+See "systemctl status jenkins.service" and "journalctl -xe" for details.
+root@ip-172-31-29-158:/etc/nginx/sites-available# service jenkins status
+● jenkins.service - LSB: Start Jenkins at boot time
+     Loaded: loaded (/etc/init.d/jenkins; generated)
+     Active: failed (Result: exit-code) since Thu 2021-11-25 07:49:54 UTC; 1min 39s ago
+       Docs: man:systemd-sysv-generator(8)
+    Process: 18977 ExecStart=/etc/init.d/jenkins start (code=exited, status=7)
+
+Nov 25 07:49:53 ip-172-31-29-158 systemd[1]: Starting LSB: Start Jenkins at boot time...
+Nov 25 07:49:53 ip-172-31-29-158 jenkins[18977]: Correct java version found
+Nov 25 07:49:53 ip-172-31-29-158 jenkins[18977]:  * Starting Jenkins Automation Server j
+Nov 25 07:49:53 ip-172-31-29-158 su[19017]: (to jenkins) root on none
+Nov 25 07:49:53 ip-172-31-29-158 su[19017]: pam_unix(su-l:session): session opened for u
+Nov 25 07:49:53 ip-172-31-29-158 su[19017]: pam_unix(su-l:session): session closed for u
+Nov 25 07:49:54 ip-172-31-29-158 jenkins[18977]:    ...fail!
+Nov 25 07:49:54 ip-172-31-29-158 systemd[1]: jenkins.service: Control process exited, co
+Nov 25 07:49:54 ip-172-31-29-158 systemd[1]: jenkins.service: Failed with result 'exit-c
+Nov 25 07:49:54 ip-172-31-29-158 systemd[1]: Failed to start LSB: Start Jenkins at boot
+root@ip-172-31-29-158:/etc/nginx/sites-available# service jenkins start
+Job for jenkins.service failed because the control process exited with error code.
+See "systemctl status jenkins.service" and "journalctl -xe" for details.
+root@ip-172-31-29-158:/etc/nginx/sites-available# service jenkins status
+● jenkins.service - LSB: Start Jenkins at boot time
+     Loaded: loaded (/etc/init.d/jenkins; generated)
+     Active: failed (Result: exit-code) since Thu 2021-11-25 07:52:10 UTC; 34s ago
+       Docs: man:systemd-sysv-generator(8)
+    Process: 19068 ExecStart=/etc/init.d/jenkins start (code=exited, status=7)
+
+Nov 25 07:52:09 ip-172-31-29-158 systemd[1]: Starting LSB: Start Jenkins at boot time...
+Nov 25 07:52:09 ip-172-31-29-158 jenkins[19068]: Correct java version found
+Nov 25 07:52:09 ip-172-31-29-158 jenkins[19068]:  * Starting Jenkins Automation Server j
+Nov 25 07:52:09 ip-172-31-29-158 su[19107]: (to jenkins) root on none
+Nov 25 07:52:09 ip-172-31-29-158 su[19107]: pam_unix(su-l:session): session opened for u
+Nov 25 07:52:09 ip-172-31-29-158 su[19107]: pam_unix(su-l:session): session closed for u
+Nov 25 07:52:10 ip-172-31-29-158 jenkins[19068]:    ...fail!
+Nov 25 07:52:10 ip-172-31-29-158 systemd[1]: jenkins.service: Control process exited, co
+Nov 25 07:52:10 ip-172-31-29-158 systemd[1]: jenkins.service: Failed with result 'exit-c
+Nov 25 07:52:10 ip-172-31-29-158 systemd[1]: Failed to start LSB: Start Jenkins at boot
+root@ip-172-31-29-158:/etc/nginx/sites-available# cd /etc/inti.d
+-bash: cd: /etc/inti.d: No such file or directory
+root@ip-172-31-29-158:/etc/nginx/sites-available# cd /etc
+root@ip-172-31-29-158:/etc# sudo vi /etc/default/jenkins
+root@ip-172-31-29-158:/etc# cd init
+-bash: cd: init: No such file or directory
+root@ip-172-31-29-158:/etc# cd init.d/
+root@ip-172-31-29-158:/etc/init.d# ls
+acpid     atd               cryptdisks        grub-common  irqbalance  keyboard-setup.sh
+apparmor  console-setup.sh  cryptdisks-early  hibagent     iscsid      kmod
+apport    cron              dbus              hwclock.sh   jenkins     lvm2
+root@ip-172-31-29-158:/etc/init.d# service jenkins start
+root@ip-172-31-29-158:/etc/init.d# service jenkins restart
+root@ip-172-31-29-158:/etc/init.d# service jenkins status
+● jenkins.service - LSB: Start Jenkins at boot time
+     Loaded: loaded (/etc/init.d/jenkins; generated)
+     Active: active (exited) since Thu 2021-11-25 07:56:28 UTC; 17s ago
+       Docs: man:systemd-sysv-generator(8)
+    Process: 19365 ExecStart=/etc/init.d/jenkins start (code=exited, status=0/S>
+
+Nov 25 07:56:27 ip-172-31-29-158 systemd[1]: Starting LSB: Start Jenkins at boo>
+Nov 25 07:56:27 ip-172-31-29-158 jenkins[19365]: /etc/default/jenkins: line 79:>
+Nov 25 07:56:27 ip-172-31-29-158 jenkins[19365]: Correct java version found
+Nov 25 07:56:27 ip-172-31-29-158 jenkins[19365]:  * Starting Jenkins Automation>
+Nov 25 07:56:27 ip-172-31-29-158 su[19405]: (to jenkins) root on none
+Nov 25 07:56:27 ip-172-31-29-158 su[19405]: pam_unix(su-l:session): session ope>
+Nov 25 07:56:27 ip-172-31-29-158 su[19405]: pam_unix(su-l:session): session clo>
+Nov 25 07:56:28 ip-172-31-29-158 jenkins[19365]:    ...done.
+Nov 25 07:56:28 ip-172-31-29-158 systemd[1]: Started LSB: Start Jenkins at boot>
+lines 1-15/15 (END)...skipping...
+● jenkins.service - LSB: Start Jenkins at boot time
+     Loaded: loaded (/etc/init.d/jenkins; generated)
+     Active: active (exited) since Thu 2021-11-25 07:56:28 UTC; 17s ago
+       Docs: man:systemd-sysv-generator(8)
+    Process: 19365 ExecStart=/etc/init.d/jenkins start (code=exited, status=0/SUCCESS)
+
+Nov 25 07:56:27 ip-172-31-29-158 systemd[1]: Starting LSB: Start Jenkins at boot time...
+Nov 25 07:56:27 ip-172-31-29-158 jenkins[19365]: /etc/default/jenkins: line 79: .: .: is
+Nov 25 07:56:27 ip-172-31-29-158 jenkins[19365]: Correct java version found
+Nov 25 07:56:27 ip-172-31-29-158 jenkins[19365]:  * Starting Jenkins Automation Server j
+Nov 25 07:56:27 ip-172-31-29-158 su[19405]: (to jenkins) root on none
+Nov 25 07:56:27 ip-172-31-29-158 su[19405]: pam_unix(su-l:session): session opened for u
+Nov 25 07:56:27 ip-172-31-29-158 su[19405]: pam_unix(su-l:session): session closed for u
+Nov 25 07:56:28 ip-172-31-29-158 jenkins[19365]:    ...done.
+Nov 25 07:56:28 ip-172-31-29-158 systemd[1]: Started LSB: Start Jenkins at boot time.
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+
+root@ip-172-31-29-158:/etc/init.d# service nginx restart
+root@ip-172-31-29-158:/etc/init.d# service nginx status
+● nginx.service - A high performance web server and a reverse proxy server
+     Loaded: loaded (/lib/systemd/system/nginx.service; enabled; vendor preset:>
+     Active: active (running) since Thu 2021-11-25 07:57:42 UTC; 11s ago
+       Docs: man:nginx(8)
+    Process: 19502 ExecStartPre=/usr/sbin/nginx -t -q -g daemon on; master_proc>
+    Process: 19503 ExecStart=/usr/sbin/nginx -g daemon on; master_process on; (>
+   Main PID: 19504 (nginx)
+      Tasks: 5 (limit: 19194)
+     Memory: 4.5M
+     CGroup: /system.slice/nginx.service
+             ├─19504 nginx: master process /usr/sbin/nginx -g daemon on; master>
+             ├─19505 nginx: worker process
+             ├─19506 nginx: worker process
+             ├─19507 nginx: worker process
+             └─19508 nginx: worker process
+
+Nov 25 07:57:42 ip-172-31-29-158 systemd[1]: Starting A high performance web se>
+Nov 25 07:57:42 ip-172-31-29-158 systemd[1]: Started A high performance web ser>
+lines 1-18/18 (END)...skipping...
+● nginx.service - A high performance web server and a reverse proxy server
+     Loaded: loaded (/lib/systemd/system/nginx.service; enabled; vendor preset: enabled)
+     Active: active (running) since Thu 2021-11-25 07:57:42 UTC; 11s ago
+       Docs: man:nginx(8)
+    Process: 19502 ExecStartPre=/usr/sbin/nginx -t -q -g daemon on; master_process on; (
+    Process: 19503 ExecStart=/usr/sbin/nginx -g daemon on; master_process on; (code=exit
+   Main PID: 19504 (nginx)
+      Tasks: 5 (limit: 19194)
+     Memory: 4.5M
+     CGroup: /system.slice/nginx.service
+             ├─19504 nginx: master process /usr/sbin/nginx -g daemon on; master_process
+             ├─19505 nginx: worker process
+             ├─19506 nginx: worker process
+             ├─19507 nginx: worker process
+             └─19508 nginx: worker process
+
+Nov 25 07:57:42 ip-172-31-29-158 systemd[1]: Starting A high performance web server and
+Nov 25 07:57:42 ip-172-31-29-158 systemd[1]: Started A high performance web server and a
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+
+root@ip-172-31-29-158:/etc/init.d# service nginx status
+● nginx.service - A high performance web server and a reverse proxy server
+     Loaded: loaded (/lib/systemd/system/nginx.service; enabled; vendor preset: enabled)
+     Active: active (running) since Thu 2021-11-25 07:57:42 UTC; 1min 52s ago
+       Docs: man:nginx(8)
+    Process: 19502 ExecStartPre=/usr/sbin/nginx -t -q -g daemon on; master_process on; (
+    Process: 19503 ExecStart=/usr/sbin/nginx -g daemon on; master_process on; (code=exit
+   Main PID: 19504 (nginx)
+      Tasks: 5 (limit: 19194)
+     Memory: 4.5M
+     CGroup: /system.slice/nginx.service
+             ├─19504 nginx: master process /usr/sbin/nginx -g daemon on; master_process
+             ├─19505 nginx: worker process
+             ├─19506 nginx: worker process
+             ├─19507 nginx: worker process
+             └─19508 nginx: worker process
+
+Nov 25 07:57:42 ip-172-31-29-158 systemd[1]: Starting A high performance web server and
+Nov 25 07:57:42 ip-172-31-29-158 systemd[1]: Started A high performance web server and a
+root@ip-172-31-29-158:/etc/init.d# service jenkins restart
+root@ip-172-31-29-158:/etc/init.d# cd
+root@ip-172-31-29-158:~# cd /etc/nginx/sites-available/
+root@ip-172-31-29-158:/etc/nginx/sites-available# ls
+default  saijenkins.info  www.saijenkins.info.save
+root@ip-172-31-29-158:/etc/nginx/sites-available# vi saijenkins.info
+root@ip-172-31-29-158:/etc/nginx/sites-available# service jenkins restart
+root@ip-172-31-29-158:/etc/nginx/sites-available# service nginx restart
+root@ip-172-31-29-158:/etc/nginx/sites-available# service nginx status
+● nginx.service - A high performance web server and a reverse proxy server
+     Loaded: loaded (/lib/systemd/system/nginx.service; enabled; vendor preset: enabled)
+     Active: active (running) since Thu 2021-11-25 08:06:37 UTC; 11s ago
+       Docs: man:nginx(8)
+    Process: 19897 ExecStartPre=/usr/sbin/nginx -t -q -g daemon on; master_process on; (
+    Process: 19898 ExecStart=/usr/sbin/nginx -g daemon on; master_process on; (code=exit
+   Main PID: 19899 (nginx)
+      Tasks: 5 (limit: 19194)
+     Memory: 4.6M
+     CGroup: /system.slice/nginx.service
+             ├─19899 nginx: master process /usr/sbin/nginx -g daemon on; master_process
+             ├─19900 nginx: worker process
+             ├─19901 nginx: worker process
+             ├─19902 nginx: worker process
+             └─19903 nginx: worker process
+
+Nov 25 08:06:36 ip-172-31-29-158 systemd[1]: Starting A high performance web server and
+Nov 25 08:06:37 ip-172-31-29-158 systemd[1]: Started A high performance web server and a
+root@ip-172-31-29-158:/etc/nginx/sites-available# cd /etc/nginx/sites-available/
+root@ip-172-31-29-158:/etc/nginx/sites-available# ls
+default  saijenkins.info  www.saijenkins.info.save
+root@ip-172-31-29-158:/etc/nginx/sites-available# vi saijenkins.info
+root@ip-172-31-29-158:/etc/nginx/sites-available# service jenkins restart
+root@ip-172-31-29-158:/etc/nginx/sites-available# service nginx restart
+root@ip-172-31-29-158:/etc/nginx/sites-available# service nginx status
+● nginx.service - A high performance web server and a reverse proxy server
+     Loaded: loaded (/lib/systemd/system/nginx.service; enabled; vendor preset: enabled)
+     Active: active (running) since Thu 2021-11-25 08:09:53 UTC; 5s ago
+       Docs: man:nginx(8)
+    Process: 20099 ExecStartPre=/usr/sbin/nginx -t -q -g daemon on; master_process on; (
+    Process: 20100 ExecStart=/usr/sbin/nginx -g daemon on; master_process on; (code=exit
+   Main PID: 20101 (nginx)
+      Tasks: 5 (limit: 19194)
+     Memory: 4.5M
+     CGroup: /system.slice/nginx.service
+             ├─20101 nginx: master process /usr/sbin/nginx -g daemon on; master_process
+             ├─20102 nginx: worker process
+             ├─20103 nginx: worker process
+             ├─20104 nginx: worker process
+             └─20105 nginx: worker process
+
+Nov 25 08:09:53 ip-172-31-29-158 systemd[1]: Starting A high performance web server and
+Nov 25 08:09:53 ip-172-31-29-158 systemd[1]: Started A high performance web server and a
+root@ip-172-31-29-158:/etc/nginx/sites-available# vi /etc/default/jenkins
+root@ip-172-31-29-158:/etc/nginx/sites-available# vi /etc/default/jenkins
+root@ip-172-31-29-158:/etc/nginx/sites-available# service jenkins restart
+root@ip-172-31-29-158:/etc/nginx/sites-available# service nginx restart
+root@ip-172-31-29-158:/etc/nginx/sites-available# service nginx status
+● nginx.service - A high performance web server and a reverse proxy server
+     Loaded: loaded (/lib/systemd/system/nginx.service; enabled; vendor preset:>
+     Active: active (running) since Thu 2021-11-25 08:28:07 UTC; 6s ago
+       Docs: man:nginx(8)
+    Process: 20335 ExecStartPre=/usr/sbin/nginx -t -q -g daemon on; master_proc>
+    Process: 20336 ExecStart=/usr/sbin/nginx -g daemon on; master_process on; (>
+   Main PID: 20337 (nginx)
+      Tasks: 5 (limit: 19194)
+     Memory: 4.5M
+     CGroup: /system.slice/nginx.service
+             ├─20337 nginx: master process /usr/sbin/nginx -g daemon on; master>
+             ├─20338 nginx: worker process
+             ├─20339 nginx: worker process
+             ├─20340 nginx: worker process
+             └─20341 nginx: worker process
+
+Nov 25 08:28:07 ip-172-31-29-158 systemd[1]: Starting A high performance web se>
+Nov 25 08:28:07 ip-172-31-29-158 systemd[1]: Started A high performance web ser>
+
+root@ip-172-31-29-158:/etc/nginx/sites-available# vi saijenkins.info
+root@ip-172-31-29-158:/etc/nginx/sites-available# service jenkins restart
+root@ip-172-31-29-158:/etc/nginx/sites-available# service nginx restart
+root@ip-172-31-29-158:/etc/nginx/sites-available# service nginx status
+● nginx.service - A high performance web server and a reverse proxy server
+     Loaded: loaded (/lib/systemd/system/nginx.service; enabled; vendor preset: enabled)
+     Active: active (running) since Thu 2021-11-25 08:30:47 UTC; 5s ago
+       Docs: man:nginx(8)
+    Process: 20525 ExecStartPre=/usr/sbin/nginx -t -q -g daemon on; master_process on; (
+    Process: 20526 ExecStart=/usr/sbin/nginx -g daemon on; master_process on; (code=exit
+   Main PID: 20527 (nginx)
+      Tasks: 5 (limit: 19194)
+     Memory: 4.5M
+     CGroup: /system.slice/nginx.service
+             ├─20527 nginx: master process /usr/sbin/nginx -g daemon on; master_process
+             ├─20528 nginx: worker process
+             ├─20529 nginx: worker process
+             ├─20530 nginx: worker process
+             └─20531 nginx: worker process
+
+Nov 25 08:30:47 ip-172-31-29-158 systemd[1]: Starting A high performance web server and
+Nov 25 08:30:47 ip-172-31-29-158 systemd[1]: Started A high performance web server and a
+root@ip-172-31-29-158:/etc/nginx/sites-available# cd
+root@ip-172-31-29-158:~# ufw allow 'Nginx Full'
+Rules updated
+Rules updated (v6)
+root@ip-172-31-29-158:~# ufw status
+Status: inactive
+root@ip-172-31-29-158:~# ufw enable
+Command may disrupt existing ssh connections. Proceed with operation (y|n)? y
+Firewall is active and enabled on system startup
+root@ip-172-31-29-158:~# ufw status
+Status: active
+
+To                         Action      From
+--                         ------      ----
+Nginx Full                 ALLOW       Anywhere
+Nginx Full (v6)            ALLOW       Anywhere (v6)
+
+root@ip-172-31-29-158:~# service jenkins restart
+root@ip-172-31-29-158:~# service nginx restart
+root@ip-172-31-29-158:~# service nginx status
+● nginx.service - A high performance web server and a reverse proxy server
+     Loaded: loaded (/lib/systemd/system/nginx.service; enabled; vendor preset:>
+     Active: active (running) since Thu 2021-11-25 08:34:24 UTC; 6s ago
+       Docs: man:nginx(8)
+    Process: 20893 ExecStartPre=/usr/sbin/nginx -t -q -g daemon on; master_proc>
+    Process: 20894 ExecStart=/usr/sbin/nginx -g daemon on; master_process on; (>
+   Main PID: 20895 (nginx)
+      Tasks: 5 (limit: 19194)
+     Memory: 4.5M
+     CGroup: /system.slice/nginx.service
+             ├─20895 nginx: master process /usr/sbin/nginx -g daemon on; master>
+             ├─20896 nginx: worker process
+             ├─20897 nginx: worker process
+             ├─20898 nginx: worker process
+             └─20899 nginx: worker process
+
+Nov 25 08:34:24 ip-172-31-29-158 systemd[1]: Starting A high performance web se>
+Nov 25 08:34:24 ip-172-31-29-158 systemd[1]: Started A high performance web ser>
+
+root@ip-172-31-29-158:~# cd /etc/nginx/sites-available/
+root@ip-172-31-29-158:/etc/nginx/sites-available# ls
+default  saijenkins.info  www.saijenkins.info.save
+root@ip-172-31-29-158:/etc/nginx/sites-available# cp default /opt
+root@ip-172-31-29-158:/etc/nginx/sites-available# ls /opt
+default
+root@ip-172-31-29-158:/etc/nginx/sites-available# rm -rf default
+root@ip-172-31-29-158:/etc/nginx/sites-available# ls
+saijenkins.info  www.saijenkins.info.save
+root@ip-172-31-29-158:/etc/nginx/sites-available# cd ..
+root@ip-172-31-29-158:/etc/nginx# cd sites-enabled/
+root@ip-172-31-29-158:/etc/nginx/sites-enabled# ls
+default
+root@ip-172-31-29-158:/etc/nginx/sites-enabled# cp default /opt
+cp: cannot stat 'default': No such file or directory
+root@ip-172-31-29-158:/etc/nginx/sites-enabled# rm -rf default
+root@ip-172-31-29-158:/etc/nginx/sites-enabled# ls
+root@ip-172-31-29-158:/etc/nginx/sites-enabled# service jenkins restart
+root@ip-172-31-29-158:/etc/nginx/sites-enabled# service nginx restart
+root@ip-172-31-29-158:/etc/nginx/sites-enabled# service nginx status
+● nginx.service - A high performance web server and a reverse proxy server
+     Loaded: loaded (/lib/systemd/system/nginx.service; enabled; vendor preset:>
+     Active: active (running) since Thu 2021-11-25 08:39:17 UTC; 10s ago
+       Docs: man:nginx(8)
+    Process: 21118 ExecStartPre=/usr/sbin/nginx -t -q -g daemon on; master_proc>
+    Process: 21119 ExecStart=/usr/sbin/nginx -g daemon on; master_process on; (>
+   Main PID: 21120 (nginx)
+      Tasks: 5 (limit: 19194)
+     Memory: 4.4M
+     CGroup: /system.slice/nginx.service
+             ├─21120 nginx: master process /usr/sbin/nginx -g daemon on; master>
+             ├─21121 nginx: worker process
+             ├─21122 nginx: worker process
+             ├─21123 nginx: worker process
+             └─21124 nginx: worker process
+
+Nov 25 08:39:17 ip-172-31-29-158 systemd[1]: Starting A high performance web se>
+Nov 25 08:39:17 ip-172-31-29-158 systemd[1]: Started A high performance web ser>
+
+root@ip-172-31-29-158:/etc/nginx/sites-enabled# cd ..
+root@ip-172-31-29-158:/etc/nginx# cd sites-available/
+root@ip-172-31-29-158:/etc/nginx/sites-available# ls
+saijenkins.info  www.saijenkins.info.save
+root@ip-172-31-29-158:/etc/nginx/sites-available# vi www.saijenkins.info.save
+root@ip-172-31-29-158:/etc/nginx/sites-available# ls
+saijenkins.info  www.saijenkins.info.save
+root@ip-172-31-29-158:/etc/nginx/sites-available# rm -rf www.saijenkins.info.sav        e
+root@ip-172-31-29-158:/etc/nginx/sites-available# ls
+saijenkins.info
+root@ip-172-31-29-158:/etc/nginx/sites-available# vi saijenkins.info
+root@ip-172-31-29-158:/etc/nginx/sites-available# rm -rf saijenkins.info
+root@ip-172-31-29-158:/etc/nginx/sites-available# vi jenkins.saijenkins.info
+root@ip-172-31-29-158:/etc/nginx/sites-available# service jenkins restart
+root@ip-172-31-29-158:/etc/nginx/sites-available# nginx -t
+nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
+nginx: configuration file /etc/nginx/nginx.conf test is successful
+root@ip-172-31-29-158:/etc/nginx/sites-available# service ngnix restart
+Failed to restart ngnix.service: Unit ngnix.service not found.
+root@ip-172-31-29-158:/etc/nginx/sites-available# service nginx restart
+root@ip-172-31-29-158:/etc/nginx/sites-available# cd
+root@ip-172-31-29-158:~# add-apt-repository ppa:certbot/certbot
+ The PPA has been DEPRECATED.
+
+To get up to date instructions on how to get certbot for your systems, please see https://certbot.eff.org/docs/install.html.
+ More info: https://launchpad.net/~certbot/+archive/ubuntu/certbot
+Press [ENTER] to continue or Ctrl-c to cancel adding it.
+
+Hit:1 http://us-east-2.ec2.archive.ubuntu.com/ubuntu focal InRelease
+Get:2 http://us-east-2.ec2.archive.ubuntu.com/ubuntu focal-updates InRelease [114 kB]
+Get:3 http://us-east-2.ec2.archive.ubuntu.com/ubuntu focal-backports InRelease [101 kB]
+Ign:4 https://pkg.jenkins.io/debian-stable binary/ InRelease
+Hit:5 https://pkg.jenkins.io/debian-stable binary/ Release
+Ign:6 http://ppa.launchpad.net/certbot/certbot/ubuntu focal InRelease
+Get:7 http://security.ubuntu.com/ubuntu focal-security InRelease [114 kB]
+Get:8 http://us-east-2.ec2.archive.ubuntu.com/ubuntu focal-updates/main amd64 Packages [1346 kB]
+Get:9 http://us-east-2.ec2.archive.ubuntu.com/ubuntu focal-updates/universe amd64 Packages [876 kB]
+Hit:10 http://ppa.launchpad.net/openjdk-r/ppa/ubuntu focal InRelease
+Err:12 http://ppa.launchpad.net/certbot/certbot/ubuntu focal Release
+  404  Not Found [IP: 91.189.95.85 80]
+Reading package lists... Done
+E: The repository 'http://ppa.launchpad.net/certbot/certbot/ubuntu focal Release' does not have a Release file.
+N: Updating from such a repository can't be done securely, and is therefore disabled by default.
+N: See apt-secure(8) manpage for repository creation and user configuration details.
+root@ip-172-31-29-158:~# apt-get update
+Hit:1 http://us-east-2.ec2.archive.ubuntu.com/ubuntu focal InRelease
+Hit:2 http://us-east-2.ec2.archive.ubuntu.com/ubuntu focal-updates InRelease
+Hit:3 http://us-east-2.ec2.archive.ubuntu.com/ubuntu focal-backports InRelease
+Hit:4 http://security.ubuntu.com/ubuntu focal-security InRelease
+Ign:5 https://pkg.jenkins.io/debian-stable binary/ InRelease
+Hit:6 https://pkg.jenkins.io/debian-stable binary/ Release
+Ign:7 http://ppa.launchpad.net/certbot/certbot/ubuntu focal InRelease
+Hit:8 http://ppa.launchpad.net/openjdk-r/ppa/ubuntu focal InRelease
+Err:10 http://ppa.launchpad.net/certbot/certbot/ubuntu focal Release
+  404  Not Found [IP: 91.189.95.85 80]
+Reading package lists... Done
+E: The repository 'http://ppa.launchpad.net/certbot/certbot/ubuntu focal Release' does not have a Release file.
+N: Updating from such a repository can't be done securely, and is therefore disabled by default.
+N: See apt-secure(8) manpage for repository creation and user configuration details.
+root@ip-172-31-29-158:~# apt-get install python-certbot-nginx
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+Package python-certbot-nginx is not available, but is referred to by another package.
+This may mean that the package is missing, has been obsoleted, or
+is only available from another source
+However the following packages replace it:
+  python3-certbot-nginx
+
+E: Package 'python-certbot-nginx' has no installation candidate
+root@ip-172-31-29-158:~# certbot --nginx certonly
+
+Command 'certbot' not found, but can be installed with:
+
+apt install certbot
+
+root@ip-172-31-29-158:~# apt install certbot
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+The following additional packages will be installed:
+  python3-acme python3-certbot python3-configargparse python3-future python3-icu
+  python3-josepy python3-mock python3-parsedatetime python3-pbr
+  python3-requests-toolbelt python3-rfc3339 python3-tz python3-zope.component
+  python3-zope.event python3-zope.hookable
+Suggested packages:
+  python3-certbot-apache python3-certbot-nginx python-certbot-doc python-acme-doc
+  python-future-doc python-mock-doc
+The following NEW packages will be installed:
+  certbot python3-acme python3-certbot python3-configargparse python3-future
+  python3-icu python3-josepy python3-mock python3-parsedatetime python3-pbr
+  python3-requests-toolbelt python3-rfc3339 python3-tz python3-zope.component
+  python3-zope.event python3-zope.hookable
+0 upgraded, 16 newly installed, 0 to remove and 15 not upgraded.
+Need to get 1152 kB of archives.
+After this operation, 6066 kB of additional disk space will be used.
+Do you want to continue? [Y/n] y
+Get:1 http://us-east-2.ec2.archive.ubuntu.com/ubuntu focal/universe amd64 python3-josepy all 1.2.0-2 [28.1 kB]
+Get:2 http://us-east-2.ec2.archive.ubuntu.com/ubuntu focal/main amd64 python3-pbr all 5.4.5-0ubuntu1 [64.0 kB]
+Get:3 http://us-east-2.ec2.archive.ubuntu.com/ubuntu focal/universe amd64 python3-mock all 3.0.5-1build1 [25.6 kB]
+Get:4 http://us-east-2.ec2.archive.ubuntu.com/ubuntu focal/universe amd64 python3-requests-toolbelt all 0.8.0-1.1 [35.2 kB]
+Get:5 http://us-east-2.ec2.archive.ubuntu.com/ubuntu focal/main amd64 python3-tz all 2019.3-1 [24.4 kB]
+Get:6 http://us-east-2.ec2.archive.ubuntu.com/ubuntu focal/main amd64 python3-rfc3339 all 1.1-2 [6808 B]
+Get:7 http://us-east-2.ec2.archive.ubuntu.com/ubuntu focal/universe amd64 python3-acme all 1.1.0-1 [29.6 kB]
+Get:8 http://us-east-2.ec2.archive.ubuntu.com/ubuntu focal/universe amd64 python3-configargparse all 0.13.0-2 [22.6 kB]
+Get:9 http://us-east-2.ec2.archive.ubuntu.com/ubuntu focal/main amd64 python3-future all 0.18.2-2 [336 kB]
+Get:10 http://us-east-2.ec2.archive.ubuntu.com/ubuntu focal/universe amd64 python3-parsedatetime all 2.4-5 [32.6 kB]
+Get:11 http://us-east-2.ec2.archive.ubuntu.com/ubuntu focal/universe amd64 python3-zope.hookable amd64 5.0.0-1build1 [11.2 kB]
+Get:12 http://us-east-2.ec2.archive.ubuntu.com/ubuntu focal/universe amd64 python3-zope.event all 4.4-2build1 [7704 B]
+Get:13 http://us-east-2.ec2.archive.ubuntu.com/ubuntu focal/universe amd64 python3-zope.component all 4.3.0-3 [38.3 kB]
+Get:14 http://us-east-2.ec2.archive.ubuntu.com/ubuntu focal-updates/universe amd64 python3-certbot all 0.40.0-1ubuntu0.1 [223 kB]
+Get:15 http://us-east-2.ec2.archive.ubuntu.com/ubuntu focal/main amd64 python3-icu amd64 2.4.2-0ubuntu3 [250 kB]
+Get:16 http://us-east-2.ec2.archive.ubuntu.com/ubuntu focal-updates/universe amd64 certbot all 0.40.0-1ubuntu0.1 [17.9 kB]
+Fetched 1152 kB in 0s (16.0 MB/s)
+Selecting previously unselected package python3-josepy.
+(Reading database ... 98163 files and directories currently installed.)
+Preparing to unpack .../00-python3-josepy_1.2.0-2_all.deb ...
+Unpacking python3-josepy (1.2.0-2) ...
+Selecting previously unselected package python3-pbr.
+Preparing to unpack .../01-python3-pbr_5.4.5-0ubuntu1_all.deb ...
+Unpacking python3-pbr (5.4.5-0ubuntu1) ...
+Selecting previously unselected package python3-mock.
+Preparing to unpack .../02-python3-mock_3.0.5-1build1_all.deb ...
+Unpacking python3-mock (3.0.5-1build1) ...
+Selecting previously unselected package python3-requests-toolbelt.
+Preparing to unpack .../03-python3-requests-toolbelt_0.8.0-1.1_all.deb ...
+Unpacking python3-requests-toolbelt (0.8.0-1.1) ...
+Selecting previously unselected package python3-tz.
+Preparing to unpack .../04-python3-tz_2019.3-1_all.deb ...
+Unpacking python3-tz (2019.3-1) ...
+Selecting previously unselected package python3-rfc3339.
+Preparing to unpack .../05-python3-rfc3339_1.1-2_all.deb ...
+Unpacking python3-rfc3339 (1.1-2) ...
+Selecting previously unselected package python3-acme.
+Preparing to unpack .../06-python3-acme_1.1.0-1_all.deb ...
+Unpacking python3-acme (1.1.0-1) ...
+Selecting previously unselected package python3-configargparse.
+Preparing to unpack .../07-python3-configargparse_0.13.0-2_all.deb ...
+Unpacking python3-configargparse (0.13.0-2) ...
+Selecting previously unselected package python3-future.
+Preparing to unpack .../08-python3-future_0.18.2-2_all.deb ...
+Unpacking python3-future (0.18.2-2) ...
+Selecting previously unselected package python3-parsedatetime.
+Preparing to unpack .../09-python3-parsedatetime_2.4-5_all.deb ...
+Unpacking python3-parsedatetime (2.4-5) ...
+Selecting previously unselected package python3-zope.hookable.
+Preparing to unpack .../10-python3-zope.hookable_5.0.0-1build1_amd64.deb ...
+Unpacking python3-zope.hookable (5.0.0-1build1) ...
+Selecting previously unselected package python3-zope.event.
+Preparing to unpack .../11-python3-zope.event_4.4-2build1_all.deb ...
+Unpacking python3-zope.event (4.4-2build1) ...
+Selecting previously unselected package python3-zope.component.
+Preparing to unpack .../12-python3-zope.component_4.3.0-3_all.deb ...
+Unpacking python3-zope.component (4.3.0-3) ...
+Selecting previously unselected package python3-certbot.
+Preparing to unpack .../13-python3-certbot_0.40.0-1ubuntu0.1_all.deb ...
+Unpacking python3-certbot (0.40.0-1ubuntu0.1) ...
+Selecting previously unselected package python3-icu.
+Preparing to unpack .../14-python3-icu_2.4.2-0ubuntu3_amd64.deb ...
+Unpacking python3-icu (2.4.2-0ubuntu3) ...
+Selecting previously unselected package certbot.
+Preparing to unpack .../15-certbot_0.40.0-1ubuntu0.1_all.deb ...
+Unpacking certbot (0.40.0-1ubuntu0.1) ...
+Setting up python3-configargparse (0.13.0-2) ...
+Setting up python3-requests-toolbelt (0.8.0-1.1) ...
+Setting up python3-icu (2.4.2-0ubuntu3) ...
+Setting up python3-zope.event (4.4-2build1) ...
+Setting up python3-pbr (5.4.5-0ubuntu1) ...
+update-alternatives: using /usr/bin/python3-pbr to provide /usr/bin/pbr (pbr) in auto mode
+Setting up python3-tz (2019.3-1) ...
+Setting up python3-mock (3.0.5-1build1) ...
+Setting up python3-zope.hookable (5.0.0-1build1) ...
+Setting up python3-josepy (1.2.0-2) ...
+Setting up python3-future (0.18.2-2) ...
+update-alternatives: using /usr/bin/python3-futurize to provide /usr/bin/futurize (futurize) in auto mode
+update-alternatives: using /usr/bin/python3-pasteurize to provide /usr/bin/pasteurize (pasteurize) in auto mode
+Setting up python3-rfc3339 (1.1-2) ...
+Setting up python3-parsedatetime (2.4-5) ...
+Setting up python3-zope.component (4.3.0-3) ...
+Setting up python3-acme (1.1.0-1) ...
+Setting up python3-certbot (0.40.0-1ubuntu0.1) ...
+Setting up certbot (0.40.0-1ubuntu0.1) ...
+Created symlink /etc/systemd/system/timers.target.wants/certbot.timer → /lib/systemd/system/certbot.timer.
+Processing triggers for man-db (2.9.1-1) ...
+root@ip-172-31-29-158:~# certbot --nginx certonly
+Saving debug log to /var/log/letsencrypt/letsencrypt.log
+Could not choose appropriate plugin: The requested nginx plugin does not appear to be installed
+The requested nginx plugin does not appear to be installed
+root@ip-172-31-29-158:~# cd /etc/nginx/sites-available/
+root@ip-172-31-29-158:/etc/nginx/sites-available# ls
+jenkins.saijenkins.info
+root@ip-172-31-29-158:/etc/nginx/sites-available# service nginx restart
+root@ip-172-31-29-158:/etc/nginx/sites-available# service jenkins restart
+root@ip-172-31-29-158:/etc/nginx/sites-available# certbot --nginx certonly
+Saving debug log to /var/log/letsencrypt/letsencrypt.log
+Could not choose appropriate plugin: The requested nginx plugin does not appear to be in
+The requested nginx plugin does not appear to be installed
+root@ip-172-31-29-158:/etc/nginx/sites-available# ls
+jenkins.saijenkins.info
+root@ip-172-31-29-158:/etc/nginx/sites-available# rm -rf jenkins.saijenkins.info
+root@ip-172-31-29-158:/etc/nginx/sites-available# vi saijenkins.info
+root@ip-172-31-29-158:/etc/nginx/sites-available# ls
+saijenkins.info
+root@ip-172-31-29-158:/etc/nginx/sites-available# service jenkins restart
+root@ip-172-31-29-158:/etc/nginx/sites-available# service nginx restart
+root@ip-172-31-29-158:/etc/nginx/sites-available# service nginx status
+● nginx.service - A high performance web server and a reverse proxy server
+     Loaded: loaded (/lib/systemd/system/nginx.service; enabled; vendor preset: enabled)
+     Active: active (running) since Thu 2021-11-25 09:28:24 UTC; 14s ago
+       Docs: man:nginx(8)
+    Process: 23409 ExecStartPre=/usr/sbin/nginx -t -q -g daemon on; master_process on; >
+    Process: 23410 ExecStart=/usr/sbin/nginx -g daemon on; master_process on; (code=exi>
+   Main PID: 23411 (nginx)
+      Tasks: 5 (limit: 19194)
+     Memory: 4.4M
+     CGroup: /system.slice/nginx.service
+             ├─23411 nginx: master process /usr/sbin/nginx -g daemon on; master_process>
+             ├─23412 nginx: worker process
+             ├─23413 nginx: worker process
+             ├─23414 nginx: worker process
+             └─23415 nginx: worker process
+
+Nov 25 09:28:24 ip-172-31-29-158 systemd[1]: Starting A high performance web server and>
+Nov 25 09:28:24 ip-172-31-29-158 systemd[1]: Started A high performance web server and >
+
+root@ip-172-31-29-158:/etc/nginx/sites-available# nginx -t
+nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
+nginx: configuration file /etc/nginx/nginx.conf test is successful
+root@ip-172-31-29-158:/etc/nginx/sites-available# service jenkins restart
+root@ip-172-31-29-158:/etc/nginx/sites-available# service jenkins status
+● jenkins.service - LSB: Start Jenkins at boot time
+     Loaded: loaded (/etc/init.d/jenkins; generated)
+     Active: active (exited) since Thu 2021-11-25 09:36:32 UTC; 16s ago
+       Docs: man:systemd-sysv-generator(8)
+    Process: 23481 ExecStart=/etc/init.d/jenkins start (code=exited, status=0/SUCCESS)
+
+Nov 25 09:36:30 ip-172-31-29-158 systemd[1]: Starting LSB: Start Jenkins at boot time...
+Nov 25 09:36:30 ip-172-31-29-158 jenkins[23481]: /etc/default/jenkins: line 79: .: .: i>
+Nov 25 09:36:30 ip-172-31-29-158 jenkins[23481]: Correct java version found
+Nov 25 09:36:30 ip-172-31-29-158 jenkins[23481]:  * Starting Jenkins Automation Server >
+Nov 25 09:36:30 ip-172-31-29-158 su[23521]: (to jenkins) root on none
+Nov 25 09:36:30 ip-172-31-29-158 su[23521]: pam_unix(su-l:session): session opened for >
+Nov 25 09:36:30 ip-172-31-29-158 su[23521]: pam_unix(su-l:session): session closed for >
+Nov 25 09:36:32 ip-172-31-29-158 jenkins[23481]:    ...done.
+Nov 25 09:36:32 ip-172-31-29-158 systemd[1]: Started LSB: Start Jenkins at boot time.
+
+root@ip-172-31-29-158:/etc/nginx/sites-available# ^C
+root@ip-172-31-29-158:/etc/nginx/sites-available# service nginx restart
+root@ip-172-31-29-158:/etc/nginx/sites-available# service nginx status
+● nginx.service - A high performance web server and a reverse proxy server
+     Loaded: loaded (/lib/systemd/system/nginx.service; enabled; vendor preset: enabled)
+     Active: active (running) since Thu 2021-11-25 09:37:42 UTC; 16s ago
+       Docs: man:nginx(8)
+    Process: 23618 ExecStartPre=/usr/sbin/nginx -t -q -g daemon on; master_process on; >
+    Process: 23619 ExecStart=/usr/sbin/nginx -g daemon on; master_process on; (code=exi>
+   Main PID: 23620 (nginx)
+      Tasks: 5 (limit: 19194)
+     Memory: 4.4M
+     CGroup: /system.slice/nginx.service
+             ├─23620 nginx: master process /usr/sbin/nginx -g daemon on; master_process>
+             ├─23621 nginx: worker process
+             ├─23622 nginx: worker process
+             ├─23623 nginx: worker process
+             └─23624 nginx: worker process
+
+Nov 25 09:37:42 ip-172-31-29-158 systemd[1]: Starting A high performance web server and>
+Nov 25 09:37:42 ip-172-31-29-158 systemd[1]: Started A high performance web server and >
+
+root@ip-172-31-29-158:/etc/nginx/sites-available# service nginx restart
+root@ip-172-31-29-158:/etc/nginx/sites-available# service nginx stop
+root@ip-172-31-29-158:/etc/nginx/sites-available# service nginx start
+root@ip-172-31-29-158:/etc/nginx/sites-available# service jenkins stop
+root@ip-172-31-29-158:/etc/nginx/sites-available# service jenkins start
+root@ip-172-31-29-158:/etc/nginx/sites-available# service jenkins status
+● jenkins.service - LSB: Start Jenkins at boot time
+     Loaded: loaded (/etc/init.d/jenkins; generated)
+     Active: active (exited) since Thu 2021-11-25 09:52:55 UTC; 7s ago
+       Docs: man:systemd-sysv-generator(8)
+    Process: 23746 ExecStart=/etc/init.d/jenkins start (code=exited, status=0/SUCCESS)
+
+Nov 25 09:52:53 ip-172-31-29-158 systemd[1]: Starting LSB: Start Jenkins at boot time...
+Nov 25 09:52:53 ip-172-31-29-158 jenkins[23746]: /etc/default/jenkins: line 79: .: .: i>
+Nov 25 09:52:54 ip-172-31-29-158 jenkins[23746]: Correct java version found
+Nov 25 09:52:54 ip-172-31-29-158 jenkins[23746]:  * Starting Jenkins Automation Server >
+Nov 25 09:52:54 ip-172-31-29-158 su[23785]: (to jenkins) root on none
+Nov 25 09:52:54 ip-172-31-29-158 su[23785]: pam_unix(su-l:session): session opened for >
+Nov 25 09:52:54 ip-172-31-29-158 su[23785]: pam_unix(su-l:session): session closed for >
+Nov 25 09:52:55 ip-172-31-29-158 jenkins[23746]:    ...done.
+Nov 25 09:52:55 ip-172-31-29-158 systemd[1]: Started LSB: Start Jenkins at boot time.
+lines 1-15/15 (END)...skipping...
+● jenkins.service - LSB: Start Jenkins at boot time
+     Loaded: loaded (/etc/init.d/jenkins; generated)
+     Active: active (exited) since Thu 2021-11-25 09:52:55 UTC; 7s ago
+       Docs: man:systemd-sysv-generator(8)
+    Process: 23746 ExecStart=/etc/init.d/jenkins start (code=exited, status=0/SUCCESS)
+
+Nov 25 09:52:53 ip-172-31-29-158 systemd[1]: Starting LSB: Start Jenkins at boot time...
+Nov 25 09:52:53 ip-172-31-29-158 jenkins[23746]: /etc/default/jenkins: line 79: .: .: is
+Nov 25 09:52:54 ip-172-31-29-158 jenkins[23746]: Correct java version found
+Nov 25 09:52:54 ip-172-31-29-158 jenkins[23746]:  * Starting Jenkins Automation Server j
+Nov 25 09:52:54 ip-172-31-29-158 su[23785]: (to jenkins) root on none
+Nov 25 09:52:54 ip-172-31-29-158 su[23785]: pam_unix(su-l:session): session opened for u
+Nov 25 09:52:54 ip-172-31-29-158 su[23785]: pam_unix(su-l:session): session closed for u
+Nov 25 09:52:55 ip-172-31-29-158 jenkins[23746]:    ...done.
+Nov 25 09:52:55 ip-172-31-29-158 systemd[1]: Started LSB: Start Jenkins at boot time.
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+lines 1-15/15 (END)
+● jenkins.service - LSB: Start Jenkins at boot time
+     Loaded: loaded (/etc/init.d/jenkins; generated)
+     Active: active (exited) since Thu 2021-11-25 09:52:55 UTC; 7s ago
+       Docs: man:systemd-sysv-generator(8)
+    Process: 23746 ExecStart=/etc/init.d/jenkins start (code=exited, status=0/SUCCESS)
+
+Nov 25 09:52:53 ip-172-31-29-158 systemd[1]: Starting LSB: Start Jenkins at boot time...
+Nov 25 09:52:53 ip-172-31-29-158 jenkins[23746]: /etc/default/jenkins: line 79: .: .: i>
+Nov 25 09:52:54 ip-172-31-29-158 jenkins[23746]: Correct java version found
+Nov 25 09:52:54 ip-172-31-29-158 jenkins[23746]:  * Starting Jenkins Automation Server >
+Nov 25 09:52:54 ip-172-31-29-158 su[23785]: (to jenkins) root on none
+Nov 25 09:52:54 ip-172-31-29-158 su[23785]: pam_unix(su-l:session): session opened for >
+Nov 25 09:52:54 ip-172-31-29-158 su[23785]: pam_unix(su-l:session): session closed for >
+Nov 25 09:52:55 ip-172-31-29-158 jenkins[23746]:    ...done.
+Nov 25 09:52:55 ip-172-31-29-158 systemd[1]: Started LSB: Start Jenkins at boot time.
+~
+~
+~
+~
+~
+~
+~
+~
+
+root@ip-172-31-29-158:/etc/nginx/sites-available# cd
+root@ip-172-31-29-158:~# cd /opt/default /etc/nginx/sites-available/
+-bash: cd: too many arguments
+root@ip-172-31-29-158:~# cp /opt/default /etc/nginx/sites-available/
+root@ip-172-31-29-158:~# service nginx restart
+root@ip-172-31-29-158:~# service jenkins restart
+root@ip-172-31-29-158:~# cd /etc/nginx/sites-available/
+root@ip-172-31-29-158:/etc/nginx/sites-available# ls
+default  saijenkins.info
+root@ip-172-31-29-158:/etc/nginx/sites-available# cp saijenkins.info /opt
+root@ip-172-31-29-158:/etc/nginx/sites-available# cd
+root@ip-172-31-29-158:~# apt purge nginx
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+The following packages were automatically installed and are no longer required:
+  libgd3 libjbig0 libnginx-mod-http-image-filter libnginx-mod-http-xslt-filter
+  libnginx-mod-mail libnginx-mod-stream libtiff5 libwebp6 nginx-common nginx-core
+Use 'apt autoremove' to remove them.
+The following packages will be REMOVED:
+  nginx*
+0 upgraded, 0 newly installed, 1 to remove and 15 not upgraded.
+After this operation, 45.1 kB disk space will be freed.
+Do you want to continue? [Y/n] y
+(Reading database ... 98932 files and directories currently installed.)
+Removing nginx (1.18.0-0ubuntu1.2) ...
+root@ip-172-31-29-158:~# cd /etc/nginx/sites-enabled/
+root@ip-172-31-29-158:/etc/nginx/sites-enabled# ls
+root@ip-172-31-29-158:/etc/nginx/sites-enabled# apt reinstall nginx
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+The following NEW packages will be installed:
+  nginx
+0 upgraded, 1 newly installed, 0 to remove and 15 not upgraded.
+Need to get 3620 B of archives.
+After this operation, 45.1 kB of additional disk space will be used.
+Get:1 http://us-east-2.ec2.archive.ubuntu.com/ubuntu focal-updates/main amd64 nginx all 1.18.0-0ubuntu1.2 [3620 B]
+Fetched 3620 B in 0s (99.7 kB/s)
+Selecting previously unselected package nginx.
+(Reading database ... 98929 files and directories currently installed.)
+Preparing to unpack .../nginx_1.18.0-0ubuntu1.2_all.deb ...
+Unpacking nginx (1.18.0-0ubuntu1.2) ...
+Setting up nginx (1.18.0-0ubuntu1.2) ...
+root@ip-172-31-29-158:/etc/nginx/sites-enabled# ls
+root@ip-172-31-29-158:/etc/nginx/sites-enabled# cd
+root@ip-172-31-29-158:~# apt remove nginx
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+The following packages were automatically installed and are no longer required:
+  libgd3 libjbig0 libnginx-mod-http-image-filter libnginx-mod-http-xslt-filter
+  libnginx-mod-mail libnginx-mod-stream libtiff5 libwebp6 nginx-common nginx-core
+Use 'apt autoremove' to remove them.
+The following packages will be REMOVED:
+  nginx
+0 upgraded, 0 newly installed, 1 to remove and 15 not upgraded.
+After this operation, 45.1 kB disk space will be freed.
+Do you want to continue? [Y/n] y
+(Reading database ... 98932 files and directories currently installed.)
+Removing nginx (1.18.0-0ubuntu1.2) ...
+root@ip-172-31-29-158:~# cd /etc/nginx/sites-enabled/
+root@ip-172-31-29-158:/etc/nginx/sites-enabled# ls
+root@ip-172-31-29-158:/etc/nginx/sites-enabled# cd /etc
+root@ip-172-31-29-158:/etc# rm -rf nginx/
+root@ip-172-31-29-158:/etc# ls
+NetworkManager                 hosts.allow             polkit-1
+PackageKit                     hosts.deny              pollinate
+X11                            init.d                  popularity-contest.conf
+acpi                           initramfs-tools         profile
+adduser.conf                   inputrc                 profile.d
+alternatives                   iproute2                protocols
+apparmor                       iscsi                   python3
+apparmor.d                     issue                   python3.8
+apport                         issue.net               rc0.d
+apt                            java-11-openjdk         rc1.d
+at.deny                        kernel                  rc2.d
+bash.bashrc                    kernel-img.conf         rc3.d
+bash_completion                landscape               rc4.d
+bash_completion.d              ld.so.cache             rc5.d
+bindresvport.blacklist         ld.so.conf              rc6.d
+binfmt.d                       ld.so.conf.d            rcS.d
+byobu                          ldap                    resolv.conf
+ca-certificates                legal                   rmt
+ca-certificates.conf           letsencrypt             rpc
+ca-certificates.conf.dpkg-old  libaudit.conf           rsyslog.conf
+calendar                       libblockdev             rsyslog.d
+cloud                          locale.alias            screenrc
+console-setup                  locale.gen              security
+cron.d                         localtime               selinux
+cron.daily                     logcheck                sensors.d
+cron.hourly                    login.defs              sensors3.conf
+cron.monthly                   logrotate.conf          services
+cron.weekly                    logrotate.d             shadow
+crontab                        lsb-release             shadow-
+cryptsetup-initramfs           ltrace.conf             shells
+crypttab                       lvm                     skel
+daemon.conf                    machine-id              sos
+dbus-1                         magic                   ssh
+dconf                          magic.mime              ssl
+debconf.conf                   mailcap                 subgid
+debian_version                 mailcap.order           subgid-
+default                        manpath.config          subuid
+deluser.conf                   maven                   subuid-
+depmod.d                       mdadm                   sudoers
+dhcp                           mime.types              sudoers.d
+dpkg                           mke2fs.conf             sysctl.conf
+e2scrub.conf                   modprobe.d              sysctl.d
+ec2_version                    modules                 systemd
+environment                    modules-load.d          terminfo
+environment.d                  mtab                    timezone
+ethertypes                     multipath.conf          tmpfiles.d
+fonts                          nanorc                  ubuntu-advantage
+fstab                          netplan                 ucf.conf
+fuse.conf                      network                 udev
+fwupd                          networkd-dispatcher     udisks2
+gai.conf                       networks                ufw
+groff                          newt                    update-manager
+group                          nsswitch.conf           update-motd.d
+group-                         opt                     update-notifier
+grub.d                         os-release              vim
+gshadow                        overlayroot.conf        vmware-tools
+gshadow-                       overlayroot.local.conf  vtrgb
+gss                            pam.conf                vulkan
+hdparm.conf                    pam.d                   wgetrc
+hibagent-config.cfg            passwd                  xattr.conf
+hibinit-config.cfg             passwd-                 xdg
+host.conf                      perl                    zsh_command_not_found
+hostname                       pki
+hosts                          pm
+root@ip-172-31-29-158:/etc# cd
+root@ip-172-31-29-158:~# apt reinstal nginx
+E: Invalid operation reinstal
+root@ip-172-31-29-158:~# apt reinstall nginx
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+The following NEW packages will be installed:
+  nginx
+0 upgraded, 1 newly installed, 0 to remove and 15 not upgraded.
+Need to get 3620 B of archives.
+After this operation, 45.1 kB of additional disk space will be used.
+Get:1 http://us-east-2.ec2.archive.ubuntu.com/ubuntu focal-updates/main amd64 nginx all 1.18.0-0ubuntu1.2 [3620 B]
+Fetched 3620 B in 0s (253 kB/s)
+Selecting previously unselected package nginx.
+(Reading database ... 98929 files and directories currently installed.)
+Preparing to unpack .../nginx_1.18.0-0ubuntu1.2_all.deb ...
+Unpacking nginx (1.18.0-0ubuntu1.2) ...
+Setting up nginx (1.18.0-0ubuntu1.2) ...
+root@ip-172-31-29-158:~# cd /etc
+root@ip-172-31-29-158:/etc# history
+    1  apt install net-tools -y
+    2  apt update -y
+    3  ls
+    4  cd /opt
+    5  ls
+    6  rm -rf apache-maven-3.5.3/
+    7  rm -rf apache-tomcat-8.5.3/
+    8  rm -rf jenkins.war
+    9  ls
+   10  cd /
+   11  cd
+   12  sudo yum update
+   13  yum update -y
+   14  apt install java -y
+   15  sudo apt install java -y
+   16  sudo apt-get install software-properties-common apt-transport-https -y
+   17  sudo add-apt-repository ppa:openjdk-r/ppa -y
+   18  sudo apt install openjdk-11-jdk -y
+   19  java -version
+   20  wget -q -O - https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo apt-key add -
+   21  echo 'deb https://pkg.jenkins.io/debian-stable binary/' | tee -a /etc/apt/sources.list
+   22  sudo apt update
+   23  sudo apt install jenkins -y
+   24  sudo systemctl start jenkins
+   25  sudo systemctl enable jenkins
+   26  sudo apt-get update
+   27  sudo apt-get install nginx -y
+   28  sudo a2enmod proxy
+   29  cd /etc/nginx/
+   30  ls
+   31  cd conf.d/
+   32  ls
+   33  cd ..
+   34  cd sites-available/
+   35  ls
+   36  rm -rf www.saijenkins.info
+   37  ls
+   38  cd ..
+   39  cd sites-available/
+   40  vi default
+   41  vi saijenkins.info
+   42  sudo nginx -t
+   43  sudo vi /etc/default/jenkins
+   44  sudo systemctl restart jenkins
+   45  service jenkins status
+   46  service jenkins start
+   47  service jenkins status
+   48  cd /etc/inti.d
+   49  cd /etc
+   50  sudo vi /etc/default/jenkins
+   51  cd init
+   52  cd init.d/
+   53  ls
+   54  service jenkins start
+   55  service jenkins restart
+   56  service jenkins status
+   57  service nginx restart
+   58  service nginx status
+   59  service jenkins restart
+   60  cd
+   61  cd /etc/nginx/sites-available/
+   62  ls
+   63  vi saijenkins.info
+   64  service jenkins restart
+   65  service nginx restart
+   66  service nginx status
+   67  cd /etc/nginx/sites-available/
+   68  ls
+   69  vi saijenkins.info
+   70  service jenkins restart
+   71  service nginx restart
+   72  service nginx status
+   73  vi /etc/default/jenkins
+   74  service jenkins restart
+   75  service nginx restart
+   76  service nginx status
+   77  vi saijenkins.info
+   78  service jenkins restart
+   79  service nginx restart
+   80  service nginx status
+   81  cd
+   82  ufw allow 'Nginx Full'
+   83  ufw status
+   84  ufw enable
+   85  ufw status
+   86  service jenkins restart
+   87  service nginx restart
+   88  service nginx status
+   89  cd /etc/nginx/sites-available/
+   90  ls
+   91  cp default /opt
+   92  ls /opt
+   93  rm -rf default
+   94  ls
+   95  cd ..
+   96  cd sites-enabled/
+   97  ls
+   98  cp default /opt
+   99  rm -rf default
+  100  ls
+  101  service jenkins restart
+  102  service nginx restart
+  103  service nginx status
+  104  cd ..
+  105  cd sites-available/
+  106  ls
+  107  vi www.saijenkins.info.save
+  108  ls
+  109  rm -rf www.saijenkins.info.save
+  110  ls
+  111  vi saijenkins.info
+  112  rm -rf saijenkins.info
+  113  vi jenkins.saijenkins.info
+  114  service jenkins restart
+  115  nginx -t
+  116  service ngnix restart
+  117  service nginx restart
+  118  cd
+  119  add-apt-repository ppa:certbot/certbot
+  120  apt-get update
+  121  apt-get install python-certbot-nginx
+  122  certbot --nginx certonly
+  123  apt install certbot
+  124  certbot --nginx certonly
+  125  cd /etc/nginx/sites-available/
+  126  ls
+  127  service nginx restart
+  128  service jenkins restart
+  129  certbot --nginx certonly
+  130  ls
+  131  rm -rf jenkins.saijenkins.info
+  132  vi saijenkins.info
+  133  ls
+  134  service jenkins restart
+  135  service nginx restart
+  136  service nginx status
+  137  nginx -t
+  138  service jenkins restart
+  139  service jenkins status
+  140  service nginx restart
+  141  service nginx status
+  142  service nginx restart
+  143  service nginx stop
+  144  service nginx start
+  145  service jenkins stop
+  146  service jenkins start
+  147  service jenkins status
+  148  cd
+  149  cd /opt/default /etc/nginx/sites-available/
+  150  cp /opt/default /etc/nginx/sites-available/
+  151  service nginx restart
+  152  service jenkins restart
+  153  cd /etc/nginx/sites-available/
+  154  ls
+  155  cp saijenkins.info /opt
+  156  cd
+  157  apt purge nginx
+  158  cd /etc/nginx/sites-enabled/
+  159  ls
+  160  apt reinstall nginx
+  161  ls
+  162  cd
+  163  apt remove nginx
+  164  cd /etc/nginx/sites-enabled/
+  165  ls
+  166  cd /etc
+  167  rm -rf nginx/
+  168  ls
+  169  cd
+  170  apt reinstal nginx
+  171  apt reinstall nginx
+  172  cd /etc
+  173  history
+root@ip-172-31-29-158:/etc#
