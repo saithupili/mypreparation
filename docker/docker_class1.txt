@@ -1,0 +1,574 @@
+login as: ubuntu
+Authenticating with public key "imported-openssh-key"
+Welcome to Ubuntu 20.04.3 LTS (GNU/Linux 5.11.0-1020-aws x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+  System information as of Thu Dec  9 10:42:19 UTC 2021
+
+  System load:  0.52              Processes:             132
+  Usage of /:   1.4% of 96.88GB   Users logged in:       0
+  Memory usage: 1%                IPv4 address for eth0: 172.31.18.60
+  Swap usage:   0%
+
+1 update can be applied immediately.
+To see these additional updates run: apt list --upgradable
+
+
+The list of available updates is more than a week old.
+To check for new updates run: sudo apt update
+
+
+The programs included with the Ubuntu system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Ubuntu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
+applicable law.
+
+To run a command as administrator (user "root"), use "sudo <command>".
+See "man sudo_root" for details.
+
+ubuntu@ip-172-31-18-60:~$ sudo -i
+root@ip-172-31-18-60:~# apt update -y
+Hit:1 http://us-east-2.ec2.archive.ubuntu.com/ubuntu focal InRelease
+Get:2 http://us-east-2.ec2.archive.ubuntu.com/ubuntu focal-updates InRelease [11                                                                                                             4 kB]
+Get:3 http://us-east-2.ec2.archive.ubuntu.com/ubuntu focal-backports InRelease [                                                                                                             108 kB]
+Get:4 http://us-east-2.ec2.archive.ubuntu.com/ubuntu focal/universe amd64 Packag                                                                                                             es [8628 kB]
+Get:5 http://security.ubuntu.com/ubuntu focal-security InRelease [114 kB]
+Get:6 http://us-east-2.ec2.archive.ubuntu.com/ubuntu focal/universe Translation-                                                                                                             en [5124 kB]
+Get:7 http://us-east-2.ec2.archive.ubuntu.com/ubuntu focal/universe amd64 c-n-f                                                                                                              Metadata [265 kB]
+Get:8 http://us-east-2.ec2.archive.ubuntu.com/ubuntu focal/multiverse amd64 Pack                                                                                                             ages [144 kB]
+Get:9 http://us-east-2.ec2.archive.ubuntu.com/ubuntu focal/multiverse Translatio                                                                                                             n-en [104 kB]
+Get:10 http://us-east-2.ec2.archive.ubuntu.com/ubuntu focal/multiverse amd64 c-n                                                                                                             -f Metadata [9136 B]
+Get:11 http://us-east-2.ec2.archive.ubuntu.com/ubuntu focal-updates/main amd64 P                                                                                                             ackages [1391 kB]
+Get:12 http://us-east-2.ec2.archive.ubuntu.com/ubuntu focal-updates/main Transla                                                                                                             tion-en [282 kB]
+Get:13 http://us-east-2.ec2.archive.ubuntu.com/ubuntu focal-updates/main amd64 c                                                                                                             -n-f Metadata [14.6 kB]
+Get:14 http://us-east-2.ec2.archive.ubuntu.com/ubuntu focal-updates/restricted a                                                                                                             md64 Packages [607 kB]
+Get:15 http://us-east-2.ec2.archive.ubuntu.com/ubuntu focal-updates/restricted T                                                                                                             ranslation-en [86.8 kB]
+Get:16 http://us-east-2.ec2.archive.ubuntu.com/ubuntu focal-updates/restricted a                                                                                                             md64 c-n-f Metadata [528 B]
+Get:17 http://us-east-2.ec2.archive.ubuntu.com/ubuntu focal-updates/universe amd                                                                                                             64 Packages [881 kB]
+Get:18 http://us-east-2.ec2.archive.ubuntu.com/ubuntu focal-updates/universe Tra                                                                                                             nslation-en [191 kB]
+Get:19 http://us-east-2.ec2.archive.ubuntu.com/ubuntu focal-updates/universe amd                                                                                                             64 c-n-f Metadata [19.6 kB]
+Get:20 http://us-east-2.ec2.archive.ubuntu.com/ubuntu focal-updates/multiverse a                                                                                                             md64 Packages [24.8 kB]
+Get:21 http://us-east-2.ec2.archive.ubuntu.com/ubuntu focal-updates/multiverse T                                                                                                             ranslation-en [6928 B]
+Get:22 http://us-east-2.ec2.archive.ubuntu.com/ubuntu focal-updates/multiverse a                                                                                                             md64 c-n-f Metadata [616 B]
+Get:23 http://us-east-2.ec2.archive.ubuntu.com/ubuntu focal-backports/main amd64                                                                                                              Packages [41.2 kB]
+Get:24 http://us-east-2.ec2.archive.ubuntu.com/ubuntu focal-backports/main Trans                                                                                                             lation-en [9732 B]
+Get:25 http://us-east-2.ec2.archive.ubuntu.com/ubuntu focal-backports/main amd64                                                                                                              c-n-f Metadata [516 B]
+Get:26 http://us-east-2.ec2.archive.ubuntu.com/ubuntu focal-backports/restricted                                                                                                              amd64 c-n-f Metadata [116 B]
+Get:27 http://us-east-2.ec2.archive.ubuntu.com/ubuntu focal-backports/universe a                                                                                                             md64 Packages [18.9 kB]
+Get:28 http://us-east-2.ec2.archive.ubuntu.com/ubuntu focal-backports/universe T                                                                                                             ranslation-en [7524 B]
+Get:29 http://us-east-2.ec2.archive.ubuntu.com/ubuntu focal-backports/universe a                                                                                                             md64 c-n-f Metadata [644 B]
+Get:30 http://us-east-2.ec2.archive.ubuntu.com/ubuntu focal-backports/multiverse                                                                                                              amd64 c-n-f Metadata [116 B]
+Get:31 http://security.ubuntu.com/ubuntu focal-security/main amd64 Packages [106                                                                                                             4 kB]
+Get:32 http://security.ubuntu.com/ubuntu focal-security/main Translation-en [196                                                                                                              kB]
+Get:33 http://security.ubuntu.com/ubuntu focal-security/main amd64 c-n-f Metadat                                                                                                             a [9080 B]
+Get:34 http://security.ubuntu.com/ubuntu focal-security/restricted amd64 Package                                                                                                             s [560 kB]
+Get:35 http://security.ubuntu.com/ubuntu focal-security/restricted Translation-e                                                                                                             n [80.2 kB]
+Get:36 http://security.ubuntu.com/ubuntu focal-security/restricted amd64 c-n-f M                                                                                                             etadata [528 B]
+Get:37 http://security.ubuntu.com/ubuntu focal-security/universe amd64 Packages                                                                                                              [665 kB]
+Get:38 http://security.ubuntu.com/ubuntu focal-security/universe Translation-en                                                                                                              [111 kB]
+Get:39 http://security.ubuntu.com/ubuntu focal-security/universe amd64 c-n-f Met                                                                                                             adata [12.9 kB]
+Get:40 http://security.ubuntu.com/ubuntu focal-security/multiverse amd64 Package                                                                                                             s [21.9 kB]
+Get:41 http://security.ubuntu.com/ubuntu focal-security/multiverse Translation-e                                                                                                             n [4948 B]
+Get:42 http://security.ubuntu.com/ubuntu focal-security/multiverse amd64 c-n-f M                                                                                                             etadata [540 B]
+Fetched 20.9 MB in 3s (6396 kB/s)
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+40 packages can be upgraded. Run 'apt list --upgradable' to see them.
+root@ip-172-31-18-60:~# apt install docker.io -y
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+The following additional packages will be installed:
+  bridge-utils containerd dns-root-data dnsmasq-base libidn11 pigz runc
+  ubuntu-fan
+Suggested packages:
+  ifupdown aufs-tools cgroupfs-mount | cgroup-lite debootstrap docker-doc
+  rinse zfs-fuse | zfsutils
+The following NEW packages will be installed:
+  bridge-utils containerd dns-root-data dnsmasq-base docker.io libidn11 pigz
+  runc ubuntu-fan
+0 upgraded, 9 newly installed, 0 to remove and 40 not upgraded.
+Need to get 74.5 MB of archives.
+After this operation, 361 MB of additional disk space will be used.
+Get:1 http://us-east-2.ec2.archive.ubuntu.com/ubuntu focal/universe amd64 pigz a                                                                                                             md64 2.4-1 [57.4 kB]
+Get:2 http://us-east-2.ec2.archive.ubuntu.com/ubuntu focal/main amd64 bridge-uti                                                                                                             ls amd64 1.6-2ubuntu1 [30.5 kB]
+Get:3 http://us-east-2.ec2.archive.ubuntu.com/ubuntu focal-updates/main amd64 ru                                                                                                             nc amd64 1.0.1-0ubuntu2~20.04.1 [4155 kB]
+Get:4 http://us-east-2.ec2.archive.ubuntu.com/ubuntu focal-updates/main amd64 co                                                                                                             ntainerd amd64 1.5.5-0ubuntu3~20.04.1 [33.0 MB]
+Get:5 http://us-east-2.ec2.archive.ubuntu.com/ubuntu focal/main amd64 dns-root-d                                                                                                             ata all 2019052802 [5300 B]
+Get:6 http://us-east-2.ec2.archive.ubuntu.com/ubuntu focal/main amd64 libidn11 a                                                                                                             md64 1.33-2.2ubuntu2 [46.2 kB]
+Get:7 http://us-east-2.ec2.archive.ubuntu.com/ubuntu focal-updates/main amd64 dn                                                                                                             smasq-base amd64 2.80-1.1ubuntu1.4 [315 kB]
+Get:8 http://us-east-2.ec2.archive.ubuntu.com/ubuntu focal-updates/universe amd6                                                                                                             4 docker.io amd64 20.10.7-0ubuntu5~20.04.2 [36.9 MB]
+Get:9 http://us-east-2.ec2.archive.ubuntu.com/ubuntu focal/main amd64 ubuntu-fan                                                                                                              all 0.12.13 [34.5 kB]
+Fetched 74.5 MB in 2s (45.8 MB/s)
+Preconfiguring packages ...
+Selecting previously unselected package pigz.
+(Reading database ... 63754 files and directories currently installed.)
+Preparing to unpack .../0-pigz_2.4-1_amd64.deb ...
+Unpacking pigz (2.4-1) ...
+Selecting previously unselected package bridge-utils.
+Preparing to unpack .../1-bridge-utils_1.6-2ubuntu1_amd64.deb ...
+Unpacking bridge-utils (1.6-2ubuntu1) ...
+Selecting previously unselected package runc.
+Preparing to unpack .../2-runc_1.0.1-0ubuntu2~20.04.1_amd64.deb ...
+Unpacking runc (1.0.1-0ubuntu2~20.04.1) ...
+Selecting previously unselected package containerd.
+Preparing to unpack .../3-containerd_1.5.5-0ubuntu3~20.04.1_amd64.deb ...
+Unpacking containerd (1.5.5-0ubuntu3~20.04.1) ...
+Selecting previously unselected package dns-root-data.
+Preparing to unpack .../4-dns-root-data_2019052802_all.deb ...
+Unpacking dns-root-data (2019052802) ...
+Selecting previously unselected package libidn11:amd64.
+Preparing to unpack .../5-libidn11_1.33-2.2ubuntu2_amd64.deb ...
+Unpacking libidn11:amd64 (1.33-2.2ubuntu2) ...
+Selecting previously unselected package dnsmasq-base.
+Preparing to unpack .../6-dnsmasq-base_2.80-1.1ubuntu1.4_amd64.deb ...
+Unpacking dnsmasq-base (2.80-1.1ubuntu1.4) ...
+Selecting previously unselected package docker.io.
+Preparing to unpack .../7-docker.io_20.10.7-0ubuntu5~20.04.2_amd64.deb ...
+Unpacking docker.io (20.10.7-0ubuntu5~20.04.2) ...
+Selecting previously unselected package ubuntu-fan.
+Preparing to unpack .../8-ubuntu-fan_0.12.13_all.deb ...
+Unpacking ubuntu-fan (0.12.13) ...
+Setting up runc (1.0.1-0ubuntu2~20.04.1) ...
+Setting up dns-root-data (2019052802) ...
+Setting up libidn11:amd64 (1.33-2.2ubuntu2) ...
+Setting up bridge-utils (1.6-2ubuntu1) ...
+Setting up pigz (2.4-1) ...
+Setting up containerd (1.5.5-0ubuntu3~20.04.1) ...
+Created symlink /etc/systemd/system/multi-user.target.wants/containerd.service →                                                                                                              /lib/systemd/system/containerd.service.
+Setting up docker.io (20.10.7-0ubuntu5~20.04.2) ...
+Adding group `docker' (GID 119) ...
+Done.
+Created symlink /etc/systemd/system/multi-user.target.wants/docker.service → /li                                                                                                             b/systemd/system/docker.service.
+Created symlink /etc/systemd/system/sockets.target.wants/docker.socket → /lib/sy                                                                                                             stemd/system/docker.socket.
+Setting up dnsmasq-base (2.80-1.1ubuntu1.4) ...
+Setting up ubuntu-fan (0.12.13) ...
+Created symlink /etc/systemd/system/multi-user.target.wants/ubuntu-fan.service →                                                                                                              /lib/systemd/system/ubuntu-fan.service.
+Processing triggers for systemd (245.4-4ubuntu3.13) ...
+Processing triggers for man-db (2.9.1-1) ...
+Processing triggers for dbus (1.12.16-2ubuntu2.1) ...
+Processing triggers for libc-bin (2.31-0ubuntu9.2) ...
+root@ip-172-31-18-60:~# docker --version
+Docker version 20.10.7, build 20.10.7-0ubuntu5~20.04.2
+root@ip-172-31-18-60:~# docker pull nginx
+Using default tag: latest
+latest: Pulling from library/nginx
+e5ae68f74026: Pull complete
+21e0df283cd6: Pull complete
+ed835de16acd: Pull complete
+881ff011f1c9: Pull complete
+77700c52c969: Pull complete
+44be98c0fab6: Pull complete
+Digest: sha256:9522864dd661dcadfd9958f9e0de192a1fdda2c162a35668ab6ac42b465f0603
+Status: Downloaded newer image for nginx:latest
+docker.io/library/nginx:latest
+root@ip-172-31-18-60:~# docker images
+REPOSITORY   TAG       IMAGE ID       CREATED      SIZE
+nginx        latest    f652ca386ed1   7 days ago   141MB
+root@ip-172-31-18-60:~# docker run -it -d --name mycontainer -p 80:80 f652ca386e                                                                                                             d1
+ddf620a410e27266d0a9ec18efb0b77928cad81a7cabb3f37b2abc1a040646e9
+root@ip-172-31-18-60:~# docker ps
+CONTAINER ID   IMAGE          COMMAND                  CREATED          STATUS                                                                                                                       PORTS                               NAMES
+ddf620a410e2   f652ca386ed1   "/docker-entrypoint.…"   20 seconds ago   Up 19 se                                                                                                             conds   0.0.0.0:80->80/tcp, :::80->80/tcp   mycontainer
+root@ip-172-31-18-60:~# docker run -it -d --name mycontainer1 -p 81:80 f652ca386ed1
+2029afabe50c67ba60f1e9b19f7a574537aa00ce2a87a8bcc89c97fd26321892
+root@ip-172-31-18-60:~# docker ps
+CONTAINER ID   IMAGE          COMMAND                  CREATED         STATUS         PORTS                               NAMES
+2029afabe50c   f652ca386ed1   "/docker-entrypoint.…"   4 seconds ago   Up 3 seconds   0.0.0.0:81->80/tcp, :::81->80/tcp   mycontainer1
+ddf620a410e2   f652ca386ed1   "/docker-entrypoint.…"   2 minutes ago   Up 2 minutes   0.0.0.0:80->80/tcp, :::80->80/tcp   mycontainer
+root@ip-172-31-18-60:~# docker exec it 2029afabe50c
+Error: No such container: it
+root@ip-172-31-18-60:~# docker exec -it 2029afabe50c bash
+root@2029afabe50c:/# ls
+bin  boot  dev  docker-entrypoint.d  docker-entrypoint.sh  etc  home  lib  lib64  media  mnt  opt  proc  root  run  sbin  srv  sys  tmp  usr  var
+root@2029afabe50c:/# exit
+exit
+root@ip-172-31-18-60:~# docker inspect 2029afabe50c
+[
+    {
+        "Id": "2029afabe50c67ba60f1e9b19f7a574537aa00ce2a87a8bcc89c97fd26321892",
+        "Created": "2021-12-09T10:51:17.573409024Z",
+        "Path": "/docker-entrypoint.sh",
+        "Args": [
+            "nginx",
+            "-g",
+            "daemon off;"
+        ],
+        "State": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 3953,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2021-12-09T10:51:17.982296009Z",
+            "FinishedAt": "0001-01-01T00:00:00Z"
+        },
+        "Image": "sha256:f652ca386ed135a4cbe356333e08ef0816f81b2ac8d0619af01e2b256837ed3e",
+        "ResolvConfPath": "/var/lib/docker/containers/2029afabe50c67ba60f1e9b19f7a574537aa00ce2a87a8bcc89c97fd26321892/resolv.conf",
+        "HostnamePath": "/var/lib/docker/containers/2029afabe50c67ba60f1e9b19f7a574537aa00ce2a87a8bcc89c97fd26321892/hostname",
+        "HostsPath": "/var/lib/docker/containers/2029afabe50c67ba60f1e9b19f7a574537aa00ce2a87a8bcc89c97fd26321892/hosts",
+        "LogPath": "/var/lib/docker/containers/2029afabe50c67ba60f1e9b19f7a574537aa00ce2a87a8bcc89c97fd26321892/2029afabe50c67ba60f1e9b19f7a574537aa00ce2a87a8bcc89c97fd26321892-json.log",
+        "Name": "/mycontainer1",
+        "RestartCount": 0,
+        "Driver": "overlay2",
+        "Platform": "linux",
+        "MountLabel": "",
+        "ProcessLabel": "",
+        "AppArmorProfile": "docker-default",
+        "ExecIDs": null,
+        "HostConfig": {
+            "Binds": null,
+            "ContainerIDFile": "",
+            "LogConfig": {
+                "Type": "json-file",
+                "Config": {}
+            },
+            "NetworkMode": "default",
+            "PortBindings": {
+                "80/tcp": [
+                    {
+                        "HostIp": "",
+                        "HostPort": "81"
+                    }
+                ]
+            },
+            "RestartPolicy": {
+                "Name": "no",
+                "MaximumRetryCount": 0
+            },
+            "AutoRemove": false,
+            "VolumeDriver": "",
+            "VolumesFrom": null,
+            "CapAdd": null,
+            "CapDrop": null,
+            "CgroupnsMode": "host",
+            "Dns": [],
+            "DnsOptions": [],
+            "DnsSearch": [],
+            "ExtraHosts": null,
+            "GroupAdd": null,
+            "IpcMode": "private",
+            "Cgroup": "",
+            "Links": null,
+            "OomScoreAdj": 0,
+            "PidMode": "",
+            "Privileged": false,
+            "PublishAllPorts": false,
+            "ReadonlyRootfs": false,
+            "SecurityOpt": null,
+            "UTSMode": "",
+            "UsernsMode": "",
+            "ShmSize": 67108864,
+            "Runtime": "runc",
+            "ConsoleSize": [
+                0,
+                0
+            ],
+            "Isolation": "",
+            "CpuShares": 0,
+            "Memory": 0,
+            "NanoCpus": 0,
+            "CgroupParent": "",
+            "BlkioWeight": 0,
+            "BlkioWeightDevice": [],
+            "BlkioDeviceReadBps": null,
+            "BlkioDeviceWriteBps": null,
+            "BlkioDeviceReadIOps": null,
+            "BlkioDeviceWriteIOps": null,
+            "CpuPeriod": 0,
+            "CpuQuota": 0,
+            "CpuRealtimePeriod": 0,
+            "CpuRealtimeRuntime": 0,
+            "CpusetCpus": "",
+            "CpusetMems": "",
+            "Devices": [],
+            "DeviceCgroupRules": null,
+            "DeviceRequests": null,
+            "KernelMemory": 0,
+            "KernelMemoryTCP": 0,
+            "MemoryReservation": 0,
+            "MemorySwap": 0,
+            "MemorySwappiness": null,
+            "OomKillDisable": false,
+            "PidsLimit": null,
+            "Ulimits": null,
+            "CpuCount": 0,
+            "CpuPercent": 0,
+            "IOMaximumIOps": 0,
+            "IOMaximumBandwidth": 0,
+            "MaskedPaths": [
+                "/proc/asound",
+                "/proc/acpi",
+                "/proc/kcore",
+                "/proc/keys",
+                "/proc/latency_stats",
+                "/proc/timer_list",
+                "/proc/timer_stats",
+                "/proc/sched_debug",
+                "/proc/scsi",
+                "/sys/firmware"
+            ],
+            "ReadonlyPaths": [
+                "/proc/bus",
+                "/proc/fs",
+                "/proc/irq",
+                "/proc/sys",
+                "/proc/sysrq-trigger"
+            ]
+        },
+        "GraphDriver": {
+            "Data": {
+                "LowerDir": "/var/lib/docker/overlay2/86f9285b9466a62f8e05178dbbef105f116d05ad2ebc8ddcdaa00734b8365a6c-init/diff:/var/lib/docker/overlay2/06250e0d22fc2df7af2e37a082baf1627b8d17d6625f84ea139685dd17275a3b/diff:/var/lib/docker/overlay2/cd20e86787055f6aafc6e0d2bf19ca16fc8a66ebe60f523f76c77b20e9cdbddc/diff:/var/lib/docker/overlay2/48a44bcc29f19718dbe32e38522736fd789c391883034cab30cda3db833f4609/diff:/var/lib/docker/overlay2/451dd7c490743ad549edc3bd04cc46d66771696538e9489fe47ddad0ed6157be/diff:/var/lib/docker/overlay2/c9f4bf5cb343ef7583d095ad14bf5abc07c8ab72597a1e579c40b253b9ee4e2e/diff:/var/lib/docker/overlay2/fd58dbe2469d80cbb4063c5e1843c2abeacfd99149074323b73a630526bbd7d5/diff",
+                "MergedDir": "/var/lib/docker/overlay2/86f9285b9466a62f8e05178dbbef105f116d05ad2ebc8ddcdaa00734b8365a6c/merged",
+                "UpperDir": "/var/lib/docker/overlay2/86f9285b9466a62f8e05178dbbef105f116d05ad2ebc8ddcdaa00734b8365a6c/diff",
+                "WorkDir": "/var/lib/docker/overlay2/86f9285b9466a62f8e05178dbbef105f116d05ad2ebc8ddcdaa00734b8365a6c/work"
+            },
+            "Name": "overlay2"
+        },
+        "Mounts": [],
+        "Config": {
+            "Hostname": "2029afabe50c",
+            "Domainname": "",
+            "User": "",
+            "AttachStdin": false,
+            "AttachStdout": false,
+            "AttachStderr": false,
+            "ExposedPorts": {
+                "80/tcp": {}
+            },
+            "Tty": true,
+            "OpenStdin": true,
+            "StdinOnce": false,
+            "Env": [
+                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                "NGINX_VERSION=1.21.4",
+                "NJS_VERSION=0.7.0",
+                "PKG_RELEASE=1~bullseye"
+            ],
+            "Cmd": [
+                "nginx",
+                "-g",
+                "daemon off;"
+            ],
+            "Image": "f652ca386ed1",
+            "Volumes": null,
+            "WorkingDir": "",
+            "Entrypoint": [
+                "/docker-entrypoint.sh"
+            ],
+            "OnBuild": null,
+            "Labels": {
+                "maintainer": "NGINX Docker Maintainers <docker-maint@nginx.com>"
+            },
+            "StopSignal": "SIGQUIT"
+        },
+        "NetworkSettings": {
+            "Bridge": "",
+            "SandboxID": "7fe2b494dcbf1aeffcfc9b2741d365bc342196e05202616130d806b2c162f548",
+            "HairpinMode": false,
+            "LinkLocalIPv6Address": "",
+            "LinkLocalIPv6PrefixLen": 0,
+            "Ports": {
+                "80/tcp": [
+                    {
+                        "HostIp": "0.0.0.0",
+                        "HostPort": "81"
+                    },
+                    {
+                        "HostIp": "::",
+                        "HostPort": "81"
+                    }
+                ]
+            },
+            "SandboxKey": "/var/run/docker/netns/7fe2b494dcbf",
+            "SecondaryIPAddresses": null,
+            "SecondaryIPv6Addresses": null,
+            "EndpointID": "55a136f8f4009ed1eefd12dc1682a88774e92367cdfcfcdfde305ffdd0fefa9e",
+            "Gateway": "172.17.0.1",
+            "GlobalIPv6Address": "",
+            "GlobalIPv6PrefixLen": 0,
+            "IPAddress": "172.17.0.3",
+            "IPPrefixLen": 16,
+            "IPv6Gateway": "",
+            "MacAddress": "02:42:ac:11:00:03",
+            "Networks": {
+                "bridge": {
+                    "IPAMConfig": null,
+                    "Links": null,
+                    "Aliases": null,
+                    "NetworkID": "0aebd01f4baadb3315c3ae9284801e187ca7942c7ba6f961c291d4153067a54c",
+                    "EndpointID": "55a136f8f4009ed1eefd12dc1682a88774e92367cdfcfcdfde305ffdd0fefa9e",
+                    "Gateway": "172.17.0.1",
+                    "IPAddress": "172.17.0.3",
+                    "IPPrefixLen": 16,
+                    "IPv6Gateway": "",
+                    "GlobalIPv6Address": "",
+                    "GlobalIPv6PrefixLen": 0,
+                    "MacAddress": "02:42:ac:11:00:03",
+                    "DriverOpts": null
+                }
+            }
+        }
+    }
+]
+root@ip-172-31-18-60:~# docker pull maven
+Using default tag: latest
+latest: Pulling from library/maven
+28587b6e6475: Pull complete
+b1655352c888: Pull complete
+1f9646f00e96: Pull complete
+5fbbe72f07bf: Pull complete
+c650f8fba229: Pull complete
+df43a896e3bf: Pull complete
+0e00685a0ec7: Pull complete
+Digest: sha256:0e09a20f8bd3bd9f1c96ba531c3d410e3501fa319b3799479710adfbf6a495ae
+Status: Downloaded newer image for maven:latest
+docker.io/library/maven:latest
+root@ip-172-31-18-60:~# docker run -it
+"docker run" requires at least 1 argument.
+See 'docker run --help'.
+
+Usage:  docker run [OPTIONS] IMAGE [COMMAND] [ARG...]
+
+Run a command in a new container
+root@ip-172-31-18-60:~# docker images
+REPOSITORY   TAG       IMAGE ID       CREATED       SIZE
+nginx        latest    f652ca386ed1   7 days ago    141MB
+maven        latest    1bfb542d4598   2 weeks ago   786MB
+root@ip-172-31-18-60:~# docker rum -it --name maven_sai 1bfb542d4598 bash
+unknown shorthand flag: 'i' in -it
+See 'docker --help'.
+
+Usage:  docker [OPTIONS] COMMAND
+
+A self-sufficient runtime for containers
+
+Options:
+      --config string      Location of client config files (default "/root/.docker")
+  -c, --context string     Name of the context to use to connect to the daemon (overrides DOCKER_HOST env var and default context set with "docker context use")
+  -D, --debug              Enable debug mode
+  -H, --host list          Daemon socket(s) to connect to
+  -l, --log-level string   Set the logging level ("debug"|"info"|"warn"|"error"|"fatal") (default "info")
+      --tls                Use TLS; implied by --tlsverify
+      --tlscacert string   Trust certs signed only by this CA (default "/root/.docker/ca.pem")
+      --tlscert string     Path to TLS certificate file (default "/root/.docker/cert.pem")
+      --tlskey string      Path to TLS key file (default "/root/.docker/key.pem")
+      --tlsverify          Use TLS and verify the remote
+  -v, --version            Print version information and quit
+
+Management Commands:
+  builder     Manage builds
+  config      Manage Docker configs
+  container   Manage containers
+  context     Manage contexts
+  image       Manage images
+  manifest    Manage Docker image manifests and manifest lists
+  network     Manage networks
+  node        Manage Swarm nodes
+  plugin      Manage plugins
+  secret      Manage Docker secrets
+  service     Manage services
+  stack       Manage Docker stacks
+  swarm       Manage Swarm
+  system      Manage Docker
+  trust       Manage trust on Docker images
+  volume      Manage volumes
+
+Commands:
+  attach      Attach local standard input, output, and error streams to a running container
+  build       Build an image from a Dockerfile
+  commit      Create a new image from a container's changes
+  cp          Copy files/folders between a container and the local filesystem
+  create      Create a new container
+  diff        Inspect changes to files or directories on a container's filesystem
+  events      Get real time events from the server
+  exec        Run a command in a running container
+  export      Export a container's filesystem as a tar archive
+  history     Show the history of an image
+  images      List images
+  import      Import the contents from a tarball to create a filesystem image
+  info        Display system-wide information
+  inspect     Return low-level information on Docker objects
+  kill        Kill one or more running containers
+  load        Load an image from a tar archive or STDIN
+  login       Log in to a Docker registry
+  logout      Log out from a Docker registry
+  logs        Fetch the logs of a container
+  pause       Pause all processes within one or more containers
+  port        List port mappings or a specific mapping for the container
+  ps          List containers
+  pull        Pull an image or a repository from a registry
+  push        Push an image or a repository to a registry
+  rename      Rename a container
+  restart     Restart one or more containers
+  rm          Remove one or more containers
+  rmi         Remove one or more images
+  run         Run a command in a new container
+  save        Save one or more images to a tar archive (streamed to STDOUT by default)
+  search      Search the Docker Hub for images
+  start       Start one or more stopped containers
+  stats       Display a live stream of container(s) resource usage statistics
+  stop        Stop one or more running containers
+  tag         Create a tag TARGET_IMAGE that refers to SOURCE_IMAGE
+  top         Display the running processes of a container
+  unpause     Unpause all processes within one or more containers
+  update      Update configuration of one or more containers
+  version     Show the Docker version information
+  wait        Block until one or more containers stop, then print their exit codes
+
+Run 'docker COMMAND --help' for more information on a command.
+
+To get more help with docker, check out our guides at https://docs.docker.com/go/guides/
+
+root@ip-172-31-18-60:~# docker run -it --name maven_sai 1bfb542d4598 bash
+bash-4.4# ls
+bin  boot  dev  etc  home  lib  lib64  media  mnt  opt  proc  root  run  sbin  srv  sys  tmp  usr  var
+bash-4.4# java -version
+openjdk version "17.0.1" 2021-10-19
+OpenJDK Runtime Environment (build 17.0.1+12-39)
+OpenJDK 64-Bit Server VM (build 17.0.1+12-39, mixed mode, sharing)
+bash-4.4# maven -version
+bash: maven: command not found
+bash-4.4# mvn -v
+Apache Maven 3.8.4 (9b656c72d54e5bacbed989b64718c159fe39b537)
+Maven home: /usr/share/maven
+Java version: 17.0.1, vendor: Oracle Corporation, runtime: /usr/java/openjdk-17
+Default locale: en, platform encoding: UTF-8
+OS name: "linux", version: "5.11.0-1020-aws", arch: "amd64", family: "unix"
+bash-4.4# exit
+exit
+root@ip-172-31-18-60:~# docker pull sonarqube
+Using default tag: latest
+latest: Pulling from library/sonarqube
+97518928ae5f: Pull complete
+221c02f5a6dd: Pull complete
+91b8153c2dc8: Pull complete
+Digest: sha256:86233a1f65917c2875261bb49bae594943b0315e63bd2e2573a3b3fc944e041b
+Status: Downloaded newer image for sonarqube:latest
+docker.io/library/sonarqube:latest
+root@ip-172-31-18-60:~# docker images
+REPOSITORY   TAG       IMAGE ID       CREATED       SIZE
+nginx        latest    f652ca386ed1   7 days ago    141MB
+sonarqube    latest    cb35e2de836c   9 days ago    549MB
+maven        latest    1bfb542d4598   2 weeks ago   786MB
+root@ip-172-31-18-60:~# docker run -it -d --name mysonar cb35e2de836c
+4b8b3de66c46d12496eeb1bb55996fdf9753213fc7c11b8c98be030e17877109
+root@ip-172-31-18-60:~# docker run -it -d --name mysonarqube -p 9000:9000 cb35e2de836c
+a3ff3f75583bcca0af0249cf291a86ae960957d6a22306d5e8be830971ed7c14
+root@ip-172-31-18-60:~# docker ps
+CONTAINER ID   IMAGE          COMMAND                  CREATED          STATUS          PORTS                                       NAMES
+a3ff3f75583b   cb35e2de836c   "/opt/sonarqube/bin/…"   13 seconds ago   Up 9 seconds    0.0.0.0:9000->9000/tcp, :::9000->9000/tcp   mysonarqube
+4b8b3de66c46   cb35e2de836c   "/opt/sonarqube/bin/…"   52 seconds ago   Up 51 seconds   9000/tcp                                    mysonar
+2029afabe50c   f652ca386ed1   "/docker-entrypoint.…"   11 minutes ago   Up 11 minutes   0.0.0.0:81->80/tcp, :::81->80/tcp           mycontainer1
+ddf620a410e2   f652ca386ed1   "/docker-entrypoint.…"   13 minutes ago   Up 13 minutes   0.0.0.0:80->80/tcp, :::80->80/tcp           mycontainer
+root@ip-172-31-18-60:~#

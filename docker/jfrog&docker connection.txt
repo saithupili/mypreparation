@@ -1,0 +1,368 @@
+login as: ubuntu
+Authenticating with public key "imported-openssh-key"
+Welcome to Ubuntu 20.04.3 LTS (GNU/Linux 5.11.0-1020-aws x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+  System information as of Mon Dec 13 02:45:59 UTC 2021
+
+  System load:  0.36              Processes:                138
+  Usage of /:   4.8% of 96.88GB   Users logged in:          0
+  Memory usage: 1%                IPv4 address for docker0: 172.17.0.1
+  Swap usage:   0%                IPv4 address for eth0:    172.31.18.60
+
+
+42 updates can be applied immediately.
+26 of these updates are standard security updates.
+To see these additional updates run: apt list --upgradable
+
+
+Last login: Fri Dec 10 02:32:32 2021 from 49.204.200.64
+ubuntu@ip-172-31-18-60:~$ sudo -i
+root@ip-172-31-18-60:~# cd /opt
+root@ip-172-31-18-60:/opt# ls
+containerd
+root@ip-172-31-18-60:/opt# cd ..
+root@ip-172-31-18-60:/# ls
+bin   dev  home  lib32  libx32      media  opt   root  sbin  srv  tmp  var
+boot  etc  lib   lib64  lost+found  mnt    proc  run   snap  sys  usr
+root@ip-172-31-18-60:/# cd /
+root@ip-172-31-18-60:/# ls
+bin   dev  home  lib32  libx32      media  opt   root  sbin  srv  tmp  var
+boot  etc  lib   lib64  lost+found  mnt    proc  run   snap  sys  usr
+root@ip-172-31-18-60:/# cd
+root@ip-172-31-18-60:~# ls
+Dockerfile  sai  snap  surya
+root@ip-172-31-18-60:~# docker pull jfrogqa/alpine
+Using default tag: latest
+latest: Pulling from jfrogqa/alpine
+188c0c94c7c5: Pull complete
+Digest: sha256:14ae7d57fbcab0920f535f19bb0f5d04e32d7c16e996488a2852ca8102322435
+Status: Downloaded newer image for jfrogqa/alpine:latest
+docker.io/jfrogqa/alpine:latest
+root@ip-172-31-18-60:~# docker images
+REPOSITORY       TAG           IMAGE ID       CREATED         SIZE
+mycustomimage    latest        28583a3ee38d   3 days ago      567MB
+maven            3.8.4-jdk-8   b7e000b325f4   9 days ago      537MB
+nginx            latest        f652ca386ed1   10 days ago     141MB
+sonarqube        latest        cb35e2de836c   13 days ago     549MB
+maven            latest        1bfb542d4598   2 weeks ago     786MB
+jfrogqa/alpine   latest        9785808968ba   13 months ago   5.57MB
+root@ip-172-31-18-60:~# docker run -it -d --name jfrog 9785808968ba
+ee2c3c430c1a58eb6f90dc1f50e948c03e5659902db517020a3c7108e4ec5985
+root@ip-172-31-18-60:~# docker ps
+CONTAINER ID   IMAGE          COMMAND     CREATED          STATUS          PORTS                                                                                                                  NAMES
+ee2c3c430c1a   9785808968ba   "/bin/sh"   11 seconds ago   Up 11 seconds                                                                                                                          jfrog
+root@ip-172-31-18-60:~# docker run -it -d --name myapp -p 8085:8080
+"docker run" requires at least 1 argument.
+See 'docker run --help'.
+
+Usage:  docker run [OPTIONS] IMAGE [COMMAND] [ARG...]
+
+Run a command in a new container
+root@ip-172-31-18-60:~# docker run -it -d --name jfrognew -p 8081:8081 978580896                                                                                                             8ba
+9d8712f66c01ae3f6de1001a96a3c014e3dde12783d19c1b2bcfbfb9baab2b84
+root@ip-172-31-18-60:~# docker ps
+CONTAINER ID   IMAGE          COMMAND     CREATED         STATUS         PORTS                                                                                                                                                    NAMES
+9d8712f66c01   9785808968ba   "/bin/sh"   7 seconds ago   Up 6 seconds   0.0.0.0                                                                                                             :8081->8081/tcp, :::8081->8081/tcp   jfrognew
+ee2c3c430c1a   9785808968ba   "/bin/sh"   3 minutes ago   Up 3 minutes                                                                                                                                                            jfrog
+root@ip-172-31-18-60:~# sudo vi /etc/systemd/system/artifactory.service
+root@ip-172-31-18-60:~# sudo systemctl daemon-reload
+root@ip-172-31-18-60:~# sudo systemctl start artifactory
+root@ip-172-31-18-60:~# sudo systemctl enable artifactory
+Created symlink /etc/systemd/system/multi-user.target.wants/artifactory.service                                                                                                              → /etc/systemd/system/artifactory.service.
+root@ip-172-31-18-60:~# sudo systemctl status artifactory
+● artifactory.service - Setup Systemd script for Artifactory Container
+     Loaded: loaded (/etc/systemd/system/artifactory.service; enabled; vendor p>
+     Active: failed (Result: exit-code) since Mon 2021-12-13 03:05:49 UTC; 18s >
+    Process: 2930 ExecStartPre=/usr/bin/docker kill artifactory (code=exited, s>
+    Process: 2942 ExecStartPre=/usr/bin/docker rm artifactory (code=exited, sta>
+    Process: 2953 ExecStart=/usr/bin/docker run --name artifactory -p 8081:8081>
+   Main PID: 2953 (code=exited, status=125)
+
+Dec 13 03:05:48 ip-172-31-18-60 systemd[1]: artifactory.service: Main process e>
+Dec 13 03:05:48 ip-172-31-18-60 systemd[1]: artifactory.service: Failed with re>
+Dec 13 03:05:49 ip-172-31-18-60 systemd[1]: artifactory.service: Scheduled rest>
+Dec 13 03:05:49 ip-172-31-18-60 systemd[1]: Stopped Setup Systemd script for Ar>
+Dec 13 03:05:49 ip-172-31-18-60 systemd[1]: artifactory.service: Start request >
+Dec 13 03:05:49 ip-172-31-18-60 systemd[1]: artifactory.service: Failed with re>
+Dec 13 03:05:49 ip-172-31-18-60 systemd[1]: Failed to start Setup Systemd scrip>
+
+root@ip-172-31-18-60:~# rm -f jfrog
+root@ip-172-31-18-60:~# rm -f jfrognew
+root@ip-172-31-18-60:~# docker ps
+CONTAINER ID   IMAGE          COMMAND     CREATED          STATUS          PORTS                                                                                                                                                    NAMES
+9d8712f66c01   9785808968ba   "/bin/sh"   6 minutes ago    Up 6 minutes    0.0.0                                                                                                             .0:8081->8081/tcp, :::8081->8081/tcp   jfrognew
+ee2c3c430c1a   9785808968ba   "/bin/sh"   10 minutes ago   Up 10 minutes                                                                                                                                                            jfrog
+root@ip-172-31-18-60:~# rm -f 9d8712f66c01
+root@ip-172-31-18-60:~# docker ps
+CONTAINER ID   IMAGE          COMMAND     CREATED          STATUS          PORTS                                                                                                                                                    NAMES
+9d8712f66c01   9785808968ba   "/bin/sh"   7 minutes ago    Up 7 minutes    0.0.0                                                                                                             .0:8081->8081/tcp, :::8081->8081/tcp   jfrognew
+ee2c3c430c1a   9785808968ba   "/bin/sh"   11 minutes ago   Up 11 minutes                                                                                                                                                            jfrog
+root@ip-172-31-18-60:~# rm -f ee2c3c430c1a
+root@ip-172-31-18-60:~# ls
+Dockerfile  sai  snap  surya
+root@ip-172-31-18-60:~# docker ps
+CONTAINER ID   IMAGE          COMMAND     CREATED          STATUS          PORTS                                                                                                                                                    NAMES
+9d8712f66c01   9785808968ba   "/bin/sh"   7 minutes ago    Up 7 minutes    0.0.0                                                                                                             .0:8081->8081/tcp, :::8081->8081/tcp   jfrognew
+ee2c3c430c1a   9785808968ba   "/bin/sh"   11 minutes ago   Up 11 minutes                                                                                                                                                            jfrog
+root@ip-172-31-18-60:~# .docker rm -f ee2c3c430c1a
+
+Command '.docker' not found, did you mean:
+
+  command 'docker' from deb docker.io (20.10.7-0ubuntu5~20.04.2)
+  command 'kdocker' from deb kdocker (5.0-1.1)
+
+Try: apt install <deb name>
+
+root@ip-172-31-18-60:~# docker rm -f ee2c3c430c1a
+ee2c3c430c1a
+root@ip-172-31-18-60:~# docker ps
+CONTAINER ID   IMAGE          COMMAND     CREATED         STATUS         PORTS                                                                                                                                                    NAMES
+9d8712f66c01   9785808968ba   "/bin/sh"   8 minutes ago   Up 8 minutes   0.0.0.0                                                                                                             :8081->8081/tcp, :::8081->8081/tcp   jfrognew
+root@ip-172-31-18-60:~# docker rm -f 9d8712f66c01
+9d8712f66c01
+root@ip-172-31-18-60:~# docker ps
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+root@ip-172-31-18-60:~# sudo mkdir -p /jfrog/artifactory
+root@ip-172-31-18-60:~# sudo chown -R 1030 /jfrog/
+root@ip-172-31-18-60:~# sudo docker run --name artifactory -d -p 8081:8081 -p 80                                                                                                             82:8082 \
+> -v /jfrog/artifactory:/var/opt/jfrog/artifactory \
+> ^C
+root@ip-172-31-18-60:~# sudo docker run --name artifactory -d -p 8081:8081 -p 80                                                                                                             82:8082 -v /jfrog/artifactory:/var/opt/jfrog/artifactory \ docker.bintary.io/jfr                                                                                                             og/artifactory-oss:latest
+docker: invalid reference format.
+See 'docker run --help'.
+root@ip-172-31-18-60:~# docker images
+REPOSITORY                                TAG           IMAGE ID       CREATED                                                                                                                      SIZE
+mycustomimage                             latest        28583a3ee38d   3 days ag                                                                                                             o      567MB
+maven                                     3.8.4-jdk-8   b7e000b325f4   9 days ag                                                                                                             o      537MB
+nginx                                     latest        f652ca386ed1   10 days a                                                                                                             go     141MB
+sonarqube                                 latest        cb35e2de836c   13 days a                                                                                                             go     549MB
+maven                                     latest        1bfb542d4598   2 weeks a                                                                                                             go     786MB
+docker.bintray.io/jfrog/artifactory-oss   latest        8834a63ca676   5 weeks a                                                                                                             go     988MB
+jfrogqa/alpine                            latest        9785808968ba   13 months                                                                                                              ago   5.57MB
+root@ip-172-31-18-60:~# sudo docker pull docker.bintray.io/jfrog/artifactory-oss                                                                                                             :latest
+latest: Pulling from jfrog/artifactory-oss
+Digest: sha256:9f98e5728befb09d4bc322f97eb0e19bfd89d2f42406cc620da7026953eef2e4
+Status: Image is up to date for docker.bintray.io/jfrog/artifactory-oss:latest
+docker.bintray.io/jfrog/artifactory-oss:latest
+root@ip-172-31-18-60:~# docker images
+REPOSITORY                                TAG           IMAGE ID       CREATED                                                                                                                      SIZE
+mycustomimage                             latest        28583a3ee38d   3 days ag                                                                                                             o      567MB
+maven                                     3.8.4-jdk-8   b7e000b325f4   9 days ag                                                                                                             o      537MB
+nginx                                     latest        f652ca386ed1   10 days a                                                                                                             go     141MB
+sonarqube                                 latest        cb35e2de836c   13 days a                                                                                                             go     549MB
+maven                                     latest        1bfb542d4598   2 weeks a                                                                                                             go     786MB
+docker.bintray.io/jfrog/artifactory-oss   latest        8834a63ca676   5 weeks a                                                                                                             go     988MB
+jfrogqa/alpine                            latest        9785808968ba   13 months                                                                                                              ago   5.57MB
+root@ip-172-31-18-60:~# sudo mkdir -p /jfrog/artifactory
+root@ip-172-31-18-60:~# sudo chown -R 1030 /jfrog/
+root@ip-172-31-18-60:~# sudo docker run --name artifactory -d -p 8081:8081 -p 80                                                                                                             82:8082 \
+> -v /jfrog/artifactory:/var/opt/jfrog/artifactory \
+> docker.bintray.io/jfrog/artifactory-oss:latest
+docker: Error response from daemon: Conflict. The container name "/artifactory"                                                                                                              is already in use by container "27226ba407b15d5474b617ef9d35845f080b4746f06685eb                                                                                                             674c607d532dcddd". You have to remove (or rename) that container to be able to r                                                                                                             euse that name.
+See 'docker run --help'.
+root@ip-172-31-18-60:~# sudo docker run --name artifactory -d -p 8081:8081 -p 8082:8082 -v /jfrog/artifactory:/var/opt/jfrog/artifactory docker.bintray.io/jfrog/artifactory-oss:latest 82:8082 -v /jfrog/artifactory:/var/opt/jfrog/artifactory docker.bintray.io/jfrog
+docker: Error response from daemon: Conflict. The container name "/artifactory" is already in use by container "27226ba407b15d5474b617ef9d35845f080b4746f06685eb674c607d532dcddd". You have to remove (or rename) that container to be able to reuse that name.
+See 'docker run --help'.
+root@ip-172-31-18-60:~# sudo docker run --name jfrogartifactory -d -p 8081:8081 -p 8082:8082 -v /jfrog/artifactory:/var/opt/jfrog/artifactory docker.bintray.io/jfrog/artifactory-oss:latest 82:8082 -v /jfrog/artifactory:/var/opt/jfrog/artifactory docker.bintray.io/jfrog
+2ed5dd467f6b59e8bbc913108d7bda315e063062bf63a0e7da48a6fe6252c4b9
+root@ip-172-31-18-60:~# sudo vi /etc/systemd/system/artifactory.service
+root@ip-172-31-18-60:~# sudo systemctl daemon-reload
+root@ip-172-31-18-60:~# sudo systemctl start jfrogartifactory
+Failed to start jfrogartifactory.service: Unit jfrogartifactory.service not foun                                                                                                             d.
+root@ip-172-31-18-60:~# sudo systemctl start artifactory
+root@ip-172-31-18-60:~# sudo systemctl enable artifactory
+root@ip-172-31-18-60:~# sudo systemctl status artifactory
+● artifactory.service - Setup Systemd script for Artifactory Container
+     Loaded: loaded (/etc/systemd/system/artifactory.service; enabled; vendor p>
+     Active: failed (Result: exit-code) since Mon 2021-12-13 03:22:16 UTC; 25s >
+   Main PID: 13426 (code=exited, status=125)
+
+Dec 13 03:22:16 ip-172-31-18-60 systemd[1]: artifactory.service: Scheduled rest>
+Dec 13 03:22:16 ip-172-31-18-60 systemd[1]: Stopped Setup Systemd script for Ar>
+Dec 13 03:22:16 ip-172-31-18-60 systemd[1]: artifactory.service: Start request >
+Dec 13 03:22:16 ip-172-31-18-60 systemd[1]: artifactory.service: Failed with re>
+Dec 13 03:22:16 ip-172-31-18-60 systemd[1]: Failed to start Setup Systemd scrip>
+lines 1-10/10 (END)...skipping...
+● artifactory.service - Setup Systemd script for Artifactory Container
+     Loaded: loaded (/etc/systemd/system/artifactory.service; enabled; vendor preset: enabled)
+     Active: failed (Result: exit-code) since Mon 2021-12-13 03:22:16 UTC; 25s ago
+   Main PID: 13426 (code=exited, status=125)
+
+Dec 13 03:22:16 ip-172-31-18-60 systemd[1]: artifactory.service: Scheduled restart job, restart counter is at 5.
+Dec 13 03:22:16 ip-172-31-18-60 systemd[1]: Stopped Setup Systemd script for Artifactory Container.
+Dec 13 03:22:16 ip-172-31-18-60 systemd[1]: artifactory.service: Start request repeated too quickly.
+Dec 13 03:22:16 ip-172-31-18-60 systemd[1]: artifactory.service: Failed with result 'exit-code'.
+Dec 13 03:22:16 ip-172-31-18-60 systemd[1]: Failed to start Setup Systemd script for Artifactory Container.
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+
+root@ip-172-31-18-60:~# sudo vi /etc/systemd/system/artifactory.service
+root@ip-172-31-18-60:~# sudo systemctl daemon-reload
+root@ip-172-31-18-60:~# sudo systemctl start jfrogartifactory
+Failed to start jfrogartifactory.service: Unit jfrogartifactory.service not found.
+root@ip-172-31-18-60:~# sudo systemctl start artifactory
+root@ip-172-31-18-60:~# sudo systemctl enable artifactory
+root@ip-172-31-18-60:~# sudo systemctl status artifactory
+● artifactory.service - Setup Systemd script for Artifactory Container
+     Loaded: loaded (/etc/systemd/system/artifactory.service; enabled; vendor preset: enabled)
+     Active: failed (Result: exit-code) since Mon 2021-12-13 03:24:20 UTC; 12s ago
+   Main PID: 21935 (code=exited, status=125)
+
+Dec 13 03:24:20 ip-172-31-18-60 systemd[1]: artifactory.service: Scheduled restart job, restart counter is at 5.
+Dec 13 03:24:20 ip-172-31-18-60 systemd[1]: Stopped Setup Systemd script for Artifactory Container.
+Dec 13 03:24:20 ip-172-31-18-60 systemd[1]: artifactory.service: Start request repeated too quickly.
+Dec 13 03:24:20 ip-172-31-18-60 systemd[1]: artifactory.service: Failed with result 'exit-code'.
+Dec 13 03:24:20 ip-172-31-18-60 systemd[1]: Failed to start Setup Systemd script for Artifactory Container.
+root@ip-172-31-18-60:~# ^C
+root@ip-172-31-18-60:~# cd /var/opt/
+root@ip-172-31-18-60:/var/opt# ls
+root@ip-172-31-18-60:/var/opt# cd
+root@ip-172-31-18-60:~# ls
+Dockerfile  sai  snap  surya
+root@ip-172-31-18-60:~# history
+    1  apt update -y
+    2  apt install docker.io -y
+    3  docker --version
+    4  docker pull nginx
+    5  docker images
+    6  docker run -it -d --name mycontainer -p 80:80 f652ca386ed1
+    7  docker ps
+    8  docker run -it -d --name mycontainer1 -p 81:80 f652ca386ed1
+    9  docker ps
+   10  docker exec it 2029afabe50c
+   11  docker exec -it 2029afabe50c bash
+   12  docker inspect 2029afabe50c
+   13  docker pull maven
+   14  docker run -it
+   15  docker images
+   16  docker rum -it --name maven_sai 1bfb542d4598 bash
+   17  docker run -it --name maven_sai 1bfb542d4598 bash
+   18  docker pull sonarqube
+   19  docker images
+   20  docker run -it -d --name mysonar cb35e2de836c
+   21  docker run -it -d --name mysonarqube -p 9000:9000 cb35e2de836c
+   22  docker ps
+   23  history
+   24  clear
+   25  docker --version
+   26  apt update -y
+   27  docker --version
+   28  clear
+   29  docker --version
+   30  docker images
+   31  clear
+   32  history
+   33  vi Dockerfile
+   34  touch surya sai
+   35  docker build -t mycustomimage .
+   36  docker images
+   37  vi Dockerfile
+   38  docker run -it -d --name myapp -p 8085:8080 28583a3ee38d
+   39*
+   40  vi Dockerfile
+   41  history
+   42  vi Dockerfile
+   43  exit
+   44  cd /opt
+   45  ls
+   46  cd ..
+   47  ls
+   48  cd /
+   49  ls
+   50  cd
+   51  ls
+   52  docker pull jfrogqa/alpine
+   53  docker images
+   54  docker run -it -d --name jfrog 9785808968ba
+   55  docker ps
+   56  docker run -it -d --name myapp -p 8085:8080
+   57  docker run -it -d --name jfrognew -p 8081:8081 9785808968ba
+   58  docker ps
+   59  sudo vi /etc/systemd/system/artifactory.service
+   60  sudo systemctl daemon-reload
+   61  sudo systemctl start artifactory
+   62  sudo systemctl enable artifactory
+   63  sudo systemctl status artifactory
+   64  rm -f jfrog
+   65  rm -f jfrognew
+   66  docker ps
+   67  rm -f 9d8712f66c01
+   68  docker ps
+   69  rm -f ee2c3c430c1a
+   70  ls
+   71  docker ps
+   72  .docker rm -f ee2c3c430c1a
+   73  docker rm -f ee2c3c430c1a
+   74  docker ps
+   75  docker rm -f 9d8712f66c01
+   76  docker ps
+   77*
+   78  sudo chown -R 1030 /jfrog/
+   79  sudo docker run --name artifactory -d -p 8081:8081 -p 8082:8082 -v /jfrog/artifactory:/var/opt/jfrog/artifactory \
+   80  sudo docker run --name artifactory -d -p 8081:8081 -p 8082:8082 -v /jfrog/artifactory:/var/opt/jfrog/artifactory \ docker.bintary.io/jfrog/artifactory-oss:latest
+   81  docker images
+   82  sudo docker pull docker.bintray.io/jfrog/artifactory-oss:latest
+   83  docker images
+   84  sudo mkdir -p /jfrog/artifactory
+   85  sudo chown -R 1030 /jfrog/
+   86  sudo docker run --name artifactory -d -p 8081:8081 -p 8082:8082 -v /jfrog/artifactory:/var/opt/jfrog/artifactory docker.bintray.io/jfrog/artifactory-oss:latest
+   87  sudo docker run --name artifactory -d -p 8081:8081 -p 8082:8082 -v /jfrog/artifactory:/var/opt/jfrog/artifactory docker.bintray.io/jfrog/artifactory-oss:latest 82:8082 -v /jfrog/artifactory:/var/opt/jfrog/artifactory docker.bintray.io/jfrog
+   88  sudo docker run --name jfrogartifactory -d -p 8081:8081 -p 8082:8082 -v /jfrog/artifactory:/var/opt/jfrog/artifactory docker.bintray.io/jfrog/artifactory-oss:latest 82:8082 -v /jfrog/artifactory:/var/opt/jfrog/artifactory docker.bintray.io/jfrog
+   89  sudo vi /etc/systemd/system/artifactory.service
+   90  sudo systemctl daemon-reload
+   91  sudo systemctl start jfrogartifactory
+   92  sudo systemctl start artifactory
+   93  sudo systemctl enable artifactory
+   94  sudo systemctl status artifactory
+   95  sudo vi /etc/systemd/system/artifactory.service
+   96  sudo systemctl daemon-reload
+   97  sudo systemctl start jfrogartifactory
+   98  sudo systemctl start artifactory
+   99  sudo systemctl enable artifactory
+  100  sudo systemctl status artifactory
+  101  cd /var/opt/
+  102  ls
+  103  cd
+  104  ls
+  105  history
